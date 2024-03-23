@@ -1,8 +1,7 @@
 ## Demo
 
 ![Portfolio Desktop Demo](./website-demo-image/page0.png "Desktop Demo")
-![Portfolio Desktop Demo](./website-demo-image/page9.png "Desktop Demo")
-![Portfolio Desktop Demo](./website-demo-image/page8.png "Desktop Demo")
+
 
 
 ## Prerequisites
@@ -25,8 +24,12 @@ sudo git clone hhttps://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
 Windows:
 
 ```bash
-git clone https://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
+sudo git clone https://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
 ```
+## Reference links
+
+https://github.com/serranopuente/serranopuente.github.io
+
 
 ## Contact
 
