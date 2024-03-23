@@ -1,6 +1,9 @@
 ## Demo
 
-![vCard Desktop Demo](./website-demo-image/page0.png/page9.png/page8.png "Desktop Demo")
+![Portfolio Desktop Demo](./website-demo-image/page0.png "Desktop Demo")
+![Portfolio Desktop Demo](./website-demo-image/page9.png "Desktop Demo")
+![Portfolio Desktop Demo](./website-demo-image/page8.png "Desktop Demo")
+
 
 ## Prerequisites
 
@@ -10,18 +13,19 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installing vCard
 
-To install **vCard**, follow these steps:
+To install **Portfolio**, follow these steps:
 
 Linux and macOS:
 
 ```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
+sudo git clone hhttps://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
 ```
+
 
 Windows:
 
 ```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
+git clone https://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
 ```
 
 ## Contact
