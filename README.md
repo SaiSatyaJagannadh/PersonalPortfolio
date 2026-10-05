@@ -1,48 +1,30 @@
-<div align="center">
+# Sai Satya Jagannadh Doddipatla — Portfolio
 
-# 🌐 Personal Portfolio — Sai Satya Jagannadh Doddipatla
+**Live:** https://saisatyajagannadh.github.io/PersonalPortfolio/
 
-### My résumé, projects and contact info as a fast, responsive single-page site.
+Personal site for DJ — Tech Engineer at UBS building LLM apps, RAG systems and AI agents.
 
-[![Live Site](https://img.shields.io/badge/▶_Live_Site-Visit_portfolio-0A66C2?style=for-the-badge&logo=githubpages&logoColor=white)](https://saisatyajagannadh.github.io/PersonalPortfolio/)
+## What's on the site
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![GitHub Pages](https://img.shields.io/badge/Hosted_on-GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white)
+- **AI projects** — MediNotes Pro, Expense Compliance Agent (RAG + MCP), Resume ATS Optimizer (LangGraph), Cerebras healthcare chatbot, FinAI, churn MLOps, LeetViz and more, with live demos and filters
+- **Experience** — UBS, Cerebras Fellowship, Infosys (client: Microsoft)
+- **Skills, certifications, education**
+- **Resume** — `Sai_Jagannadh_Resume.pdf` in this repo, also on [Google Drive](https://drive.google.com/file/d/1MVxJ3ye5SOAkK6B8lw5bs61_Q7KfGbyo/view)
 
-**👉 [saisatyajagannadh.github.io/PersonalPortfolio](https://saisatyajagannadh.github.io/PersonalPortfolio/)**
+## Stack
 
-</div>
+A single self-contained `index.html` (HTML, CSS, vanilla JS) — no build step. Dark/light theme, responsive, reduced-motion aware. Hosted on GitHub Pages.
 
----
+To update projects, edit the `projects` array near the bottom of `index.html`.
 
-## 📸 Preview
-
-![Portfolio desktop view](./website-demo-image/page8.png)
-
-## ✨ Sections
-
-- 👤 **About** — what I do: Gen AI, data engineering, and full-stack builds
-- 📄 **Resume** — education, coursework, experience, technical skills and certifications
-- 🧩 **Portfolio** — project cards with links
-- ✉️ **Contact** — reach me directly
-
-Pure HTML/CSS/JS — no framework, no build step, loads instantly.
-
-## 🚀 Run locally
+## Run locally
 
 ```bash
 git clone https://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
-cd PersonalPortfolio && open index.html
+cd PersonalPortfolio
+python3 -m http.server 8000   # open http://localhost:8000
 ```
 
-Layout inspired by [serranopuente.github.io](https://github.com/serranopuente/serranopuente.github.io). MIT licensed.
+## Contact
 
----
-
-<div align="center">
-
-**Built by [Sai Satya Jagannadh Doddipatla (DJ)](https://saisatyajagannadh.github.io/PersonalPortfolio/)** · ⭐ Star the repo if it helped
-
-</div>
+[LinkedIn](https://www.linkedin.com/in/saijagannadh/) · [GitHub](https://github.com/SaiSatyaJagannadh) · saijagannadh0625@gmail.com

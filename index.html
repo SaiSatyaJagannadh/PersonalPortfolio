@@ -1,1759 +1,873 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Portfolio</title>
-
-  <style>
-    /* Targeting all ion-icon elements within the .social-list and increasing their size */
-    .social-list ion-icon {
-      font-size: 40px; /* Adjust the size as needed */
-    }
-  </style>
-<style>
-  .title {
-    display: inline-block; /* Make paragraphs inline */
-    width: 50%; /* Set width for each paragraph */
-  }
-</style>
-  
-<style>
-  .name {
-      margin: 0; /* Remove any margin */
-      padding: 0; /* Remove any padding */
-  }
-</style>
-
-<style>
-  .underline {
-    text-decoration: underline; /* Apply underline to the text */
-  }
-
-  .yellow-text {
-    color: yellow; /* Apply yellow color to the text */
-  }
-</style>
-
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/Picon.ico" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
+  <title>Sai Satya Jagannadh Doddipatla — AI Engineer</title>
+  <meta name="description" content="Sai Satya Jagannadh Doddipatla (DJ) — Tech Engineer at UBS building LLM apps, RAG systems and AI agents. LangGraph, MCP, Azure, AWS, Databricks.">
+  <meta property="og:title" content="Sai Satya Jagannadh Doddipatla — AI Engineer">
+  <meta property="og:description" content="LLM apps, RAG pipelines and agentic systems shipped to production. Tech Engineer @ UBS · MS CS @ CSUF.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saisatyajagannadh.github.io/PersonalPortfolio/">
+  <meta name="theme-color" content="#0b0d14">
+  <link rel="icon" href="./assets/images/my-avatar.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0d14;
+      --bg-2: #10131c;
+      --card: #141824;
+      --card-hover: #1a1f2e;
+      --border: #232a3b;
+      --text: #e7eaf2;
+      --muted: #9aa3b8;
+      --faint: #6b7489;
+      --accent: #8b7cff;
+      --accent-2: #3ad6c5;
+      --accent-soft: rgba(139, 124, 255, .14);
+      --teal-soft: rgba(58, 214, 197, .12);
+      --grad: linear-gradient(120deg, #8b7cff 0%, #5fa8ff 50%, #3ad6c5 100%);
+      --shadow: 0 10px 40px -12px rgba(0, 0, 0, .55);
+      --radius: 16px;
+      --maxw: 1160px;
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] {
+      --bg: #f7f8fc;
+      --bg-2: #eef0f7;
+      --card: #ffffff;
+      --card-hover: #fbfbff;
+      --border: #e1e4ee;
+      --text: #141826;
+      --muted: #4f5870;
+      --faint: #7a8298;
+      --accent: #5b4cf0;
+      --accent-2: #0f9e8e;
+      --accent-soft: rgba(91, 76, 240, .09);
+      --teal-soft: rgba(15, 158, 142, .09);
+      --grad: linear-gradient(120deg, #5b4cf0 0%, #2f7fe6 50%, #0f9e8e 100%);
+      --shadow: 0 10px 30px -14px rgba(30, 40, 80, .22);
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background .25s, color .25s;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* Background glow */
+    .bg-glow { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+    .bg-glow::before, .bg-glow::after {
+      content: ""; position: absolute; width: 620px; height: 620px; border-radius: 50%;
+      filter: blur(120px); opacity: .22;
+    }
+    .bg-glow::before { background: #8b7cff; top: -220px; left: -160px; }
+    .bg-glow::after { background: #3ad6c5; top: 260px; right: -260px; opacity: .14; }
+    :root[data-theme="light"] .bg-glow::before { opacity: .12; }
+    :root[data-theme="light"] .bg-glow::after { opacity: .08; }
+
+    /* Nav */
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(160%) blur(14px);
+      -webkit-backdrop-filter: saturate(160%) blur(14px);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    header.nav.scrolled { border-bottom-color: var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; }
+    .brand-mark {
+      width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+      background: var(--grad); color: #fff; font-size: 14px; font-weight: 800;
+    }
+    .nav-links { display: flex; gap: 4px; align-items: center; list-style: none; }
+    .nav-links a {
+      font-size: 14px; color: var(--muted); padding: 8px 12px; border-radius: 8px; transition: color .15s, background .15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--accent-soft); }
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    .icon-btn {
+      width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center;
+      border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer;
+      transition: border-color .15s, transform .15s;
+    }
+    .icon-btn:hover { border-color: var(--accent); }
+    .icon-btn svg { width: 18px; height: 18px; }
+    .menu-btn { display: none; }
+    .sun { display: none; }
+    :root[data-theme="light"] .sun { display: block; }
+    :root[data-theme="light"] .moon { display: none; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 11px;
+      font-weight: 600; font-size: 14.5px; border: 1px solid var(--border); background: var(--card);
+      color: var(--text); transition: transform .15s, border-color .15s, box-shadow .15s; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .btn svg { width: 17px; height: 17px; }
+    .btn-primary { background: var(--grad); color: #fff; border: none; box-shadow: 0 8px 24px -8px rgba(139,124,255,.6); }
+    .btn-primary:hover { box-shadow: 0 12px 30px -8px rgba(139,124,255,.75); }
+
+    /* Hero */
+    .hero { padding: 84px 0 56px; }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr .9fr; gap: 48px; align-items: center; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
+      background: var(--teal-soft); color: var(--accent-2); font-size: 13px; font-weight: 600; margin-bottom: 22px;
+      border: 1px solid color-mix(in srgb, var(--accent-2) 30%, transparent);
+    }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 0 var(--accent-2); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 60%, transparent); } 70% { box-shadow: 0 0 0 10px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+    .hero h1 { font-size: clamp(36px, 5.6vw, 62px); line-height: 1.05; letter-spacing: -.035em; font-weight: 800; }
+    .hero h1 .sub { display: block; font-size: .5em; letter-spacing: -.02em; font-weight: 700; color: var(--muted); margin-top: 14px; }
+    .typed { min-height: 1.3em; display: inline-block; }
+    .caret { display: inline-block; width: 2px; height: .95em; background: var(--accent-2); margin-left: 3px; vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero p.lead { color: var(--muted); font-size: 17.5px; max-width: 600px; margin: 22px 0 30px; }
+    .hero p.lead strong { color: var(--text); font-weight: 600; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .socials { display: flex; gap: 10px; margin-top: 26px; }
+
+    .hero-card {
+      position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 22px;
+      padding: 26px; box-shadow: var(--shadow);
+    }
+    .hero-card::before {
+      content: ""; position: absolute; inset: -1px; border-radius: 22px; padding: 1px; background: var(--grad);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; opacity: .55; pointer-events: none;
+    }
+    .profile { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+    .avatar { width: 68px; height: 68px; border-radius: 18px; object-fit: cover; background: var(--bg-2); border: 2px solid var(--border); }
+    .profile h3 { font-size: 17px; letter-spacing: -.01em; }
+    .profile span { color: var(--muted); font-size: 13.5px; }
+    .term {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px;
+      font-size: 12.8px; color: var(--muted); line-height: 1.75; overflow: hidden;
+    }
+    .term .k { color: var(--accent); } .term .s { color: var(--accent-2); } .term .c { color: var(--faint); }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    .stat { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+    .stat b { display: block; font-size: 22px; letter-spacing: -.02em; }
+    .stat span { color: var(--muted); font-size: 12.5px; }
+
+    /* Sections */
+    section { padding: 76px 0; }
+    .section-head { margin-bottom: 36px; }
+    .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+    .section-head h2 { font-size: clamp(28px, 3.6vw, 38px); letter-spacing: -.03em; line-height: 1.15; }
+    .section-head p { color: var(--muted); margin-top: 10px; max-width: 640px; }
+
+    /* Focus strip */
+    .focus-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .focus {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
+      transition: transform .2s, border-color .2s;
+    }
+    .focus:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); }
+    .focus .ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 14px; }
+    .focus .ic svg { width: 22px; height: 22px; }
+    .focus h3 { font-size: 16px; margin-bottom: 6px; }
+    .focus p { color: var(--muted); font-size: 14px; }
+
+    /* Projects */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+    .chip {
+      padding: 8px 14px; border-radius: 999px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+      background: var(--card); border: 1px solid var(--border); color: var(--muted); transition: all .15s;
+      font-family: inherit;
+    }
+    .chip:hover { color: var(--text); }
+    .chip.active { background: var(--accent-soft); color: var(--text); border-color: var(--accent); }
+    .chip .n { color: var(--faint); font-weight: 500; margin-left: 4px; }
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project {
+      position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px; transition: transform .2s, border-color .2s, background .2s; min-height: 100%;
+    }
+    .project:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); background: var(--card-hover); }
+    .project.featured { grid-column: span 1; }
+    .project .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+    .project .emoji { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; background: var(--bg-2); border: 1px solid var(--border); flex-shrink: 0; }
+    .badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    .badge { font-size: 11.5px; font-weight: 700; padding: 4px 9px; border-radius: 999px; letter-spacing: .02em; }
+    .badge.live { background: var(--teal-soft); color: var(--accent-2); }
+    .badge.feat { background: var(--accent-soft); color: var(--accent); }
+    .project h3 { font-size: 17.5px; letter-spacing: -.015em; line-height: 1.3; margin-bottom: 4px; }
+    .project .cat { font-size: 12.5px; color: var(--faint); margin-bottom: 10px; }
+    .project p { color: var(--muted); font-size: 14.2px; margin-bottom: 12px; }
+    .project ul { list-style: none; margin-bottom: 14px; }
+    .project li { color: var(--muted); font-size: 13.6px; padding-left: 16px; position: relative; margin-bottom: 5px; }
+    .project li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 6px; height: 6px; border-radius: 2px; background: var(--grad); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+    .tag { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; padding: 3px 8px; border-radius: 6px; background: var(--bg-2); color: var(--muted); border: 1px solid var(--border); }
+    .links { display: flex; gap: 14px; margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border); }
+    .links a { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--text); }
+    .links a:hover { color: var(--accent); }
+    .links svg { width: 15px; height: 15px; }
+    .more-projects { text-align: center; margin-top: 30px; }
+
+    /* Experience */
+    .timeline { position: relative; display: grid; gap: 18px; }
+    .timeline::before { content: ""; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--accent), var(--accent-2), transparent); opacity: .5; }
+    .job { position: relative; padding-left: 56px; }
+    .dot { position: absolute; left: 10px; top: 24px; width: 20px; height: 20px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+    .job.current .dot { border-color: var(--accent-2); box-shadow: 0 0 0 5px var(--teal-soft); }
+    .job-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; }
+    .job-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 10px; }
+    .job-head h3 { font-size: 18px; letter-spacing: -.015em; }
+    .job-head h3 span { color: var(--accent); }
+    .job-meta { color: var(--faint); font-size: 13.5px; }
+    .job ul { list-style: none; }
+    .job li { color: var(--muted); font-size: 14.5px; padding-left: 18px; position: relative; margin-bottom: 7px; }
+    .job li::before { content: "▹"; position: absolute; left: 0; color: var(--accent-2); }
+    .job li b { color: var(--text); font-weight: 600; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .skill-group h3 { font-size: 15px; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .skill-group h3 i { font-style: normal; font-size: 18px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill { font-size: 13px; padding: 5px 10px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--border); color: var(--text); }
+
+    /* Certs + Education */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .panel h3 { font-size: 17px; margin-bottom: 16px; }
+    .cert-list, .edu-list { display: grid; gap: 12px; }
+    .cert { display: flex; gap: 12px; align-items: center; }
+    .cert .seal { width: 46px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-size: 10px; white-space: nowrap; font-weight: 800; flex-shrink: 0; background: var(--accent-soft); color: var(--accent); }
+    .cert b { display: block; font-size: 14.5px; font-weight: 600; }
+    .cert span { font-size: 12.5px; color: var(--faint); }
+    .edu { padding: 14px 16px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--border); }
+    .edu b { display: block; font-size: 15px; }
+    .edu .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+    .gpa { color: var(--accent-2); font-weight: 600; }
+
+    /* Contact */
+    .contact-card {
+      position: relative; overflow: hidden; text-align: center; padding: 56px 24px; border-radius: 24px;
+      background: var(--card); border: 1px solid var(--border);
+    }
+    .contact-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px 220px at 50% 0%, var(--accent-soft), transparent 70%); pointer-events: none; }
+    .contact-card h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -.03em; position: relative; }
+    .contact-card p { color: var(--muted); max-width: 560px; margin: 12px auto 28px; position: relative; }
+    .contact-card .cta-row { justify-content: center; position: relative; }
+
+    footer { padding: 34px 0 46px; color: var(--faint); font-size: 13.5px; }
+    .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--border); padding-top: 24px; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .pulse, .caret { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .projects { grid-template-columns: repeat(2, 1fr); }
+      .focus-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero { padding-top: 48px; }
+      .nav-links {
+        position: fixed; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--bg); border-bottom: 1px solid var(--border); padding: 8px 16px 16px;
+        transform: translateY(-120%); transition: transform .25s; z-index: 40;
+      }
+      .nav-links.open { transform: none; }
+      .nav-links a { display: block; padding: 12px; font-size: 15px; }
+      .menu-btn { display: grid; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .projects, .focus-grid, .skills-grid { grid-template-columns: 1fr; }
+      section { padding: 56px 0; }
+      .container { padding: 0 16px; }
+      .job { padding-left: 40px; }
+      .timeline::before { left: 11px; }
+      .dot { left: 2px; }
+      .job-card { padding: 18px; }
+      .btn { padding: 10px 15px; }
+      .brand { white-space: nowrap; }
+    }
+    @media (max-width: 420px) { .brand-name { display: none; } }
+  </style>
 </head>
-
 <body>
+  <div class="bg-glow" aria-hidden="true"></div>
 
-  <!--
-    - #MAIN
-  -->
+  <!-- SVG icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 1 8 7 8-7"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6m0-6L10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.52.85l10.4-6.5a1 1 0 0 0 0-1.7L9.52 4.65A1 1 0 0 0 8 5.5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  </svg>
 
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Sai Satya Jagannadh Doddipatla" width="80">
-        </figure>
-
-        <div class="info-content">
-          <!-- <h1 class="name" title="DJ"></h1>
-
-          <p class="title">a</p>
-          <p class="title">b</p>
-          <p class="title">c</p> -->
-          
-            <h5 class="name" title="DJ">Sai Satya Jagannadh<br>Doddipatla</h5>
-            <!-- <p class="name" title="DJ">Doddipatla</p> -->
-            <p class="title" style="margin-bottom: 10px;">MS IN CS @CSUF</p>
-<!--             <p class="title" style="margin-bottom: 10px;">Cerebras Fellow</p> -->
-            <p class="title" style="margin-bottom: 10px;">Ex-Infoscion</p>
-            <p class="title" style="margin-bottom: 10px;">Data Engineer</p>
-            <p class="title" style="margin-bottom: 10px;">Gen AI</p>
-            
-
-        </div>
-
-        <!-- <div class="sidebar-info">
-          <figure class="avatar-box">
-            <img src="./assets/images/profile/my-avatar.webp" width="80" alt="Ulises Gómez Photo">
-          </figure>
-  
-          <div class="info-content">
-            <h1 class="name" title="Ulises Gómez">Ulises Gómez</h1>
-            <p class="title" style="margin-bottom: 10px;">Técnico Audiovisual <br> Frontend Developer </p>
-            <p class="title" style="margin-bottom: 5px;">CIO - Tecnología Urbana</p>
-            <p class="title" style="margin-bottom: 10px;">CEO - Stream Tech</p>
-  
-          </div> -->
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Contact & other Info</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Home"><span class="brand-mark">DJ</span><span class="brand-name">Sai Jagannadh</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">AI Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle light/dark theme">
+          <svg class="moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
         </button>
-
+        <a class="btn btn-primary" href="./Sai_Jagannadh_Resume.pdf" download style="padding:9px 14px"><svg><use href="#i-download"/></svg><span>Resume</span></a>
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:saijagannadh0625@gmail.com" class="contact-link">saijagannadh0625@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-              <a href="tel:+17146966384" class="contact-link">+1 (714) 696-6384</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Linkedin</p>
-
-              <a href="https://www.linkedin.com/in/saijagannadh/" class="contact-link" target="_blank">SaiJagannadh</a>
-
-
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="logo-github"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">github</p>
-              <a href="https://github.com/SaiSatyaJagannadh" class="contact-link" target="_blank">SaiJaganandh</a>
-
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              
-              <a>USA</a>
-
-            </div>
-
-          </li>
-
-
-          
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="#" class="social-link" target="_blank">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link" target="_blank">
-              <ion-icon name="logo-twitter" font-size: 64px></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link" target="_blank">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-<!--<li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>-->
-          
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-Data Engineer with 3.5+ years of experience designing and implementing scalable data solutions on AWS and Azure. Expertise in
-ETL/ELT workflows, big data processing, and data governance. Skilled in optimizing cloud-based pipelines for performance, security,
-and efficiency in large-scale systems.</p>
-<!--           <p>
-            My intention at this step would be to learn new things related to my profession. As it is a technical field, one has to be updated because of the technology changes often.
-          </p> -->
-
-          <!-- <p>
-            I am a PhD Candidate in Economics (hired as a <i>Pre-doc</i> PhD Researcher and working as a <i>Pre-doc</i> Lecturer) at 
-            <a href="https://www.ub.edu/school-economics/" target="_blank" class="about-text-link ">Universitat de Barcelona (UB)</a>.
-            I am affiliated to the <a href="https://ieb.ub.edu/" target="_blank" class="about-text-link ">Institut d'Economia de Barcelona (IEB)</a>.
-            I am currently on a 3-month visiting research stay at the <a href="https://ifs.org.uk/" target="_blank" class="about-text-link ">Institute for Fiscal Studies (IFS)</a> and at the <a href="https://www.ucl.ac.uk/economics/ucl-department-economics" target="_blank" class="about-text-link ">University College London (UCL)</a>.
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill"><span class="pulse"></span> Open to Senior AI / ML Engineer roles · Raleigh–Durham, NC</div>
+          <h1>
+            Hi, I'm <span class="grad-text">Sai Jagannadh</span>.
+            <span class="sub">I build <span class="typed" id="typed">LLM apps that ship to production</span><span class="caret"></span></span>
+          </h1>
+          <p class="lead">
+            <strong>Tech Engineer at UBS</strong> with 4+ years across software, cloud and AI. I design
+            <strong>RAG pipelines, LangGraph agents and MCP tool servers</strong>, and take them all the way to a live URL —
+            Docker, AWS Lambda, ECS and Streamlit Cloud. Former <strong>Cerebras Fellow</strong> and MS CS from CSUF (3.9 GPA).
           </p>
-
-          <p>
-            I obtained my MSc in Economics from <a href="https://www.vwl.uni-mannheim.de/en/" target="_blank" class="about-text-link ">Universität Mannheim (UniMA)</a> in 2019 and my 
-            Bachelor's degree in Economics from <a href="https://www.uam.es/Economicas/Home.htm?language=en" target="_blank" class="about-text-link ">Universidad Autónoma de Madrid (UAM)</a> in 2016.
-          </p>
-
-          <p>
-            How do households and firms respond to government policies (<b>taxes</b>, <b>regulations</b> and <b>public-spending</b> policies)? I address this research question both from
-            <b>empirical</b> and <b>theoretical</b> perspective. Hence, I work with <b>micro-data & causal inference</b> methods, but also with <b>large-scale general equilibrium
-              macro models</b>.
-            
-          </p> -->
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/CSUF.png" alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Masters Student</h4>
-
-                <p class="service-item-text">
-                  Studying Masters in Computer Science at California State University Fullerton.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/Azure.png" alt="Azure" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Azure</h4>
-
-                <p class="service-item-text">
-                  I am currently working on Azure Certifications (AZ-900, AZ-104, ......).
-                </p>
-              </div>
-
-            </li>
-
-            <!-- <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/Blog.jpeg" alt="Blog Writing" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Blog Writing</h4>
-
-                <p class="service-item-text">
-                  Blog about my life experience in USA.
-                </p>
-              </div> -->
-
-            </li>
-<!--
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-
-                <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
-                </p>
-              </div>
-
-            </li>
-        -->
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Additional Skills</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-            <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/Bugdetection.jpeg" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Bug Detection</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Bug Detections in websites like ecommerence, general apps, etc.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/Technology.jpeg" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Technology Exploration</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Reviewing Beta apps, Suggesting better features and updating to technology.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/Cinephile.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>cinephile</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Watching movies extensively contributes to boosting my self-confidence.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/Financial.jpeg" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-             
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Financial Knowledge</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Financial knowledge involves understanding various aspects of managing money, investments, and financial instruments 
-                    such as stocks, mutual funds, bonds, and other assets. It encompasses learning about budgeting, saving, investing, and managing risks.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-       
- -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Dj</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  DJ
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">See AI projects <svg><use href="#i-arrow"/></svg></a>
+            <a class="btn" href="./Sai_Jagannadh_Resume.pdf" download><svg><use href="#i-download"/></svg> Download resume</a>
+            <a class="btn" href="https://drive.google.com/file/d/1MVxJ3ye5SOAkK6B8lw5bs61_Q7KfGbyo/view" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg> View on Drive</a>
+          </div>
+          <div class="socials">
+            <a class="icon-btn" href="https://github.com/SaiSatyaJagannadh" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+            <a class="icon-btn" href="https://www.linkedin.com/in/saijagannadh/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+            <a class="icon-btn" href="mailto:saijagannadh0625@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+          </div>
         </div>
 
-        <!--
-          - clients
-        
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Clients</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-        -->
-
-
-        <!-- <section class="clients" data-nosnippet>
-
-          <h3 class="h3 clients-title">Where I worked</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="https://ifs.org.uk/" target="_blank">
-                <img src="./assets/icon/ifs-circle.png" alt="ifs logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="https://www.ub.edu/school-economics/" target="_blank">
-                <img src="./assets/icon/ub-circle.png" alt="ub logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="https://www.airef.es/es/" target="_blank">
-                <img src="./assets/icon/airef-circle.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="https://www.cunef.edu/" target="_blank">
-                <img src="./assets/icon/cunef-circle.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="https://www.bde.es/bde/en/" target="_blank">
-                <img src="./assets/icon/bde-circle.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="https://www.nera.com/practice-areas/energy.html#tab-4" target="_blank">
-                <img src="./assets/icon/nera-circle.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="https://www.managementsolutions.com/en" target="_blank">
-                <img src="./assets/icon/ms-circle.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section> -->
-
-      </article>
-
-
-
-
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+        <aside class="hero-card reveal">
+          <div class="profile">
+            <img class="avatar" src="./assets/images/my-avatar.png" alt="Sai Satya Jagannadh Doddipatla" width="68" height="68">
+            <div>
+              <h3>Sai Satya Jagannadh Doddipatla</h3>
+              <span>Tech Engineer @ UBS · Cary, NC</span>
             </div>
-
-            <h3 class="contact-title"> <a href="https://drive.google.com/file/d/1MVxJ3ye5SOAkK6B8lw5bs61_Q7KfGbyo/view" target="_blank"> <img src="./assets/images/downloadresume.png"></a></h3>
-            </a>
           </div>
-
-          <!-- <a href="./assets/CV-UlisesGomez.pdf" download="CV-UlisesGomez"><button
-            style="margin: auto; margin-bottom: 20px;" class="form-btn submitBtn" data-form-btn>
-            <span>Download CV</span>
-          </button>
-        </a> -->
-
-
-
-        </section>
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
+          <div class="term mono" aria-label="Stack summary">
+            <div><span class="c"># dj.yaml</span></div>
+            <div><span class="k">focus:</span> <span class="s">[RAG, agents, LLMOps]</span></div>
+            <div><span class="k">orchestration:</span> <span class="s">LangGraph · MCP · LangChain</span></div>
+            <div><span class="k">models:</span> <span class="s">OpenAI · Claude · Gemini · Llama</span></div>
+            <div><span class="k">ship_to:</span> <span class="s">Lambda · ECS · Azure · Streamlit</span></div>
           </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">
-                Master's in Computer Science at California State University Fulletrton(CSUF), USA</h4>
-              
-              <span>GPA: 3.9/4.0</span>
-              <span>Jan 2023 — Dec 2024</span>
-
-              
-<!--
- <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
-              </p>
--->
-             
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">BTech in Information Technology at SRKR Engineering College, India</h4>
-
-              <span>GPA: 3.44/4.0</span>
-              <span>August 2016 — Sept 2020</span>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Relevant Coursework</h3>
+          <div class="stats">
+            <div class="stat"><b class="grad-text">4+ yrs</b><span>software · cloud · AI</span></div>
+            <div class="stat"><b class="grad-text">70%</b><span>lower LLM latency (Cerebras)</span></div>
+            <div class="stat"><b class="grad-text">15+</b><span>AI repos on GitHub</span></div>
+            <div class="stat"><b class="grad-text">6</b><span>live AI demos</span></div>
           </div>
+        </aside>
+      </div>
+    </section>
 
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <p class="timeline-text">Cloud Computing, Azure Data Factory, Data Structures and Algorithms, Artificial Intelligence, Software Design and Development, Data Science, Advanced Database Management, Advanced Computer Networks, Web backend engineering, Data, Network Management.</p>
-             
-
-            </li>
-          </ol>
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-            
-
-            <h3 class="h3">Experience</h3>
+    <!-- ABOUT / FOCUS -->
+    <section id="about" style="padding-top:24px">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">What I do</div>
+          <h2>From notebook to a URL people can use</h2>
+          <p>I care about the boring parts that make AI useful in production: grounding, guardrails, evaluation, latency and cost.</p>
+        </div>
+        <div class="focus-grid">
+          <div class="focus reveal">
+            <div class="ic"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6c0-1.1 3.6-2 8-2s8 .9 8 2-3.6 2-8 2-8-.9-8-2Zm0 0v6c0 1.1 3.6 2 8 2s8-.9 8-2V6M4 12v6c0 1.1 3.6 2 8 2s8-.9 8-2v-6"/></svg></div>
+            <h3>RAG systems</h3>
+            <p>pgvector, FAISS and Pinecone retrieval with reranking, semantic caching and cited answers.</p>
           </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Cerebras Fellow - Cerebras</h4>
-
-              <span>Nov 2024 — Present</span>
-              <span>Remote, USA</span>
-
-              <p class="timeline-text">
-                • Designed and implemented an AI-driven healthcare chatbot using LLMs like ChatGPT for real-time medical consultations.
-                • Migrated from GPT-3.5-Turbo to Cerebras Inference, benchmarking speed improvements for medical AI.
-                • Utilized Hugging Face Transformers for embedding generation and Pinecone for efficient vector-based data retrieval.
-                • Integrated metadata based filtering within Pinecone to enhance personalized healthcare recommendations based on patient history.
-                • Integrated custom machine learning models using Azure ML and MLflow to improve chatbot accuracy and personalize medical
-                recommendations.
-              </p>
-
-            </li>
-
-        <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">AI Risk Analyst - Extern</h4>
-
-              <span>Sep 2024 — Oct 2024</span>
-              <span>Remote, USA</span>
-
-              <p class="timeline-text">
-                • Conducted comprehensive research on global leaders' AI integration strategies for enhancing decision-making and innovation.
-                • Analyzed AI-driven tools that enable real-time cross-departmental insights and fostered collaboration.
-                • Developed case studies on ethical AI implementation, focusing on maintaining trust and transparency in business operations.
-              </p>
-
-            </li>
-            
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">System Engineer - Infosys</h4>
-
-              <span>May 2021 — Nov 2022</span>
-              <span>Hyderabad, India</span>
-
-
-              <p class="timeline-text">
-                •	Managed and resolved issues in Release-Pipelines and Azure Data Factory (ADF), optimizing ETL workflows to enhance data
-                  processing speed and reliability.
-                • Created pipelines in Azure using ADF to get the data from different source systems and transform the data by using activities.
-                • Developed and implemented Azure Active Directory (AAD)-based authentication for records for secure and efficient data access.
-                • Integrated data from multiple sources using scope scripts, enabling consolidated data outputs that improved transaction analysis
-                and consistency.
-                • Responsible for estimating the cluster size, monitoring, and troubleshooting of the Spark databricks cluster.
-                • Experience in developing Spark applications using Spark-SQL in Databricks for data extraction, transformation, and aggregation
-                from multiple file formats for Analyzing & transforming the data for business needs.
-              </p>
-
-            </li>
-
-            
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">System Engineer Trainee - Infosys</h4>
-
-              <span>Jan 2021 — April 2021</span>
-              <span>Hyderabad, India</span>
-
-              <p class="timeline-text">
-                •	Acquired in-depth training in Object-Oriented Programming (OOP) concepts and Java, with a focus on implementing databases using Microsoft SQL Server.<br>
-                •	Completed comprehensive training in both Basic and Advanced C# concepts, gaining proficiency in technologies such as Entity Framework Core, ASP.NET Core Web API, and developing solutions for Microsoft Azure as part of the Stream Training Program.<br>
-                •	Successfully completed specialized courses in ASP.NET Core Web API - Adaptive Edition and gained a comprehensive understanding of Digital Process Automation (DPA), Agile, and DevOps methodologies.<br>
-
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Student member of The Computer Society of India (CSI)</h4>
-
-              <span>July 2017 — May 2020</span>
-              <span>AP, India</span>
-
-              <p class="timeline-text">
-                •	Management Skills: Participated in conducting fests, enhancing organizational abilities.<br>
-                •	Networking: Connected with diverse individuals, improving communication skills.<br>
-                •	Confidence: Engaged in presentations and discussions, building self-assurance.<br>
-                •	Technical Knowledge: Exposed to emerging technologies, enriching understanding.<br>
-                
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-            
-
-            <h3 class="h3">Technical Skills</h3>
+          <div class="focus reveal">
+            <div class="ic"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M3 12h3m12 0h3M5.6 18.4l2.1-2.1m8.6-8.6 2.1-2.1M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></div>
+            <h3>Agentic workflows</h3>
+            <p>LangGraph state machines, MCP tool servers and validators that block hallucinated output.</p>
           </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Programming</h4>
-
-              <p class="timeline-text">
-               Python, Java, C++, C#, SQL, R, Scala
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Database and Cloud</h4>
-
-              
-              <p class="timeline-text">
-               Microsoft Azure (Azure Data Factory (ADF), Azure Databricks, Azure SQL Database, Azure Data
-Lake Storage, Azure ML, MLflow, Azure Synapse Analytics), AWS (S3, EC2, ELB, Lambda, Glue, Athena, Redshift),  ETL Processes, Apache Airflow, DBT, Power BI, Snowflake, Apache Spark, Hadoop
-
-            </li>
-
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Machine Learning & AI</h4>
-
-              
-              <p class="timeline-text">
-                  Transformers, Hugging Face, Large Language Models (LLMs), LangChain, Pinecone, RAG.</p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Data Visualization & Streaming</h4>
-
-              <p class="timeline-text">
-                SSRS, BI Tools (Tableau, Power BI), Apache Kafka, MongoDB, Cassandra, Redis, Streamlit.
-                 
-              </p>
-
-            </li>
-              
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Tools</h4>
-
-            
-              <p class="timeline-text">
-                 Git, Jira, Agile, CI/CD Pipelines, Microsoft Entra ID (formerly Azure Active Directory)
-              </p>
-
-      
-
-              
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Soft Skills</h4>
-
-              <p class="timeline-text">
-                Leadership, Teamwork, Agile Methodology, Administrative, Decision making.
-                 
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Microsoft Office</h4>
-
-              <p class="timeline-text">
-                Excel, Word, PowerPoint
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-      
-
-          <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Certifications</h3>
+          <div class="focus reveal">
+            <div class="ic"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 17 10 11 13 14 20 7M14 7h6v6"/></svg></div>
+            <h3>LLMOps & MLOps</h3>
+            <p>Docker, ECR, Lambda, ECS Fargate, MLflow tracking and data-quality gates.</p>
           </div>
+          <div class="focus reveal">
+            <div class="ic"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h12"/></svg></div>
+            <h3>Data engineering</h3>
+            <p>Azure Data Factory, Databricks, Synapse, Kafka and AWS Glue pipelines at scale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <ol class="timeline-list">
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Highlighted work</div>
+          <h2>AI projects</h2>
+          <p>Production-style builds with live demos where possible. Filter by area.</p>
+        </div>
+        <div class="filters" id="filters" role="tablist" aria-label="Project filters"></div>
+        <div class="projects" id="projectGrid"></div>
+        <div class="more-projects">
+          <a class="btn" href="https://github.com/SaiSatyaJagannadh?tab=repositories" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg> All repositories on GitHub</a>
+        </div>
+      </div>
+    </section>
 
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Microsoft Azure: AZ 900, DP 203</h4>
-
-            </li>
-          </ol>
-            <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">micro1 Data Engineering</h4>
-             
-
-            </li>
-          </ol>
-
-            <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Databricks Certified Data Engineer Associate</h4>
-             
-
-            </li>
-          </ol>
-
-            </ol>
-
-            <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title"> Azure Data Factory For Data Engineers</h4>
-             
-
-            </li>
-          </ol>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Angular for .NET Developers</h4>
-             
-
-            </li>
-          </ol>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Django A-Z: Learn Django 2 by building and deploying project</h4>
-             
-
-            </li>
-          </ol>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">The Web Developer Bootcamp (HTML, CSS, JS)</h4>
-             
-
-            </li>
-          </ol>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">The Complete Node.js Developer Course (3rd Edition)</h4>
-             
-
-            </li>
-          </ol>
-
-
-            
-        </section>
-
-        
-      </article>
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-            <!--<li class="filter-item">
-              <button data-filter-btn>Web design</button>
-            </li>-->
-            
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Cloud Projects</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>LLM Projects</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Career</div>
+          <h2>Experience</h2>
+        </div>
+        <div class="timeline">
+          <div class="job current reveal">
+            <span class="dot"></span>
+            <div class="job-card">
+              <div class="job-head">
+                <h3>Tech Engineer <span>@ UBS</span></h3>
+                <div class="job-meta">Jun 2025 – Present · United States</div>
               </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-              <!--<li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>-->
-              
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-              <li class="filter-item">
-              <button data-filter-btn>Cloud Projects</button>
-            </li>
-
-              <li class="filter-item">
-              <button data-filter-btn>LLM Projects</button>
-            </li>
-
-            </ul>
-
-          </div>
-            
-          
-          
-          <ul class="project-list">
-            
-            <!--NO 1-->
-
-           <!--web design 
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="https://www.linkedin.com/in/saijagannadh/details/projects/">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-          -->
-
-
-            <!--NO 2-->
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://saijagannadh-chat-application.herokuapp.com/" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/chat_rooms.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">Room Chat Application</h3>
-
-                <p class="project-category">Applications</p> -->
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Node.js, Express.js, Socket.io, HTML/CSS/JavaScript, Geolocation API</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">Room Chat Application
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-              
-              <!-- <li class="blog-post-item">
-                <a href="https://tbswireless.com/">
-                  <figure class="blog-banner-box">
-                    <img src="./assets/images/portfolio/tbswireless.webp" alt="TBS Wireless Services Landing"
-                      loading="lazy">
-                  </figure>
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">React JS, Next 14, Tailwind CSS</p>
-                      <span class="dot"></span>
-                      <time datetime="2022-02-23">Enero, 2024</time>
-                    </div>
-                    <h3 class="h3 blog-item-title">Landing TBS Wireless Services
-                    </h3>
-                    <p class="blog-text">
-                    </p>
-                  </div>
-                </a>
-              </li> -->
-
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://saijagannadh-todolist-app.herokuapp.com/" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">To Do List</h3>
-
-                <p class="project-category">Applications</p> -->
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Python, Django, SQLite3, and deployed on Heroku</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">To Do List
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-
-            <!--NO 3-->
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://septal-hole.000webhostapp.com/home" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/travel.jpeg" alt="finance" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">TravelAway</h3>
-
-                <p class="project-category">Web development</p> -->
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Angular for .NET, HTML/CSS/JavaScript, SQL, Node.js</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">TravelAway
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://jagannadh-weather-application.herokuapp.com/" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/weather.jpeg" alt="orizon" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">Weather Application</h3>
-
-                <p class="project-category">Web development</p> -->
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Python, Django, SQLite/PostgreSQL, HTML, CSS,JavaScript and weather API</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">Weather Application
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-            
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://septal-hole.000webhostapp.com/index.php" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/Vehicle.webp" alt="summary" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">Online Rental System</h3>
-
-                <p class="project-category">Web development</p> -->
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">PHP, HTML, CSS, and JavaScript</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">Online Rental System
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-            
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://github.com/SaiSatyaJagannadh/Crime-Rate-Analysis" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/Crime.jpeg" alt="arrival" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">Crime Rate Analysis</h3>
-
-                <p class="project-category">Web development</p> -->
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Apache PySpark, PySpark Streaming, Google Dataproc, Google Bucket</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">Crime Rate Analysis
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-
-            <!--Azureprojects section!-->
-            
-            <li class="project-item  active" data-filter-item data-category="cloud projects">
-              <a href="https://github.com/SaiSatyaJagannadh/Azure-Data-Factory-Project-on-Covid19" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/covid.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">Crime Rate Analysis</h3>
-
-                <p class="project-category">Web development</p> -->
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Azure Data Factory (ADF), Azure Data Lake Storage Gen2, Azure Blob Storage, Azure SQL Database, Azure HDInsight, Azure Databricks, Azure Storage Accounts and Containers, Access Control (IAM) for Azure Storage solutions, Azure Synapse Analytics, Azure Storage Explorer, Azure SQL, CI/CD in Azure DevOps, Power BI</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">Covid-19 Data Analysis on Azure
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="cloud projects">
-              <a href="https://github.com/SaiSatyaJagannadh/stock_market_kafka_dataengineering_project" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/stocks.jpg" alt="arrival" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">Crime Rate Analysis</h3>
-
-                <p class="project-category">Web development</p> -->
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Designed and implemented a real-time stock market data analysis system using Apache Kafka for data streaming and AWS services like S3, Glue, and Athena for data storage, cataloging, and querying. Developed a Python-based producer to simulate stock data, enabling efficient and scalable processing of market trends.</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">Stock Market Kafka Data Engineering Project
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="cloud projects">
-              <a href="https://github.com/SaiSatyaJagannadh/automobile-prices-using-Azure-Machine-Learning-Designer." target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/carsazure.jpg" alt="arrival" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">Crime Rate Analysis</h3>
-
-                <p class="project-category">Web development</p> -->
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">I created an Azure Machine Learning workspace and configured the necessary resources to build a regression model for predicting automobile prices. Using Azure Machine Learning Designer, I set up compute clusters, imported the dataset, and performed preprocessing to optimize the model's performance. Finally, I created an inference pipeline for real-time predictions and tested the deployment by sending sample data to verify its functionality.</p>
-                  </div>
-                  <h3 class="h3 blog-item-title">Auto Sales Prediction Using ML models(Azure)
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-
-          <!--LLM Projects-->
-            <li class="project-item  active" data-filter-item data-category="llm projects">
-              <a href="https://github.com/SaiSatyaJagannadh/AI-HealthCare-Chatbot-System_Cerebras" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/chatcrime.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <!-- <h3 class="project-title">Crime Rate Analysis</h3>
-
-                <p class="project-category">Web development</p> -->
-
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">The "AI Healthcare Chatbot Website for Medical Queries" project enhances healthcare accessibility with an AI-driven chatbot for real-time consultations. Utilizing natural language processing (NLP) and machine learning, it addresses health-related queries and provides symptom assessments. Users can upload documents for personalized guidance, while ChatGPT models integrated with Pinecone ensure rapid responses. </p>
-                  </div>
-                  <h3 class="h3 blog-item-title">AI Healthcare Chatbot Website for Medical Queries
-                  </h3>
-                  <p class="blog-text">
-                  </p>
-                </div>
-
-              </a>
-            </li>
-
-            
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #BLOG
-      
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-      -->
-
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-<!-- <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>-->
-       
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <ul>
+                <li>Built <b>AI automation tools</b>, including an Outlook email pattern recognizer and an <b>OpenAI-powered documentation generator</b>, improving process efficiency.</li>
+                <li>Work on web application automation and <b>Kubernetes pod management</b> — troubleshooting, scaling and deployment support.</li>
+                <li>Resolve critical production issues under tight timelines and support releases with <b>zero service disruption</b>.</li>
+                <li>Use <b>Azure Application Insights</b> to analyze logs, monitor application health and close production tickets quickly.</li>
+              </ul>
             </div>
+          </div>
+          <div class="job reveal">
+            <span class="dot"></span>
+            <div class="job-card">
+              <div class="job-head">
+                <h3>Cerebras Fellow <span>@ Cerebras Systems</span></h3>
+                <div class="job-meta">Nov 2024 – Mar 2025 · Remote</div>
+              </div>
+              <ul>
+                <li>Built an AI healthcare chatbot and benchmarked <b>GPT-3.5</b> against <b>Llama 3.1-8B / 3.3-70B on Cerebras</b> wafer-scale inference.</li>
+                <li>Cerebras models delivered <b>up to 70% lower latency</b> at 20,000+ characters/second — about 4× GPT-3.5's speed.</li>
+                <li>Integrated the models into a full-stack platform with <b>Flask, LangChain, Pinecone and Geoapify</b> for document upload, symptom queries and hospital lookup.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="job reveal">
+            <span class="dot"></span>
+            <div class="job-card">
+              <div class="job-head">
+                <h3>AI Risk Analyst Extern <span>@ Extern</span></h3>
+                <div class="job-meta">Sep 2024 – Oct 2024 · Remote</div>
+              </div>
+              <ul>
+                <li>Researched how AI leaders (Scale AI, Shield AI, Cerebras and others) use AI for decision-making, collaboration and ethical adoption.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="job reveal">
+            <span class="dot"></span>
+            <div class="job-card">
+              <div class="job-head">
+                <h3>System Engineer <span>@ Infosys</span> <small style="color:var(--faint);font-weight:500">· Client: Microsoft</small></h3>
+                <div class="job-meta">May 2021 – Nov 2022 · Hyderabad, India</div>
+              </div>
+              <ul>
+                <li>Designed and maintained automated data pipelines that <b>cut processing time by 30%</b> through parallelization and better transformations.</li>
+                <li>Implemented <b>Azure Active Directory</b> authentication for secure, efficient data access.</li>
+                <li>Tuned complex SQL queries for a <b>40% reduction in response time</b>, improving reporting.</li>
+                <li>Built data-integration solutions with <b>Azure Synapse Analytics and Databricks</b>; monitored and supported Azure data infrastructure.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="job reveal">
+            <span class="dot"></span>
+            <div class="job-card">
+              <div class="job-head">
+                <h3>System Engineer Trainee <span>@ Infosys</span></h3>
+                <div class="job-meta">Jan 2021 – Apr 2021</div>
+              </div>
+              <ul>
+                <li>Trained in OOP, Java, SQL Server, C#, Entity Framework Core and ASP.NET Core Web API, with Agile and DevOps practices.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Toolbox</div>
+          <h2>Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group reveal"><h3><i>🧠</i> AI / LLM</h3><div class="skill-list">
+            <span class="skill">LangGraph</span><span class="skill">LangChain</span><span class="skill">MCP</span><span class="skill">RAG</span><span class="skill">OpenAI</span><span class="skill">Claude</span><span class="skill">Gemini</span><span class="skill">Hugging Face</span><span class="skill">Transformers</span><span class="skill">Ollama</span><span class="skill">NVIDIA NIM</span><span class="skill">RAGAS</span><span class="skill">LangSmith</span>
+          </div></div>
+          <div class="skill-group reveal"><h3><i>🗄️</i> Vector & Data stores</h3><div class="skill-list">
+            <span class="skill">pgvector</span><span class="skill">Pinecone</span><span class="skill">FAISS</span><span class="skill">Redis</span><span class="skill">MongoDB</span><span class="skill">Azure SQL</span><span class="skill">SQL Server</span><span class="skill">Redshift</span>
+          </div></div>
+          <div class="skill-group reveal"><h3><i>💻</i> Languages & Frameworks</h3><div class="skill-list">
+            <span class="skill">Python</span><span class="skill">Java</span><span class="skill">C++</span><span class="skill">C#</span><span class="skill">SQL</span><span class="skill">JavaScript</span><span class="skill">FastAPI</span><span class="skill">Flask</span><span class="skill">Streamlit</span><span class="skill">Next.js</span><span class="skill">Node.js</span><span class="skill">ASP.NET Core</span>
+          </div></div>
+          <div class="skill-group reveal"><h3><i>☁️</i> Cloud</h3><div class="skill-list">
+            <span class="skill">Azure Data Factory</span><span class="skill">Databricks</span><span class="skill">Azure ML</span><span class="skill">Synapse</span><span class="skill">ADLS</span><span class="skill">App Insights</span><span class="skill">AWS Lambda</span><span class="skill">ECS Fargate</span><span class="skill">ECR</span><span class="skill">S3</span><span class="skill">Glue</span><span class="skill">Athena</span>
+          </div></div>
+          <div class="skill-group reveal"><h3><i>⚙️</i> MLOps & DevOps</h3><div class="skill-list">
+            <span class="skill">Docker</span><span class="skill">Kubernetes</span><span class="skill">MLflow</span><span class="skill">CI/CD</span><span class="skill">Git</span><span class="skill">Great Expectations</span><span class="skill">XGBoost</span><span class="skill">Jira</span><span class="skill">Agile</span>
+          </div></div>
+          <div class="skill-group reveal"><h3><i>📊</i> Data & BI</h3><div class="skill-list">
+            <span class="skill">PySpark</span><span class="skill">Kafka</span><span class="skill">dbt</span><span class="skill">Power BI</span><span class="skill">Tableau</span><span class="skill">SSRS</span><span class="skill">Delta Lake</span>
+          </div></div>
+        </div>
+      </div>
+    </section>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+    <!-- CREDENTIALS -->
+    <section id="credentials">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Credentials</div>
+          <h2>Certifications & education</h2>
+        </div>
+        <div class="two-col">
+          <div class="panel reveal">
+            <h3>Certifications</h3>
+            <div class="cert-list">
+              <div class="cert"><span class="seal">AI-102</span><div><b>Azure AI Engineer Associate</b><span>Microsoft</span></div></div>
+              <div class="cert"><span class="seal">AI-900</span><div><b>Azure AI Fundamentals</b><span>Microsoft · 2025</span></div></div>
+              <div class="cert"><span class="seal">DB</span><div><b>Databricks Certified Data Engineer Associate</b><span>Databricks · 2025</span></div></div>
+              <div class="cert"><span class="seal">GenAI</span><div><b>Develop Generative AI Applications</b><span>IBM</span></div></div>
+              <div class="cert"><span class="seal">m1</span><div><b>micro1 Data Engineer Certification</b><span>micro1 · 2024</span></div></div>
+              <div class="cert"><span class="seal">AZ-900</span><div><b>Azure Fundamentals</b><span>Microsoft · 2023</span></div></div>
+            </div>
+          </div>
+          <div class="panel reveal">
+            <h3>Education</h3>
+            <div class="edu-list">
+              <div class="edu">
+                <b>M.S. Computer Science</b>
+                <div class="row"><span>California State University, Fullerton</span><span>2023 – 2025</span></div>
+                <div class="row"><span class="gpa">GPA 3.9 / 4.0</span></div>
+              </div>
+              <div class="edu">
+                <b>B.Tech Information Technology</b>
+                <div class="row"><span>SRKR Engineering College, India</span><span>2016 – 2020</span></div>
+                <div class="row"><span class="gpa">GPA 3.4 / 4.0</span></div>
+              </div>
+            </div>
+            <h3 style="margin-top:22px">Resume</h3>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="./Sai_Jagannadh_Resume.pdf" download><svg><use href="#i-download"/></svg> Download PDF</a>
+              <a class="btn" href="https://drive.google.com/file/d/1MVxJ3ye5SOAkK6B8lw5bs61_Q7KfGbyo/view" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg> Google Drive</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          </form>
-
-        </section>
-
-      </article>
-
-    </div>
-
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="eyebrow">Contact</div>
+          <h2>Let's build something <span class="grad-text">intelligent</span>.</h2>
+          <p>Open to Senior AI Engineer, ML Engineer and agentic-systems roles — on-site, hybrid or remote. The fastest way to reach me is email or LinkedIn.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:saijagannadh0625@gmail.com"><svg><use href="#i-mail"/></svg> saijagannadh0625@gmail.com</a>
+            <a class="btn" href="https://www.linkedin.com/in/saijagannadh/" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg> LinkedIn</a>
+            <a class="btn" href="https://github.com/SaiSatyaJagannadh" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <footer>
+    <div class="container foot">
+      <span>© <span id="year">2026</span> Sai Satya Jagannadh Doddipatla</span>
+      <span class="mono">Cary, NC · built with HTML, CSS & vanilla JS</span>
+    </div>
+  </footer>
 
+  <script>
+    // ---------- Projects data ----------
+    const GH = 'https://github.com/SaiSatyaJagannadh/';
+    const projects = [
+      {
+        title: 'MediNotes Pro', emoji: '🩺', cat: 'llm', featured: true,
+        sub: 'Gen AI SaaS · deployed on AWS Lambda',
+        desc: 'Turns a clinician\'s shorthand consultation notes into a record summary, a next-steps checklist and a patient-friendly email — streamed live in ~20 seconds.',
+        points: ['One Docker image serves the Next.js frontend and streaming FastAPI backend behind a single Lambda Function URL', 'Clerk JWT auth with subscription gating; scales to zero'],
+        tags: ['Next.js', 'FastAPI', 'SSE', 'Docker', 'ECR', 'Lambda', 'OpenAI'],
+        live: 'https://55ncfzx5whditvl2364jsjk3gy0twvlw.lambda-url.us-east-2.on.aws/', repo: GH + 'AI-Production'
+      },
+      {
+        title: 'Expense Compliance Agent', emoji: '🧾', cat: 'rag', featured: true,
+        sub: 'Production RAG + MCP',
+        desc: 'An HR agent that reads company policy, then approves or rejects expense claims with a one-line reason and the exact clause it relied on.',
+        points: ['MCP server exposing rag_ask / approve / reject tools to a LangChain agent', 'pgvector retrieval → Cohere rerank, Redis semantic cache, strict JSON output'],
+        tags: ['LangGraph', 'MCP', 'pgvector', 'Redis', 'Cohere', 'FastAPI', 'Docker'],
+        live: 'https://employee-expenses-tracking-agent.streamlit.app/', repo: GH + 'RAG_Pipeline'
+      },
+      {
+        title: 'Resume ATS Optimizer', emoji: '📄', cat: 'agents', featured: true,
+        sub: 'LangGraph multi-node agent',
+        desc: 'Paste a job description and get a before/after ATS score, gap report, an explanation of every edit and a tailored .docx.',
+        points: ['Stateful graph: parse → score → gap analysis → tailor → validate → re-score', 'Truthfulness validator blocks any invented employer, title, metric or skill (retry loop, max 2)'],
+        tags: ['LangGraph', 'OpenAI', 'Python', 'Streamlit', 'docx'],
+        repo: GH + 'Resume_ATSandRolDesc'
+      },
+      {
+        title: 'AI Healthcare Chatbot on Cerebras', emoji: '⚡', cat: 'rag', featured: true,
+        sub: 'Cerebras Fellowship',
+        desc: 'Medical Q&A chatbot with document upload, symptom queries and nearby-hospital lookup, migrated from GPT-3.5 to Cerebras inference.',
+        points: ['Up to 70% lower latency, 20K+ chars/sec on Llama 3.1-8B / 3.3-70B', 'Pinecone retrieval with metadata filtering on patient history'],
+        tags: ['Cerebras', 'Llama 3', 'LangChain', 'Pinecone', 'Flask', 'Geoapify'],
+        repo: 'https://www.linkedin.com/in/saijagannadh/details/projects/', repoLabel: 'Details'
+      },
+      {
+        title: 'FinAI — Financial AI Agents', emoji: '📈', cat: 'agents', featured: true,
+        sub: 'NSE/BSE + US markets',
+        desc: 'Five independent scoring engines blended into one BUY / HOLD / SELL, with all the working shown and an AI analyst agent on top.',
+        points: ['Agent on NVIDIA NIM (Nemotron) with Tavily search and LangSmith tracing', 'Three data sources cross-merged, per-sector benchmarks, 23 passing tests'],
+        tags: ['LangChain', 'NVIDIA NIM', 'Node.js', 'React', 'MongoDB', 'Streamlit'],
+        live: 'https://finai-stock-analysis.streamlit.app/', repo: GH + 'FinAI'
+      },
+      {
+        title: 'Customer Churn — End-to-End MLOps', emoji: '📡', cat: 'mlops', featured: true,
+        sub: 'XGBoost → API → AWS',
+        desc: 'Scores each customer\'s churn risk on demand in ~4 ms, from raw CSV through validated features to a containerized REST API and web UI.',
+        points: ['Recall 0.82 / ROC-AUC 0.84 with a deliberate 0.35 threshold', 'Great Expectations data gate, MLflow tracking, deployed on ECS Fargate'],
+        tags: ['XGBoost', 'MLflow', 'FastAPI', 'Gradio', 'Docker', 'ECS Fargate'],
+        repo: GH + 'Customer_Retention_Prediction'
+      },
+      {
+        title: 'LeetViz', emoji: '◆', cat: 'llm',
+        sub: 'Algorithm visualizer',
+        desc: 'Watch 150 interview problems run one line at a time — arrays, pointers, hash maps, trees and recursion stacks animated from real execution traces.',
+        points: ['52,324 traced steps across 18 patterns', 'Content authored with Claude Code subagents'],
+        tags: ['Python', 'Next.js', 'React', 'TypeScript', 'Streamlit'],
+        live: 'https://leetviz-traces.streamlit.app', repo: GH + 'leetcode_visualization'
+      },
+      {
+        title: 'RAG Document AI', emoji: '📚', cat: 'rag',
+        sub: 'Three ways to ground an LLM',
+        desc: 'Compares context stuffing, classic RAG and live web search side by side over your own PDFs and notes.',
+        points: ['Gemini embeddings → FAISS → Gemini 2.5 Flash', 'Tavily news search writes a sourced Markdown article'],
+        tags: ['LangChain', 'Gemini', 'FAISS', 'Tavily'],
+        repo: GH + 'RAG-Document_AI'
+      },
+      {
+        title: 'HSAVault', emoji: '🧾', cat: 'llm',
+        sub: 'Vision-LLM receipt vault',
+        desc: 'Personal HSA receipt manager: a vision model extracts receipt fields, receipts live in your own Google Drive, and a Sheet is the ledger.',
+        points: ['Duplicate detection and audit-packet PDF export', '248 tests, no network in the test suite'],
+        tags: ['Streamlit', 'Vision LLM', 'Google Drive API', 'Sheets API'],
+        repo: GH + 'HSA_Receipt_Store'
+      },
+      {
+        title: 'Log Agent Harness', emoji: '🔁', cat: 'agents',
+        sub: 'Agent loop from scratch',
+        desc: 'A minimal, readable agent harness for debugging production logs — the tool-use loop made explicit, with brakes on turns, tool calls and tokens.',
+        points: ['No framework: shows exactly how agents call tools and stop'],
+        tags: ['Python', 'Tool use', 'Agents'],
+        repo: GH + 'AI_learning'
+      },
+      {
+        title: 'Multi-Agent Frameworks Lab', emoji: '🤝', cat: 'agents',
+        sub: 'Framework comparison',
+        desc: 'Hands-on builds across the major agent stacks to compare orchestration styles and trade-offs.',
+        points: ['OpenAI Agents SDK, CrewAI, LangGraph, AutoGen and MCP'],
+        tags: ['CrewAI', 'AutoGen', 'LangGraph', 'MCP'],
+        repo: GH + 'agents-main'
+      },
+      {
+        title: 'AI Agents with LangChain', emoji: '🧠', cat: 'agents',
+        sub: '12-step agent progression',
+        desc: 'From a first tool-calling agent to memory, structured output, SQLite/Supabase persistence, local Ollama models and a Flask chat UI.',
+        points: ['Same agent runs on Gemini, OpenAI or fully local'],
+        tags: ['LangChain', 'Gemini', 'Ollama', 'Supabase', 'Flask'],
+        repo: GH + 'AI_Agent_langchain'
+      },
+      {
+        title: 'OneNote → Markdown Exporter', emoji: '🗒️', cat: 'llm',
+        sub: 'Graph API + Gemini OCR',
+        desc: 'Exports a whole OneNote section to Markdown and .docx, downloading images and attachments and transcribing diagram text with Gemini.',
+        points: [],
+        tags: ['Microsoft Graph', 'MSAL', 'Gemini', 'pandoc'],
+        repo: GH + 'IOS_AGENT_TOGGLE'
+      },
+      {
+        title: 'Stock Market Streaming on Kafka + AWS', emoji: '💹', cat: 'data',
+        sub: 'Real-time data engineering',
+        desc: 'Real-time stock data pipeline: a Python producer streams through Kafka into S3, cataloged with Glue and queried with Athena.',
+        points: [],
+        tags: ['Kafka', 'S3', 'Glue', 'Athena', 'Python'],
+        repo: GH + 'stock_market_kafka_dataengineering_project'
+      },
+      {
+        title: 'Covid-19 Analytics on Azure', emoji: '🦠', cat: 'data',
+        sub: 'End-to-end Azure pipeline',
+        desc: 'Ingests, transforms and analyzes Covid-19 data for healthcare decision-makers, with Power BI reporting.',
+        points: [],
+        tags: ['ADF', 'ADLS Gen2', 'Databricks', 'Azure SQL', 'Power BI'],
+        repo: GH + 'Azure-Data-Factory-Project-on-Covid19'
+      },
+      {
+        title: 'Formula 1 Lakehouse on Databricks', emoji: '🏎️', cat: 'data',
+        sub: 'Delta Lake · Unity Catalog',
+        desc: 'PySpark and Spark SQL processing workflows on Azure Databricks with Delta Lake, Unity Catalog and ADF orchestration.',
+        points: [],
+        tags: ['Databricks', 'PySpark', 'Delta Lake', 'Unity Catalog', 'ADF'],
+        repo: 'https://www.linkedin.com/in/saijagannadh/details/projects/', repoLabel: 'Details'
+      },
+      {
+        title: 'OptimalTSP Route Planner', emoji: '🗺️', cat: 'data',
+        sub: 'Algorithms · CSUF',
+        desc: 'Drop pins on a map and race five TSP solvers — brute force, nearest neighbour, genetic, simulated annealing — on real geodesic distances.',
+        points: [],
+        tags: ['Python', 'Streamlit', 'Folium', 'SciPy'],
+        live: 'https://optsppy-ja6ayynhktkfes4fdsz4iw.streamlit.app/', repo: GH + 'OPtimalTSP'
+      }
+    ];
+    const cats = [
+      { id: 'all', label: 'All' },
+      { id: 'featured', label: '⭐ Featured' },
+      { id: 'agents', label: 'Agents' },
+      { id: 'rag', label: 'RAG' },
+      { id: 'llm', label: 'LLM apps' },
+      { id: 'mlops', label: 'MLOps' },
+      { id: 'data', label: 'Data engineering' }
+    ];
+    const catName = { agents: 'Agentic AI', rag: 'RAG', llm: 'LLM app', mlops: 'MLOps', data: 'Data engineering' };
 
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const grid = document.getElementById('projectGrid');
+    const filtersEl = document.getElementById('filters');
 
+    function card(p) {
+      const badges = [p.featured ? '<span class="badge feat">Featured</span>' : '', p.live ? '<span class="badge live">● Live</span>' : ''].join('');
+      const pts = p.points && p.points.length ? '<ul>' + p.points.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>' : '';
+      const links = [
+        p.live ? '<a href="' + p.live + '" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg>Live demo</a>' : '',
+        p.repo ? '<a href="' + p.repo + '" target="_blank" rel="noopener"><svg><use href="#' + (p.repoLabel ? 'i-ext' : 'i-github') + '"/></svg>' + (p.repoLabel || 'Code') + '</a>' : ''
+      ].join('');
+      return '<article class="project reveal">' +
+        '<div class="top"><div class="emoji" aria-hidden="true">' + p.emoji + '</div><div class="badges">' + badges + '</div></div>' +
+        '<h3>' + esc(p.title) + '</h3><div class="cat">' + esc(catName[p.cat]) + ' · ' + esc(p.sub) + '</div>' +
+        '<p>' + esc(p.desc) + '</p>' + pts +
+        '<div class="tags">' + p.tags.map(t => '<span class="tag">' + esc(t) + '</span>').join('') + '</div>' +
+        '<div class="links">' + links + '</div></article>';
+    }
+    function render(filter) {
+      const list = projects.filter(p => filter === 'all' || (filter === 'featured' ? p.featured : p.cat === filter));
+      grid.innerHTML = list.map(card).join('');
+      observe(grid.querySelectorAll('.reveal'));
+    }
+    filtersEl.innerHTML = cats.map((c, i) => {
+      const n = c.id === 'all' ? projects.length : projects.filter(p => c.id === 'featured' ? p.featured : p.cat === c.id).length;
+      return '<button class="chip' + (c.id === 'featured' ? ' active' : '') + '" role="tab" data-f="' + c.id + '">' + c.label + '<span class="n">' + n + '</span></button>';
+    }).join('');
+    filtersEl.addEventListener('click', e => {
+      const b = e.target.closest('.chip'); if (!b) return;
+      filtersEl.querySelectorAll('.chip').forEach(x => x.classList.toggle('active', x === b));
+      render(b.dataset.f);
+    });
 
+    // ---------- Reveal on scroll ----------
+    const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.08 }) : null;
+    function observe(nodes) { nodes.forEach(n => io ? io.observe(n) : n.classList.add('in')); }
+    observe(document.querySelectorAll('.reveal'));
+    render('featured');
 
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
+    // ---------- Theme ----------
+    const root = document.documentElement;
+    let saved = null; try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (saved) root.setAttribute('data-theme', saved);
+    else if (window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches) root.setAttribute('data-theme', 'light');
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
 
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    // ---------- Nav ----------
+    const nav = document.getElementById('nav');
+    const links = document.getElementById('navLinks');
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    links.addEventListener('click', e => { if (e.target.tagName === 'A') { links.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
+    const sections = [...document.querySelectorAll('main section[id]')];
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+      let cur = '';
+      sections.forEach(s => { if (window.scrollY + 120 >= s.offsetTop) cur = s.id; });
+      links.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+    }, { passive: true });
 
+    // ---------- Typed headline ----------
+    const phrases = ['LLM apps that ship to production', 'RAG pipelines with cited answers', 'LangGraph agents with guardrails', 'MCP tool servers', 'data platforms on Azure & AWS'];
+    const typed = document.getElementById('typed');
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      let pi = 0, ci = phrases[0].length, del = true;
+      setTimeout(function tick() {
+        const p = phrases[pi];
+        if (del) { ci--; if (ci <= 0) { del = false; pi = (pi + 1) % phrases.length; } }
+        else { ci++; if (ci >= phrases[pi].length) { del = true; typed.textContent = phrases[pi]; return setTimeout(tick, 2000); } }
+        typed.textContent = phrases[pi].slice(0, Math.max(ci, 0)) || ' ';
+        setTimeout(tick, del ? 28 : 55);
+      }, 2400);
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
