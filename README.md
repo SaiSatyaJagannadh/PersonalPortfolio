@@ -1,40 +1,48 @@
-## Demo
+<div align="center">
 
-![Portfolio Desktop Demo](./website-demo-image/page8.png "Desktop Demo")
+# 🌐 Personal Portfolio — Sai Satya Jagannadh Doddipatla
 
+### My résumé, projects and contact info as a fast, responsive single-page site.
 
+[![Live Site](https://img.shields.io/badge/▶_Live_Site-Visit_portfolio-0A66C2?style=for-the-badge&logo=githubpages&logoColor=white)](https://saisatyajagannadh.github.io/PersonalPortfolio/)
 
-## Prerequisites
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/Hosted_on-GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white)
 
-Before you begin, ensure you have met the following requirements:
+**👉 [saisatyajagannadh.github.io/PersonalPortfolio](https://saisatyajagannadh.github.io/PersonalPortfolio/)**
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+</div>
 
-## Installing vCard
+---
 
-To install **Portfolio**, follow these steps:
+## 📸 Preview
 
-Linux and macOS:
+![Portfolio desktop view](./website-demo-image/page8.png)
+
+## ✨ Sections
+
+- 👤 **About** — what I do: Gen AI, data engineering, and full-stack builds
+- 📄 **Resume** — education, coursework, experience, technical skills and certifications
+- 🧩 **Portfolio** — project cards with links
+- ✉️ **Contact** — reach me directly
+
+Pure HTML/CSS/JS — no framework, no build step, loads instantly.
+
+## 🚀 Run locally
 
 ```bash
-sudo git clone hhttps://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
+git clone https://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
+cd PersonalPortfolio && open index.html
 ```
 
+Layout inspired by [serranopuente.github.io](https://github.com/serranopuente/serranopuente.github.io). MIT licensed.
 
-Windows:
+---
 
-```bash
-sudo git clone https://github.com/SaiSatyaJagannadh/PersonalPortfolio.git
-```
-## Reference links
+<div align="center">
 
-https://github.com/serranopuente/serranopuente.github.io
+**Built by [Sai Satya Jagannadh Doddipatla (DJ)](https://saisatyajagannadh.github.io/PersonalPortfolio/)** · ⭐ Star the repo if it helped
 
-
-## Contact
-
-If you want to contact me you can reach me at "saijagannadh1999@gmail.com".
-
-## License
-
-MIT
+</div>
