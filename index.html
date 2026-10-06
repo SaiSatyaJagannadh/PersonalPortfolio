@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sai Satya Jagannadh Doddipatla — AI Engineer</title>
-  <meta name="description" content="DJ — Tech Engineer at UBS building LLM apps, RAG systems and AI agents. LangGraph, MCP, Azure, AWS. 17 projects, 6 live demos, 380 LeetCode problems solved.">
-  <meta property="og:title" content="Sai Satya Jagannadh Doddipatla — AI Engineer">
-  <meta property="og:description" content="LLM apps, RAG pipelines and agentic systems shipped to production. Tech Engineer @ UBS · ex-Cerebras Fellow · MS CS @ CSUF.">
+  <title>Doddipatla Sai Satya Jagannadh (DJ) — AI Engineer</title>
+  <meta name="description" content="DJ — Tech Engineer at UBS building LLM apps, RAG systems and AI agents. LangGraph, MCP, Azure, AWS. 39 projects, 10 live demos, 380 LeetCode problems solved.">
+  <meta property="og:title" content="Doddipatla Sai Satya Jagannadh (DJ) — AI Engineer">
+  <meta property="og:description" content="LLM apps, RAG pipelines and agentic systems shipped to production. Tech Engineer @ UBS · MS CS @ CSUF.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://saisatyajagannadh.github.io/PersonalPortfolio/">
   <meta name="theme-color" content="#07080d">
@@ -78,7 +78,7 @@
 
     .progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--grad); z-index: 100; }
 
-    .nav { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 60; width: min(calc(100% - 28px), 980px);
+    .nav { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 60; width: min(calc(100% - 28px), 1180px);
       display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 8px 8px 14px; border-radius: 16px;
       background: color-mix(in srgb, var(--bg) 70%, transparent); border: 1px solid var(--border);
       backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); }
@@ -114,8 +114,12 @@
     @keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--a3) 70%, transparent); } 80%, 100% { box-shadow: 0 0 0 10px transparent; } }
     .hello { font-family: var(--mono); color: var(--muted); font-size: 14px; margin-bottom: 10px; }
     .hello b { color: var(--a2); font-weight: 500; }
-    h1.name { font-family: var(--display); font-size: clamp(46px, 8vw, 104px); line-height: .92; letter-spacing: -.045em; font-weight: 700; }
+    h1.name { font-family: var(--display); font-size: clamp(42px, 6.6vw, 88px); line-height: .95; letter-spacing: -.045em; font-weight: 700; }
     h1.name .line { display: block; }
+    h1.name .l0 { font-size: .42em; letter-spacing: .02em; color: var(--muted); font-weight: 600; margin-bottom: .18em; font-family: var(--mono); text-transform: uppercase; }
+    h1.name .dj { display: inline-block; font-size: .5em; vertical-align: .55em; padding: .08em .32em; border-radius: .3em; border: 2px solid color-mix(in srgb, var(--a3) 55%, transparent); color: var(--a3); letter-spacing: 0; background: color-mix(in srgb, var(--a3) 9%, transparent); animation: djpop .6s 1.6s both cubic-bezier(.3,1.6,.5,1); }
+    @keyframes djpop { from { opacity: 0; transform: scale(.4) rotate(-12deg); } }
+    .brand-name em { font-style: normal; color: var(--a3); }
     h1.name .l2 { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% 100%; animation: shift 8s ease-in-out infinite; }
     @keyframes shift { 50% { background-position: 100% 0; } }
     .role { margin-top: 22px; font-size: clamp(18px, 2.2vw, 23px); color: var(--muted); font-weight: 500; letter-spacing: -.01em; }
@@ -212,6 +216,94 @@
     .focus-list button:hover { border-color: var(--a1); transform: translateX(3px); }
     .focus-list button span { font-family: var(--mono); font-size: 11px; color: var(--faint); white-space: nowrap; }
 
+    /* About v2 */
+    .ab-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .ab-me { grid-column: span 5; padding: 26px; gap: 18px; }
+    .ab-top { display: flex; gap: 18px; align-items: center; }
+    .orbit { position: relative; width: 92px; height: 92px; flex-shrink: 0; display: grid; place-items: center; }
+    .orbit img { width: 80px; height: 80px; border-radius: 50%; background: var(--bg-2); position: relative; z-index: 1; border: 3px solid var(--card-solid); }
+    .orbit i { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, var(--a1), var(--a2), var(--a3), transparent 70%, var(--a1)); animation: spin 4s linear infinite; }
+    .orbit::after { content: ""; position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--a3); right: 6px; bottom: 6px; z-index: 2; border: 3px solid var(--card-solid); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .ab-me h3 { font-family: var(--display); font-size: clamp(21px, 2.2vw, 26px); line-height: 1.12; letter-spacing: -.025em; font-weight: 700; }
+    .dj-sm { color: var(--a3); }
+    .ab-role { color: var(--muted); font-size: 14px; margin-top: 6px; }
+    .ab-role a, .ab-bio a { color: var(--text); border-bottom: 1px dashed var(--a1); }
+    .ab-bio { color: var(--muted); font-size: 15px; }
+    .ab-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .ab-stats a { padding: 12px 8px; border-radius: 14px; border: 1px solid var(--border); background: var(--bg-2); text-align: center; transition: border-color .15s, transform .15s; }
+    .ab-stats a:hover { border-color: var(--a1); transform: translateY(-2px); }
+    .ab-stats b { display: block; font-family: var(--display); font-size: 30px; line-height: 1; letter-spacing: -.03em; }
+    .ab-stats span { font-size: 11.5px; color: var(--faint); font-family: var(--mono); }
+    .ab-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+    .ab-code { grid-column: span 7; display: flex; flex-direction: column; background: color-mix(in srgb, var(--bg-2) 92%, transparent); }
+    .code { font-family: var(--mono); font-size: 13.5px; line-height: 1.9; padding: 18px 20px 22px; overflow-x: auto; counter-reset: ln; flex: 1; }
+    .code .cl { display: block; white-space: pre; opacity: 0; transform: translateX(-8px); transition: opacity .4s, transform .4s; }
+    .code .cl::before { counter-increment: ln; content: counter(ln); display: inline-block; width: 2.2em; color: var(--faint); opacity: .6; user-select: none; }
+    .ab-code.in .cl { opacity: 1; transform: none; }
+        .ab-code.in .cl:nth-child(1) { transition-delay: 0.09s; }
+    .ab-code.in .cl:nth-child(2) { transition-delay: 0.18s; }
+    .ab-code.in .cl:nth-child(3) { transition-delay: 0.27s; }
+    .ab-code.in .cl:nth-child(4) { transition-delay: 0.36s; }
+    .ab-code.in .cl:nth-child(5) { transition-delay: 0.45s; }
+    .ab-code.in .cl:nth-child(6) { transition-delay: 0.54s; }
+    .ab-code.in .cl:nth-child(7) { transition-delay: 0.63s; }
+    .ab-code.in .cl:nth-child(8) { transition-delay: 0.72s; }
+    .ab-code.in .cl:nth-child(9) { transition-delay: 0.81s; }
+    .ab-code.in .cl:nth-child(10) { transition-delay: 0.90s; }
+    .ab-code.in .cl:nth-child(11) { transition-delay: 0.99s; }
+    .ab-code.in .cl:nth-child(12) { transition-delay: 1.08s; }
+    .code .kw { color: var(--hot); } .code .fn { color: var(--a2); } .code .ty { color: var(--a1); } .code .st { color: var(--a3); } .code .cm { color: var(--faint); font-style: italic; } .code .pr { color: var(--a1); } .code .ok { color: var(--a3); font-weight: 600; }
+    .wid-head { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; margin: 18px 0 2px; }
+    .wid-head .s-num { margin: 0; white-space: nowrap; }
+    .wid-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border-2), transparent); }
+    .cap { grid-column: span 3; padding: 18px 18px 20px; text-align: left; display: flex; flex-direction: column; gap: 6px; }
+    .cap:hover { transform: translateY(-4px); border-color: var(--a1); }
+    .cap-viz { width: 100%; height: auto; aspect-ratio: 2 / 1; border-radius: 14px; background: var(--bg-2); border: 1px solid var(--border); margin-bottom: 10px; }
+    .cap h4 { font-family: var(--display); font-size: 19px; letter-spacing: -.02em; font-weight: 600; }
+    .cap p { color: var(--muted); font-size: 13.8px; }
+    .cap-go { margin-top: auto; padding-top: 8px; font-size: 13px; font-weight: 600; color: var(--a2); }
+    .cap-go b { font-family: var(--mono); }
+    .cap-viz text { font-family: var(--mono); font-size: 10px; fill: var(--muted); text-anchor: middle; }
+    .cap-viz .edges path { stroke: var(--border-2); stroke-width: 1.5; fill: none; stroke-dasharray: 4 4; animation: dash 1.2s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -16; } }
+    .cap-viz .nodes rect { fill: var(--card-solid); stroke: var(--border-2); }
+    .cap-viz .nodes rect.core { fill: color-mix(in srgb, var(--a1) 22%, var(--card-solid)); stroke: var(--a1); animation: corepulse 2.4s ease-in-out infinite; }
+    .cap-viz .nodes rect.core + text { fill: var(--text); font-weight: 600; font-size: 11px; }
+    @keyframes corepulse { 50% { stroke-width: 3; } }
+    .pulse-dot { fill: var(--a3); filter: drop-shadow(0 0 4px var(--a3)); }
+    .cap-viz .docs rect { fill: var(--card-solid); stroke: var(--border-2); }
+    .cap-viz .docs rect.hit { stroke: var(--a3); animation: hit 3s ease-in-out infinite; }
+    @keyframes hit { 0%, 30% { stroke: var(--border-2); } 45%, 100% { stroke: var(--a3); fill: color-mix(in srgb, var(--a3) 12%, var(--card-solid)); } }
+    .cap-viz .docs path, .cap-viz .ans-l { stroke: var(--faint); stroke-width: 2.4; stroke-linecap: round; fill: none; opacity: .7; }
+    .cap-viz .beam { fill: color-mix(in srgb, var(--a2) 14%, transparent); stroke: var(--a2); stroke-width: 1.2; animation: beam 3s ease-in-out infinite; }
+    @keyframes beam { 0% { transform: translateY(0); opacity: 1; } 18% { transform: translateY(33px); } 33% { transform: translateY(66px); } 45% { transform: translateY(33px); opacity: 1; } 60%, 100% { transform: translateY(33px); opacity: 0; } }
+    .cap-viz .flow { stroke: var(--a3); stroke-width: 2; fill: none; stroke-dasharray: 6 5; animation: dash 1s linear infinite; }
+    .cap-viz .ans { fill: var(--card-solid); stroke: var(--a1); }
+    .cap-viz .cite rect { fill: color-mix(in srgb, var(--a3) 22%, transparent); stroke: var(--a3); }
+    .cap-viz .cite text { fill: var(--a3); font-weight: 700; }
+    .cap-viz .cite { animation: blinkc 3s ease-in-out infinite; }
+    @keyframes blinkc { 0%, 50% { opacity: 0; } 60%, 100% { opacity: 1; } }
+    .cap-viz .stage rect { fill: var(--card-solid); stroke: var(--border-2); animation: stagelit 4s infinite; }
+    .cap-viz .stage rect:nth-of-type(2) { animation-delay: 1s; } .cap-viz .stage rect:nth-of-type(3) { animation-delay: 2s; }
+    .cap-viz .stage rect.live { animation: livelit 4s infinite; }
+    @keyframes stagelit { 0%, 20% { stroke: var(--a2); fill: color-mix(in srgb, var(--a2) 14%, var(--card-solid)); } 30%, 100% { stroke: var(--border-2); } }
+    @keyframes livelit { 0%, 70% { stroke: var(--border-2); } 76%, 100% { stroke: var(--a3); fill: color-mix(in srgb, var(--a3) 16%, var(--card-solid)); } }
+    .cap-viz .stage text { font-size: 11px; }
+    .cap-viz .track { fill: var(--border); }
+    .cap-viz .fill { fill: var(--a2); transform-origin: 10px 0; animation: prog 4s linear infinite; }
+    @keyframes prog { from { transform: scaleX(0); } 75%, to { transform: scaleX(1); } }
+    .cap-viz .okay { fill: var(--a3); font-weight: 700; animation: blinkc 4s infinite; }
+    .cap-viz .bars rect { fill: var(--a1); opacity: .75; transform-box: fill-box; transform-origin: bottom; animation: grow 2.6s ease-in-out infinite alternate; }
+    .cap-viz .bars rect:nth-child(2) { animation-delay: .3s; fill: var(--a2); } .cap-viz .bars rect:nth-child(3) { animation-delay: .6s; } .cap-viz .bars rect:nth-child(4) { animation-delay: .9s; fill: var(--a3); } .cap-viz .bars rect:nth-child(5) { animation-delay: 1.2s; fill: var(--a2); }
+    @keyframes grow { from { transform: scaleY(.35); } }
+    .cap-viz .spark { stroke: var(--a3); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 120; animation: draw 3s ease-in-out infinite; }
+    @keyframes draw { from { stroke-dashoffset: 120; } 60%, to { stroke-dashoffset: 0; } }
+    .cap-viz .spark-dot { fill: var(--a3); animation: blinkc 3s infinite; }
+    .cap-viz .pipe { stroke: var(--a2); stroke-width: 2; stroke-dasharray: 2 10; stroke-linecap: round; animation: dash .6s linear infinite; opacity: .8; }
+    .ab-lc { grid-column: span 7; }
+    .ab-viz { grid-column: span 5; }
+
     /* Projects */
     .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
     .chip { padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; border: 1px solid var(--border); background: var(--card-solid); color: var(--muted); transition: all .15s; }
@@ -225,13 +317,37 @@
     .p-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 10px; }
     .proj { grid-column: span 4; padding: 24px; display: flex; flex-direction: column; }
     .proj.hero-p { grid-column: span 6; }
-    .proj .ptop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; min-height: 26px; }
+    .proj .ptop { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; min-height: 52px; }
     .proj .idx { font-family: var(--mono); font-size: 12px; color: var(--faint); }
     .pbadges { display: flex; gap: 6px; transition: opacity .2s; }
     .pb { font-family: var(--mono); font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--border-2); color: var(--muted); }
     .pb.live { color: var(--a3); border-color: color-mix(in srgb, var(--a3) 40%, transparent); background: color-mix(in srgb, var(--a3) 9%, transparent); }
     .pb.live::before { content: "● "; }
-    .proj .picon { font-size: 30px; line-height: 1; margin-bottom: 16px; }
+    [hidden] { display: none !important; }
+    .p-bar { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+    .p-bar .filters { margin: 0; }
+    .psearch { display: flex; align-items: center; gap: 8px; padding: 0 12px; height: 40px; border-radius: 12px; border: 1px solid var(--border-2); background: var(--card-solid); min-width: 260px; flex: 0 1 320px; transition: border-color .15s; }
+    .psearch:focus-within { border-color: var(--a1); }
+    .psearch svg { width: 16px; height: 16px; color: var(--faint); flex-shrink: 0; }
+    .psearch input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--text); font: inherit; font-size: 13.5px; }
+    .p-more { gap: 10px; flex-wrap: wrap; }
+    .c-agents { --c1: #8b7bff; --c2: #4cc9ff; }
+    .c-rag { --c1: #19c9a0; --c2: #4cc9ff; }
+    .c-llm { --c1: #ff6fae; --c2: #9b8cff; }
+    .c-data { --c1: #ffb020; --c2: #ff6f91; }
+    .c-web { --c1: #5b8cff; --c2: #c06bff; }
+    .ptile { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; color: #fff; position: relative;
+      background: linear-gradient(135deg, var(--c1), var(--c2)); box-shadow: 0 12px 28px -12px var(--c1), inset 0 1px 0 rgba(255,255,255,.35); transition: transform .35s cubic-bezier(.3,1.5,.5,1); }
+    .ptile::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(160deg, rgba(255,255,255,.35), transparent 45%); }
+    .ptile svg { width: 26px; height: 26px; position: relative; z-index: 1; filter: drop-shadow(0 1px 1px rgba(0,0,0,.25)); }
+    .proj:hover .ptile { transform: rotate(-8deg) scale(1.08); }
+    .pwater { position: absolute; right: -28px; bottom: -28px; width: 170px; height: 170px; color: var(--c1); opacity: .06; z-index: -1; transition: opacity .3s, transform .5s; pointer-events: none; }
+    .proj:hover .pwater { opacity: .13; transform: rotate(-10deg) scale(1.05); }
+    .proj .idx { display: block; margin-bottom: 6px; color: var(--c1); }
+    .proj .psub { color: var(--muted); }
+    .proj::after { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%; background: linear-gradient(90deg, var(--c1), var(--c2)); opacity: .0; transition: opacity .25s; }
+    .proj:hover::after { opacity: 1; }
+    .pb.feat { color: #febc2e; border-color: rgba(254,188,46,.4); background: rgba(254,188,46,.08); }
     .proj h3 { font-family: var(--display); font-size: 22px; letter-spacing: -.025em; line-height: 1.15; font-weight: 600; }
     .proj.hero-p h3 { font-size: 27px; }
     .proj h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: var(--radius); }
@@ -300,6 +416,28 @@
     .gpa { color: var(--a3); font-family: var(--mono); font-size: 12.5px; }
     .resume-box { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
 
+    /* Console */
+    .console { position: relative; border-radius: 18px; overflow: hidden; background: color-mix(in srgb, var(--bg-2) 94%, transparent); border: 1px solid var(--border-2);
+      box-shadow: 0 40px 100px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(155,140,255,.08); }
+    .console::before { content: ""; position: absolute; inset: -1px; border-radius: 18px; padding: 1px; background: var(--grad); opacity: .5;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+    .console::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 3px); }
+    .c-out { font-family: var(--mono); font-size: 13.5px; line-height: 1.75; padding: 16px 20px 6px; height: 380px; overflow-y: auto; color: var(--muted); scrollbar-width: thin; }
+    .c-out .ln { white-space: pre-wrap; word-break: break-word; }
+    .c-out .p { color: var(--a3); } .c-out .c { color: var(--a2); } .c-out .k { color: var(--a1); } .c-out .w { color: var(--text); } .c-out .h { color: var(--hot); } .c-out .ok { color: var(--a3); font-weight: 600; } .c-out .er { color: #ff6b81; } .c-out .dim { color: var(--faint); }
+    .c-out a { color: var(--text); border-bottom: 1px dashed var(--a1); } .c-out a:hover { color: var(--a2); }
+    .c-out button.cmd { font-family: var(--mono); color: var(--a2); border-bottom: 1px dotted var(--a2); padding: 0; }
+    .c-out .ascii { color: var(--a1); line-height: 1.2; font-size: 15px; display: block; margin-bottom: 6px; }
+    .c-in { display: flex; align-items: center; gap: 10px; padding: 12px 20px 16px; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 13.5px; position: relative; z-index: 2; }
+    .c-in label { white-space: nowrap; color: var(--muted); } .c-in .p { color: var(--a3); } .c-in .c { color: var(--a2); }
+    .c-in input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--text); font: inherit; caret-color: var(--a3); }
+    .c-matrix { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity .5s; z-index: 1; }
+    .c-matrix.on { opacity: .9; }
+    .c-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; justify-content: center; }
+    .c-chips button { font-family: var(--mono); font-size: 12.5px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--border-2); background: var(--card-solid); color: var(--muted); transition: all .15s; }
+    .c-chips button:hover { color: var(--text); border-color: var(--a1); transform: translateY(-2px); }
+    @media (max-width: 640px) { .c-out { font-size: 11.8px; height: 340px; padding: 12px; } .c-in { padding: 10px 12px 14px; font-size: 12.5px; } .c-in label .p { display: none; } }
+
     /* Contact */
     .contact { text-align: center; padding: 120px 0 80px; }
     .contact .kicker { font-family: var(--mono); color: var(--a1); font-size: 13px; }
@@ -325,12 +463,15 @@
       .bar i { width: var(--w); }
     }
 
+    @media (max-width: 1240px) { .brand-name { display: none; } }
     @media (max-width: 1040px) {
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .bento { grid-template-columns: repeat(4, 1fr); }
       .b-intro { grid-column: span 4; grid-row: auto; }
       .b-stat, .b-now, .b-loc { grid-column: span 2; }
       .b-lc, .b-viz, .b-focus { grid-column: span 4; }
+      .ab-me, .ab-code, .ab-lc, .ab-viz { grid-column: span 12; }
+      .cap { grid-column: span 6; }
       .proj, .proj.hero-p { grid-column: span 6; }
       .sk-grid { grid-template-columns: repeat(2, 1fr); }
       .job { grid-template-columns: 150px 1fr; }
@@ -349,9 +490,14 @@
       .hero { padding-top: 96px; min-height: auto; }
       .bento { grid-template-columns: 1fr 1fr; gap: 10px; }
       .b-intro, .b-lc, .b-viz, .b-focus, .b-now, .b-loc { grid-column: span 2; }
+      .cap { grid-column: span 12; }
+      .ab-stats { grid-template-columns: repeat(2, 1fr); }
+      .code { font-size: 11.5px; padding: 14px 12px; }
+      .ab-top { flex-direction: column; align-items: flex-start; }
       .b-stat { grid-column: span 1; padding: 18px; }
       .big { font-size: 40px; }
       .proj, .proj.hero-p { grid-column: span 12; }
+      .psearch { flex: 1 1 100%; min-width: 0; }
       .sk-grid, .certs { grid-template-columns: 1fr; }
       .job { grid-template-columns: 1fr; gap: 8px; padding: 22px 4px; }
       .job .stack { grid-column: 1; }
@@ -359,6 +505,7 @@
       .ring { margin: 0 auto; }
       .t-body { font-size: 11.5px; min-height: 300px; padding: 14px; }
       .brand-name { display: none; }
+      h1.name .l0 { font-size: .5em; }
       .nav-cta span { display: none; }
       .scroll-hint { display: none; }
       .mail { flex-direction: column; padding: 14px; gap: 10px; }
@@ -382,16 +529,48 @@
     <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.52.85l10.4-6.5a1 1 0 0 0 0-1.7L9.52 4.65A1 1 0 0 0 8 5.5Z"/></symbol>
     <symbol id="i-arr" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Zm0-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></symbol>
+    <symbol id="ic-agent" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M9.5 16.5h5M2 13v2M22 13v2"/><circle cx="12" cy="3.5" r="1"/></g></symbol>
+    <symbol id="ic-graph" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 6h9M6.3 8.2l4.4 7.6M17.7 8.2l-4.4 7.6"/></g></symbol>
+    <symbol id="ic-rag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="5.5" rx="6" ry="2.5"/><path d="M3 5.5v6c0 1.4 2.7 2.5 6 2.5M15 5.5V9"/><path d="M3 11.5v6C3 18.9 5.7 20 9 20"/><circle cx="17" cy="16" r="3.5"/><path d="m19.6 18.6 2.4 2.4"/></g></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8 10h8M8 13h5"/></g></symbol>
+    <symbol id="ic-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/><path d="m15.5 15.5 1.2 1.2 2.3-2.4"/></g></symbol>
+    <symbol id="ic-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path d="M19 3l.6 1.4L21 5l-1.4.6L19 7l-.6-1.4L17 5l1.4-.6Z"/></g></symbol>
+    <symbol id="ic-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/><circle cx="19" cy="6" r="1.4"/></g></symbol>
+    <symbol id="ic-health" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-8-4.6-8-10.3A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.7C20 15.4 12 20 12 20Z"/><path d="M7 12h2.5l1.5-2.5 2 5 1.5-2.5H17"/></g></symbol>
+    <symbol id="ic-cloud" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 1 1 .9-8.9A6 6 0 0 1 19.5 11 3.5 3.5 0 0 1 18 18Z"/><path d="M12 12v5m-2.2-2.2L12 17l2.2-2.2"/></g></symbol>
+    <symbol id="ic-stream" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h10M3 12h15M3 17h7"/><circle cx="16" cy="7" r="2"/><circle cx="21" cy="12" r="1.5"/><circle cx="13" cy="17" r="2"/></g></symbol>
+    <symbol id="ic-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></g></symbol>
+    <symbol id="ic-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2Z"/><path d="M9 4v14M15 6v14"/></g></symbol>
+    <symbol id="ic-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></g></symbol>
+    <symbol id="ic-game" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="18" cy="13.5" r="1"/></g></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></g></symbol>
+    <symbol id="ic-receipt" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18l-2.3-1.5L14.3 21 12 19.5 9.7 21l-2.4-1.5L5 21Z"/><path d="M9 8h6M9 12h6M9 16h3"/></g></symbol>
+    <symbol id="ic-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16H3v-4l2-5h11l3 5h2v4h-2"/><circle cx="7.5" cy="16.5" r="2"/><circle cx="16.5" cy="16.5" r="2"/><path d="M9.5 16.5h5M5 12h14"/></g></symbol>
+    <symbol id="ic-film" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></g></symbol>
+    <symbol id="ic-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3Z"/></g></symbol>
+    <symbol id="ic-brain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1ZM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/><path d="M12 9h2.5M12 14h3"/></g></symbol>
+    <symbol id="ic-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></g></symbol>
+    <symbol id="ic-race" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h13l-2.5 4L18 12H5"/><path d="M9 4v8M13 4v8M5 8h13"/></g></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.6"/></g></symbol>
+    <symbol id="ic-terminal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="m7 9.5 3 2.5-3 2.5M12.5 15H17"/></g></symbol>
+    <symbol id="ic-weather" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M8 2v1.5M2 8h1.5M3.8 3.8l1 1M12.2 3.8l-1 1"/><path d="M9 19a4 4 0 1 1 1.4-7.8A5 5 0 0 1 20 13a3 3 0 0 1-1 6Z"/></g></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8M8 10.5h5M10.5 8v5"/></g></symbol>
+    <symbol id="ic-briefcase" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12.5h18M11 12.5v2h2v-2"/></g></symbol>
+    <symbol id="ic-ledger" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4a2 2 0 0 1 2-2h12v18H7a2 2 0 0 0-2 2Z"/><path d="M5 20V4M10 7h5M10 11h5M12.5 13.5v4M10.5 15.5h4"/></g></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></g></symbol>
+    <symbol id="ic-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v17H5.5A1.5 1.5 0 0 0 4 21.5ZM20 4.5A1.5 1.5 0 0 0 18.5 3H13v17h5.5a1.5 1.5 0 0 1 1.5 1.5Z"/></g></symbol>
+    <symbol id="ic-bolt" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7Z"/></g></symbol>
   </svg>
 
   <nav class="nav" id="nav" aria-label="Main">
-    <a href="#top" class="brand"><span class="brand-mark">DJ</span><span class="brand-name">Sai Jagannadh</span></a>
+    <a href="#top" class="brand"><span class="brand-mark">DJ</span><span class="brand-name">Doddipatla Sai Satya Jagannadh <em>(DJ)</em></span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#console">Console</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -411,7 +590,7 @@
         <div>
           <a class="status" href="#contact"><span class="live-dot"></span>Open to Senior AI / ML Engineer roles</a>
           <div class="hello">// hi, I'm <b>DJ</b></div>
-          <h1 class="name" aria-label="Sai Satya Jagannadh"><span class="line" data-scramble aria-hidden="true">Sai Satya</span><span class="line l2" data-scramble aria-hidden="true">Jagannadh.</span></h1>
+          <h1 class="name" aria-label="Doddipatla Sai Satya Jagannadh (DJ)"><span class="line l0" data-scramble aria-hidden="true">Doddipatla</span><span class="line" data-scramble aria-hidden="true">Sai Satya</span><span class="line"><span class="l2" data-scramble aria-hidden="true">Jagannadh</span> <span class="dj" aria-hidden="true">(DJ)</span></span></h1>
           <p class="role">I build <span class="rot" id="rot">RAG systems that cite their sources</span></p>
           <div class="hero-cta">
             <a class="btn btn-glow" href="#projects">Explore my AI work <svg><use href="#i-arr"/></svg></a>
@@ -419,7 +598,7 @@
           </div>
           <div class="hero-links">
             <a class="hl" href="https://www.ubs.com" target="_blank" rel="noopener">🏦 Tech Engineer @ UBS</a>
-            <a class="hl" href="https://www.cerebras.ai" target="_blank" rel="noopener">⚡ ex-Cerebras Fellow</a>
+            <a class="hl" href="https://www.fullerton.edu" target="_blank" rel="noopener">🎓 MS CS @ CSUF</a>
             <a class="hl" href="https://github.com/SaiSatyaJagannadh" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
             <a class="hl" href="https://www.linkedin.com/in/saijagannadh/" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
             <a class="hl" href="https://leetcode.com/u/saijagannadh0625/" target="_blank" rel="noopener"><svg><use href="#i-lc"/></svg>LeetCode</a>
@@ -439,31 +618,100 @@
     <section id="about">
       <div class="container">
         <div class="s-head rv">
-          <div><span class="s-num">01 / about</span><h2>Notebook → production.</h2></div>
-          <p>I care about the unglamorous parts that make AI useful: grounding, guardrails, evals, latency and cost.</p>
+          <div><span class="s-num">01 / about</span><h2>I make LLMs<br><span class="grad">do real work.</span></h2></div>
+          <p>Notebooks are easy. I take AI the rest of the way — agents, RAG and data platforms running in production, with grounding, guardrails, evals, latency and cost handled.</p>
         </div>
-        <div class="bento">
-          <div class="spot b b-intro rv">
-            <div class="b-label"><span class="d"></span>who I am</div>
-            <h3>Tech Engineer at <a href="https://www.ubs.com" target="_blank" rel="noopener">UBS</a>, former <a href="https://www.cerebras.ai" target="_blank" rel="noopener">Cerebras</a> Fellow, MS CS from <a href="https://www.fullerton.edu" target="_blank" rel="noopener">CSUF</a>. I ship <span class="grad">LLM apps, RAG pipelines and LangGraph agents</span> all the way to a live URL.</h3>
-            <p>4+ years across software, cloud and AI — from Azure data platforms for Microsoft at Infosys, to wafer-scale LLM inference at Cerebras, to production reliability and AI automation at UBS.</p>
-            <a class="me" href="https://www.linkedin.com/in/saijagannadh/" target="_blank" rel="noopener">
-              <img src="./assets/images/my-avatar.png" alt="DJ avatar" width="52" height="52">
-              <div><b>Sai Satya Jagannadh Doddipatla</b><span>Connect on LinkedIn ↗</span></div>
-            </a>
+        <div class="ab-grid">
+          <div class="spot b ab-me rv">
+            <div class="ab-top">
+              <div class="orbit"><img src="./assets/images/my-avatar.png" alt="DJ" width="84" height="84"><i></i></div>
+              <div>
+                <div class="b-label"><span class="d"></span>online · Cary, NC</div>
+                <h3>Doddipatla Sai Satya Jagannadh <span class="dj-sm">(DJ)</span></h3>
+                <p class="ab-role">Tech Engineer @ <a href="https://www.ubs.com" target="_blank" rel="noopener">UBS</a> · AI / ML Engineer</p>
+              </div>
+            </div>
+            <p class="ab-bio">4+ years across software, cloud and AI — from Azure data platforms for Microsoft at Infosys to AI automation and production reliability at UBS. MS CS from <a href="https://www.fullerton.edu" target="_blank" rel="noopener">CSUF</a> (3.9 GPA). I like hard problems with a live URL at the end.</p>
+            <div class="ab-stats">
+              <a href="#experience"><b class="grad" data-count="4" data-suffix="+">4+</b><span>years</span></a>
+              <a href="#projects" data-jump="all"><b class="grad" data-count="39" id="statProj">39</b><span>projects</span></a>
+              <a href="#projects" data-jump="live"><b class="grad" data-count="10" id="statLive">10</b><span>live demos</span></a>
+              <a href="https://leetcode.com/u/saijagannadh0625/" target="_blank" rel="noopener"><b class="grad" data-count="380">380</b><span>leetcode</span></a>
+            </div>
+            <div class="ab-links">
+              <a class="hl" href="https://www.linkedin.com/in/saijagannadh/" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
+              <a class="hl" href="https://github.com/SaiSatyaJagannadh" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
+              <a class="hl" href="#console">⌘ try my console</a>
+            </div>
           </div>
-          <a class="spot b b-stat rv" href="#experience">
-            <div class="b-label">experience</div>
-            <div class="big grad" data-count="4" data-suffix="+">4+</div>
-            <p>years across software, cloud &amp; AI</p>
-          </a>
-          <a class="spot b b-stat rv" href="#projects">
-            <div class="b-label">shipped</div>
-            <div class="big grad" data-count="17">17</div>
-            <p>projects · <span style="color:var(--a3)">6 live demos</span></p>
-          </a>
 
-          <a class="spot b b-lc rv" href="https://leetcode.com/u/saijagannadh0625/" target="_blank" rel="noopener">
+          <div class="spot ab-code rv" aria-label="DJ described as a Python class">
+            <div class="t-bar"><i></i><i></i><i></i><span>dj.py — about me, as code</span></div>
+            <pre class="code"><code><span class="cl"><span class="kw">class</span> <span class="fn">DJ</span>(<span class="ty">AIEngineer</span>):</span><span class="cl">    name   = <span class="st">"Doddipatla Sai Satya Jagannadh"</span></span><span class="cl">    now    = <span class="st">"Tech Engineer @ UBS"</span></span><span class="cl">    before = [<span class="st">"Infosys → Microsoft"</span>, <span class="st">"MS CS @ CSUF"</span>]</span><span class="cl">    builds = [<span class="st">"agents"</span>, <span class="st">"RAG"</span>, <span class="st">"LLM apps"</span>, <span class="st">"data platforms"</span>]</span><span class="cl">    cares  = {<span class="st">"grounding"</span>, <span class="st">"guardrails"</span>, <span class="st">"evals"</span>, <span class="st">"latency"</span>, <span class="st">"$/token"</span>}</span><span class="cl"> </span><span class="cl">    <span class="kw">def</span> <span class="fn">ship</span>(self, idea):</span><span class="cl">        <span class="kw">return</span> idea | prototype | evaluate | deploy  <span class="cm"># → live URL</span></span><span class="cl"> </span><span class="cl"><span class="pr">&gt;&gt;&gt;</span> DJ().ship(<span class="st">"your hardest AI problem"</span>)</span><span class="cl"><span class="ok">✓ deployed</span> <span class="cm">· grounded · evaluated · on call</span><span class="cur"></span></span></code></pre>
+          </div>
+
+          <div class="wid-head rv"><span class="s-num">what I do</span><span class="wid-line"></span></div>
+
+          <button class="spot cap rv" data-jump="agents">
+            <svg class="cap-viz" viewBox="0 0 240 120" aria-hidden="true">
+              <g class="edges"><path id="e1" d="M120 60 L50 28"/><path id="e2" d="M120 60 L190 28"/><path id="e3" d="M120 60 L50 94"/><path id="e4" d="M120 60 L190 94"/></g>
+              <circle class="pulse-dot" r="3.2"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#e1"/></animateMotion></circle>
+              <circle class="pulse-dot" r="3.2"><animateMotion dur="2.4s" begin=".6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1"><mpath href="#e2"/></animateMotion></circle>
+              <circle class="pulse-dot" r="3.2"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite"><mpath href="#e4"/></animateMotion></circle>
+              <circle class="pulse-dot" r="3.2"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1"><mpath href="#e3"/></animateMotion></circle>
+              <g class="nodes"><rect x="96" y="44" width="48" height="32" rx="9" class="core"/><text x="120" y="64">LLM</text>
+              <rect x="22" y="16" width="56" height="24" rx="7"/><text x="50" y="32">plan</text>
+              <rect x="162" y="16" width="56" height="24" rx="7"/><text x="190" y="32">tools</text>
+              <rect x="22" y="82" width="56" height="24" rx="7"/><text x="50" y="98">memory</text>
+              <rect x="162" y="82" width="56" height="24" rx="7"/><text x="190" y="98">critic</text></g>
+            </svg>
+            <h4>Agentic systems</h4>
+            <p>LangGraph & MCP agents that plan, call tools, check their own work — and stop when they should.</p>
+            <span class="cap-go"><b data-catn="agents">0</b> projects →</span>
+          </button>
+
+          <button class="spot cap rv" data-jump="rag">
+            <svg class="cap-viz" viewBox="0 0 240 120" aria-hidden="true">
+              <g class="docs"><rect x="16" y="14" width="64" height="26" rx="6"/><rect x="16" y="47" width="64" height="26" rx="6" class="hit"/><rect x="16" y="80" width="64" height="26" rx="6"/>
+              <path d="M26 23h40M26 31h28M26 56h44M26 64h30M26 89h38M26 97h24"/></g>
+              <rect class="beam" x="12" y="10" width="72" height="34" rx="8"/>
+              <path class="flow" d="M86 60 C110 60 116 60 134 60"/>
+              <rect x="138" y="30" width="88" height="60" rx="12" class="ans"/>
+              <path class="ans-l" d="M150 48h60M150 58h48M150 68h36"/>
+              <g class="cite"><rect x="190" y="62" width="26" height="16" rx="5"/><text x="203" y="74">[2]</text></g>
+            </svg>
+            <h4>RAG that cites sources</h4>
+            <p>Retrieval, reranking and caching over your docs — every answer points at the exact clause it came from.</p>
+            <span class="cap-go"><b data-catn="rag">0</b> projects →</span>
+          </button>
+
+          <button class="spot cap rv" data-jump="llm">
+            <svg class="cap-viz" viewBox="0 0 240 120" aria-hidden="true">
+              <g class="stage"><rect x="10" y="40" width="46" height="40" rx="9"/><text x="33" y="64">code</text>
+              <rect x="70" y="40" width="46" height="40" rx="9"/><text x="93" y="64">eval</text>
+              <rect x="130" y="40" width="46" height="40" rx="9"/><text x="153" y="64">λ</text>
+              <rect x="190" y="40" width="42" height="40" rx="9" class="live"/><text x="211" y="64">live</text></g>
+              <rect class="track" x="10" y="96" width="222" height="5" rx="2.5"/><rect class="fill" x="10" y="96" width="222" height="5" rx="2.5"/>
+              <text class="okay" x="211" y="28">200 OK</text>
+            </svg>
+            <h4>LLM apps → production</h4>
+            <p>Next.js / Streamlit front-ends, FastAPI back-ends, Docker on AWS Lambda — streamed, metered, monitored.</p>
+            <span class="cap-go"><b data-catn="llm">0</b> projects →</span>
+          </button>
+
+          <button class="spot cap rv" data-jump="data">
+            <svg class="cap-viz" viewBox="0 0 240 120" aria-hidden="true">
+              <g class="bars"><rect x="18" y="60" width="16" height="44" rx="3"/><rect x="42" y="44" width="16" height="60" rx="3"/><rect x="66" y="70" width="16" height="34" rx="3"/><rect x="90" y="30" width="16" height="74" rx="3"/><rect x="114" y="52" width="16" height="52" rx="3"/></g>
+              <path class="spark" d="M146 92 L166 74 L184 82 L204 46 L226 30"/>
+              <circle class="spark-dot" cx="226" cy="30" r="4"/>
+              <path class="pipe" d="M10 14 H230"/>
+            </svg>
+            <h4>Data platforms & MLOps</h4>
+            <p>Kafka streams, Databricks lakehouses, ADF pipelines and MLflow-tracked models that keep running after the demo.</p>
+            <span class="cap-go"><b data-catn="data">0</b> projects →</span>
+          </button>
+
+          <a class="spot b ab-lc rv" href="https://leetcode.com/u/saijagannadh0625/" target="_blank" rel="noopener">
             <div class="b-label"><svg width="13" height="13"><use href="#i-lc"/></svg>leetcode · saijagannadh0625 ↗</div>
             <div class="lc-wrap">
               <div class="ring">
@@ -484,7 +732,7 @@
             </div>
           </a>
 
-          <a class="spot b b-viz rv" href="https://leetviz-traces.streamlit.app" target="_blank" rel="noopener">
+          <a class="spot b ab-viz rv" href="https://leetviz-traces.streamlit.app" target="_blank" rel="noopener">
             <div class="b-label"><span class="d"></span>my leetcode site · live ↗</div>
             <div class="viz-bars" aria-hidden="true">
               <i style="--s1:.3;--s2:.9"></i><i style="--s1:.8;--s2:.2;animation-delay:.1s"></i><i style="--s1:.5;--s2:.7;animation-delay:.2s"></i><i style="--s1:1;--s2:.4;animation-delay:.3s"></i><i style="--s1:.2;--s2:1;animation-delay:.4s"></i><i style="--s1:.65;--s2:.35;animation-delay:.5s"></i><i style="--s1:.4;--s2:.8;animation-delay:.6s"></i><i style="--s1:.9;--s2:.55;animation-delay:.7s"></i><i style="--s1:.15;--s2:.6;animation-delay:.8s"></i><i style="--s1:.7;--s2:.25;animation-delay:.9s"></i><i style="--s1:.45;--s2:.95;animation-delay:1s"></i><i style="--s1:.85;--s2:.45;animation-delay:1.1s"></i>
@@ -493,26 +741,6 @@
             <p>52,324 traced steps across 18 patterns, line by line.</p>
           </a>
 
-          <div class="spot b b-focus rv">
-            <div class="b-label">jump to my work in</div>
-            <div class="focus-list">
-              <button data-jump="agents">Agentic AI <span>LangGraph · MCP →</span></button>
-              <button data-jump="rag">RAG systems <span>pgvector · FAISS →</span></button>
-              <button data-jump="mlops">MLOps <span>MLflow · ECS →</span></button>
-              <button data-jump="data">Data engineering <span>ADF · Kafka →</span></button>
-            </div>
-          </div>
-          <a class="spot b b-now rv" href="https://github.com/SaiSatyaJagannadh?tab=repositories" target="_blank" rel="noopener">
-            <div class="b-label"><span class="d"></span>currently building</div>
-            <h4>Agent harnesses &amp; MCP tools</h4>
-            <p>Shipping in public on GitHub — 30+ repos and counting.</p>
-            <span class="more">See repositories ↗</span>
-          </a>
-          <a class="spot b b-loc rv" href="https://www.google.com/maps/place/Cary,+NC" target="_blank" rel="noopener">
-            <div class="b-label"><svg width="13" height="13"><use href="#i-pin"/></svg>based in</div>
-            <h4>Cary, North Carolina</h4>
-            <p>Raleigh–Durham · open to on-site, hybrid or remote</p>
-          </a>
         </div>
       </div>
     </section>
@@ -520,13 +748,14 @@
     <section id="projects">
       <div class="container">
         <div class="s-head rv">
-          <div><span class="s-num">02 / work</span><h2>AI projects.</h2></div>
-          <p>Click any card to open it. Click a tag to see every project that uses it.</p>
+          <div><span class="s-num">02 / work</span><h2>Everything I've <span class="grad">built.</span></h2></div>
+          <p>39 projects from my GitHub — agents, RAG, LLM apps, data platforms and full-stack. Click a card to open it, a tag to filter.</p>
         </div>
-        <div class="filters rv" id="filters" role="tablist" aria-label="Filter projects"></div>
+        <div class="p-bar rv"><div class="filters" id="filters" role="tablist" aria-label="Filter projects"></div>
+          <label class="psearch"><svg aria-hidden="true"><use href="#ic-search"/></svg><input id="pq" type="search" placeholder="Search 39 projects — try “LangGraph”" aria-label="Search projects"></label></div>
         <div class="tag-filter" id="tagFilter">Showing projects using <b id="tagName"></b><button id="clearTag">clear ✕</button></div>
         <div class="p-grid" id="pgrid"></div>
-        <div class="p-more"><a class="btn" href="https://github.com/SaiSatyaJagannadh?tab=repositories" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Browse all repositories</a></div>
+        <div class="p-more"><button class="btn btn-glow" id="showAll" hidden></button><a class="btn" href="https://github.com/SaiSatyaJagannadh?tab=repositories" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Browse all repositories</a></div>
       </div>
     </section>
 
@@ -547,25 +776,6 @@
               </ul>
             </div>
             <div class="stack"><button data-tag="OpenAI">OpenAI</button><button data-tag="Kubernetes">Kubernetes</button><button data-tag="Azure">Azure</button></div>
-          </article>
-          <article class="job rv">
-            <div class="when">Nov 2024 — Mar 2025</div>
-            <div>
-              <h3>Cerebras Fellow · <a class="co" href="https://www.cerebras.ai" target="_blank" rel="noopener">Cerebras Systems</a></h3>
-              <ul>
-                <li>Moved a healthcare chatbot from GPT-3.5 to Llama 3 on Cerebras: <b>70% lower latency</b>.</li>
-                <li>Full-stack RAG with <b>LangChain + Pinecone</b>, document upload and hospital lookup.</li>
-              </ul>
-            </div>
-            <div class="stack"><button data-tag="LangChain">LangChain</button><button data-tag="Pinecone">Pinecone</button><button data-tag="Llama 3">Llama 3</button></div>
-          </article>
-          <article class="job rv">
-            <div class="when">Sep — Oct 2024</div>
-            <div>
-              <h3>AI Risk Analyst Extern · <a class="co" href="https://www.extern.com" target="_blank" rel="noopener">Extern</a></h3>
-              <ul><li>Researched how AI leaders adopt AI responsibly for decision-making.</li></ul>
-            </div>
-            <div class="stack"></div>
           </article>
           <article class="job rv">
             <div class="when">May 2021 — Nov 2022</div>
@@ -630,9 +840,28 @@
       </div>
     </section>
 
+    <section id="console">
+      <div class="container">
+        <div class="s-head rv">
+          <div><span class="s-num">06 / console</span><h2>Talk to <span class="grad">dj-agent.</span></h2></div>
+          <p>A tiny agent that knows my work. Type a command, ask a question, or tap a chip. Try <b style="color:var(--text)">hire</b> — or something you're not supposed to.</p>
+        </div>
+        <div class="console rv" id="consoleBox">
+          <div class="t-bar"><i></i><i></i><i></i><span>dj-agent — zsh — interactive</span><button id="cClear" aria-label="Clear console">clear</button></div>
+          <div class="c-out" id="cOut" role="log" aria-live="polite"></div>
+          <form class="c-in" id="cForm" autocomplete="off">
+            <label for="cInput"><span class="p">dj@portfolio</span>:<span class="c">~</span>$</label>
+            <input id="cInput" spellcheck="false" autocapitalize="off" placeholder="type help and press enter" aria-label="Console command">
+          </form>
+          <canvas class="c-matrix" id="cMatrix" aria-hidden="true"></canvas>
+        </div>
+        <div class="c-chips" id="cChips" aria-label="Suggested commands"></div>
+      </div>
+    </section>
+
     <section id="contact" class="contact">
       <div class="container rv">
-        <div class="kicker">06 / contact — hiring for AI?</div>
+        <div class="kicker">07 / contact — hiring for AI?</div>
         <h2>Let's build<br><span class="grad">something smart.</span></h2>
         <div class="mail">
           <a href="mailto:saijagannadh0625@gmail.com">saijagannadh0625@gmail.com</a>
@@ -651,7 +880,7 @@
 
   <footer>
     <div class="container foot">
-      <span>© <span id="yr">2026</span> Sai Satya Jagannadh Doddipatla · <a href="#top">back to top ↑</a></span>
+      <span>© <span id="yr">2026</span> Doddipatla Sai Satya Jagannadh (DJ) · <a href="#top">back to top ↑</a></span>
       <span class="mono"><a href="https://github.com/SaiSatyaJagannadh/PersonalPortfolio" target="_blank" rel="noopener">view source ↗</a></span>
     </div>
   </footer>
@@ -678,75 +907,54 @@
     /* Projects */
     const GH = 'https://github.com/SaiSatyaJagannadh/';
     const P = [
-      { t: 'MediNotes Pro', i: '🩺', c: 'llm', hero: 1, sub: 'Gen AI SaaS · AWS Lambda',
-        d: 'Doctor\'s shorthand in, three finished drafts out — record summary, next-steps checklist and patient email, streamed live in ~20s.',
-        im: [['~20s', 'notes → 3 drafts'], ['1', 'Docker image, scales to zero']],
-        tags: ['Next.js', 'FastAPI', 'Docker', 'AWS Lambda', 'OpenAI'], live: 'https://55ncfzx5whditvl2364jsjk3gy0twvlw.lambda-url.us-east-2.on.aws/', repo: GH + 'AI-Production' },
-      { t: 'Expense Compliance Agent', i: '🧾', c: 'rag', hero: 1, sub: 'Production RAG + MCP',
-        d: 'An HR agent that reads company policy, approves or rejects expense claims, and cites the exact clause behind every decision.',
-        im: [['3', 'MCP tools'], ['rerank', '+ semantic cache']],
-        tags: ['LangGraph', 'MCP', 'pgvector', 'Redis', 'Cohere', 'FastAPI', 'Docker'], live: 'https://employee-expenses-tracking-agent.streamlit.app/', repo: GH + 'RAG_Pipeline' },
-      { t: 'Resume ATS Optimizer', i: '📄', c: 'agents', f: 1, sub: 'LangGraph multi-node agent',
-        d: 'Tailors a resume to any job description with a before/after ATS score — and a validator that blocks any fabricated fact.',
-        im: [['0', 'invented facts allowed']],
-        tags: ['LangGraph', 'OpenAI', 'Python', 'Streamlit'], repo: GH + 'Resume_ATSandRolDesc' },
-      { t: 'Cerebras Healthcare Chatbot', i: '⚡', c: 'rag', f: 1, sub: 'Cerebras Fellowship',
-        d: 'Medical Q&A with document upload and hospital lookup, migrated from GPT-3.5 to Llama 3 on wafer-scale inference.',
-        im: [['−70%', 'latency'], ['4×', 'faster than GPT-3.5']],
-        tags: ['Llama 3', 'LangChain', 'Pinecone', 'Flask'], repo: 'https://www.linkedin.com/in/saijagannadh/details/projects/', repoLabel: 'Details' },
-      { t: 'FinAI', i: '📈', c: 'agents', f: 1, sub: 'Financial AI agents',
-        d: 'Five independent scoring engines blended into BUY / HOLD / SELL, with an AI analyst agent that shows its working.',
-        im: [['5', 'scoring engines'], ['23', 'tests passing']],
-        tags: ['LangChain', 'NVIDIA NIM', 'Node.js', 'React', 'MongoDB'], live: 'https://finai-stock-analysis.streamlit.app/', repo: GH + 'FinAI' },
-      { t: 'Churn Prediction MLOps', i: '📡', c: 'mlops', f: 1, sub: 'XGBoost → API → AWS',
-        d: 'Raw CSV to a containerized, data-quality-gated churn API on ECS Fargate, every run tracked in MLflow.',
-        im: [['0.82', 'recall'], ['4ms', 'inference']],
-        tags: ['XGBoost', 'MLflow', 'FastAPI', 'Docker', 'AWS'], repo: GH + 'Customer_Retention_Prediction' },
-      { t: 'LeetViz', i: '◆', c: 'llm', f: 1, sub: 'My LeetCode visualizer',
-        d: 'Watch 150 interview problems execute one line at a time — pointers, hash maps, trees and recursion animated from real traces.',
-        im: [['52K', 'traced steps'], ['18', 'patterns']],
-        tags: ['Python', 'Next.js', 'TypeScript', 'Streamlit'], live: 'https://leetviz-traces.streamlit.app', repo: GH + 'leetcode_visualization' },
-      { t: 'RAG Document AI', i: '📚', c: 'rag', sub: 'Three ways to ground an LLM',
-        d: 'Context stuffing vs. classic RAG vs. live web search, side by side over your own documents.',
-        tags: ['LangChain', 'Gemini', 'FAISS', 'Tavily'], repo: GH + 'RAG-Document_AI' },
-      { t: 'HSAVault', i: '🗂️', c: 'llm', sub: 'Vision-LLM receipt vault',
-        d: 'A vision model extracts receipt fields into a Google Sheets ledger; receipts live in your own Drive.',
-        im: [['248', 'tests']],
-        tags: ['Streamlit', 'Vision LLM', 'Google APIs'], repo: GH + 'HSA_Receipt_Store' },
-      { t: 'Log Agent Harness', i: '🔁', c: 'agents', sub: 'Agent loop from scratch',
-        d: 'A framework-free agent harness for debugging logs — the tool-use loop and its safety brakes made explicit.',
-        tags: ['Python', 'Agents'], repo: GH + 'AI_learning' },
-      { t: 'Multi-Agent Frameworks Lab', i: '🤝', c: 'agents', sub: 'Framework comparison',
-        d: 'The same problems built on OpenAI Agents SDK, CrewAI, LangGraph, AutoGen and MCP.',
-        tags: ['CrewAI', 'AutoGen', 'LangGraph', 'MCP'], repo: GH + 'agents-main' },
-      { t: 'AI Agents with LangChain', i: '🧠', c: 'agents', sub: '12-step agent progression',
-        d: 'From a first tool call to memory, structured output, Supabase persistence, local Ollama and a Flask chat UI.',
-        tags: ['LangChain', 'Gemini', 'Ollama', 'Flask'], repo: GH + 'AI_Agent_langchain' },
-      { t: 'OneNote → Markdown', i: '🗒️', c: 'llm', sub: 'Graph API + Gemini OCR',
-        d: 'Exports whole OneNote sections to Markdown and .docx, transcribing diagram text with Gemini.',
-        tags: ['Microsoft Graph', 'Gemini', 'Python'], repo: GH + 'IOS_AGENT_TOGGLE' },
-      { t: 'Kafka Stock Streaming', i: '💹', c: 'data', sub: 'Real-time on AWS',
-        d: 'A Python producer streams market data through Kafka into S3, cataloged by Glue and queried in Athena.',
-        tags: ['Kafka', 'AWS', 'Python'], repo: GH + 'stock_market_kafka_dataengineering_project' },
-      { t: 'Covid-19 Analytics on Azure', i: '🦠', c: 'data', sub: 'End-to-end Azure pipeline',
-        d: 'Ingest → transform → analyze Covid-19 data for policymakers, reported in Power BI.',
-        tags: ['ADF', 'Databricks', 'Azure', 'Power BI'], repo: GH + 'Azure-Data-Factory-Project-on-Covid19' },
-      { t: 'Formula 1 Lakehouse', i: '🏎️', c: 'data', sub: 'Databricks · Delta Lake',
-        d: 'PySpark and Spark SQL workflows on Azure Databricks with Delta Lake, Unity Catalog and ADF.',
-        tags: ['Databricks', 'PySpark', 'ADF', 'Azure'], repo: 'https://www.linkedin.com/in/saijagannadh/details/projects/', repoLabel: 'Details' },
-      { t: 'OptimalTSP Route Planner', i: '🗺️', c: 'data', sub: 'Algorithms · CSUF',
-        d: 'Five TSP solvers race on real geodesic distances — brute force to simulated annealing.',
-        tags: ['Python', 'Streamlit'], live: 'https://optsppy-ja6ayynhktkfes4fdsz4iw.streamlit.app/', repo: GH + 'OPtimalTSP' }
+      {"r": "RAG_Pipeline", "t": "Expense Compliance Agent", "sub": "Production RAG + MCP", "d": "An HR agent that reads company policy, approves or rejects expense claims, and cites the exact clause behind every decision.", "tags": ["LangGraph", "MCP", "pgvector", "Redis", "FastAPI", "Docker"], "c": "rag", "ic": "receipt", "s": 10, "im": [["3", "MCP tools"], ["rerank", "+ semantic cache"]], "live": "https://employee-expenses-tracking-agent.streamlit.app/"},
+      {"r": "agents-main", "t": "Multi-Agent Frameworks Lab", "sub": "Framework comparison", "d": "The same problems built on OpenAI Agents SDK, CrewAI, LangGraph, AutoGen and MCP, including an autonomous trading floor on custom MCP servers.", "tags": ["CrewAI", "AutoGen", "LangGraph", "MCP", "OpenAI", "Gradio"], "c": "agents", "ic": "agent", "s": 9, "im": [["5", "agent frameworks"]]},
+      {"r": "AI-Production", "t": "MediNotes Pro", "sub": "Gen AI SaaS · AWS Lambda", "d": "Doctor's shorthand in, three finished drafts out: record summary, next-steps checklist and patient email, streamed live in ~20s.", "tags": ["Next.js", "FastAPI", "Docker", "AWS Lambda", "OpenAI"], "c": "llm", "ic": "health", "s": 9, "im": [["~20s", "notes → 3 drafts"], ["1", "Docker image, scales to zero"]], "live": "https://55ncfzx5whditvl2364jsjk3gy0twvlw.lambda-url.us-east-2.on.aws/"},
+      {"r": "FinAI", "t": "FinAI", "sub": "Financial AI agents", "d": "Five independent scoring engines blended into BUY / HOLD / SELL, with an AI analyst agent that shows its working.", "tags": ["LangChain", "Node.js", "React", "Streamlit"], "c": "agents", "ic": "chart", "s": 9, "im": [["5", "scoring engines"], ["23", "tests passing"]], "live": "https://finai-stock-analysis.streamlit.app/"},
+      {"r": "AI-HealthCare-Chatbot-System_Cerebras", "t": "Cerebras Healthcare Chatbot", "sub": "Llama 3 wafer-scale inference", "d": "Medical Q&A with document upload and hospital lookup, migrated from GPT-3.5 to Llama 3 on wafer-scale inference.", "tags": ["Llama 3", "LangChain", "Pinecone", "Flask"], "c": "rag", "ic": "health", "s": 8, "im": [["-70%", "latency"], ["4x", "faster than GPT-3.5"]]},
+      {"r": "Resume_ATSandRolDesc", "t": "Resume ATS Optimizer", "sub": "LangGraph multi-node agent", "d": "Tailors a resume to any job description with a before/after ATS score, and a validator that blocks any fabricated fact.", "tags": ["LangGraph", "OpenAI", "Python", "Streamlit"], "c": "agents", "ic": "doc", "s": 8, "im": [["0", "invented facts allowed"]], "live": "https://resume--ats--score.streamlit.app/"},
+      {"r": "HSA_Receipt_Store", "t": "HSAVault", "sub": "Vision-LLM receipt vault", "d": "A vision model extracts receipt fields into a Google Sheets ledger; receipts live in your own Drive.", "tags": ["Streamlit", "Google APIs", "Python"], "c": "llm", "ic": "receipt", "s": 8, "im": [["248", "tests"]], "live": "https://hsavault-sai.streamlit.app/"},
+      {"r": "Customer_Retention_Prediction", "t": "Churn Prediction MLOps", "sub": "XGBoost to API to AWS", "d": "Raw CSV to a containerized, data-quality-gated churn API on ECS Fargate, every run tracked in MLflow.", "tags": ["XGBoost", "MLflow", "FastAPI", "Docker", "AWS"], "c": "data", "ic": "chart", "s": 8, "im": [["0.82", "recall"], ["4ms", "inference"]], "live": "https://customer-retention-churn.streamlit.app/"},
+      {"r": "leetcode_visualization", "t": "LeetViz", "sub": "My LeetCode visualizer", "d": "Watch 150 interview problems execute one line at a time: pointers, hash maps, trees and recursion animated from real traces.", "tags": ["Python", "Next.js", "Streamlit", "JavaScript"], "c": "web", "ic": "code", "s": 8, "im": [["52K", "traced steps"], ["18", "patterns"]], "live": "https://leetviz-traces.streamlit.app"},
+      {"r": "Personal_Portfolio_Chatbot", "t": "Talk to My Resume", "sub": "Tool-calling Gradio chatbot", "d": "An AI version of DJ that answers recruiter questions from his LinkedIn profile and pushes a phone alert when someone shares contact details.", "tags": ["OpenAI", "Gradio", "Python"], "c": "llm", "ic": "chat", "s": 7, "live": "https://huggingface.co/spaces/saijaganandh/Custom_Personal_Portfolio_Chatbot"},
+      {"r": "F1_Race_Databricks", "t": "Formula 1 Lakehouse", "sub": "Databricks, Delta Lake", "d": "PySpark and Spark SQL workflows on Azure Databricks with Delta Lake, Unity Catalog and ADF.", "tags": ["Databricks", "PySpark", "ADF", "Azure"], "c": "data", "ic": "race", "s": 7},
+      {"r": "stock_market_kafka_dataengineering_project", "t": "Kafka Stock Streaming", "sub": "Real-time pipeline on AWS", "d": "A Python producer streams market data through Kafka into S3, cataloged by Glue and queried in Athena.", "tags": ["Kafka", "AWS", "Python"], "c": "data", "ic": "stream", "s": 7},
+      {"r": "AI_learning", "t": "Log Agent Harness", "sub": "Agent loop from scratch", "d": "A framework-free agent harness for debugging logs, with the tool-use loop, safety brakes, skills and an eval suite made explicit.", "tags": ["Claude", "Python"], "c": "agents", "ic": "terminal", "s": 7},
+      {"r": "AI_Agent_langchain", "t": "AI Agents with LangChain", "sub": "12-step agent progression", "d": "From a first tool call to memory, structured output, Supabase persistence, local Ollama and a Flask chat UI.", "tags": ["LangChain", "Gemini", "Ollama", "Flask", "Python"], "c": "agents", "ic": "brain", "s": 7},
+      {"r": "RAG-Document_AI", "t": "RAG Document AI", "sub": "Three ways to ground an LLM", "d": "Context stuffing vs. classic RAG vs. live web search, side by side over your own documents.", "tags": ["LangChain", "Gemini", "FAISS", "Python"], "c": "rag", "ic": "rag", "s": 7},
+      {"r": "Azure-Data-Factory-Project-on-Covid19", "t": "Covid-19 Analytics on Azure", "sub": "End-to-end Azure pipeline", "d": "Ingest, transform and analyze Covid-19 data for policymakers on Azure, reported in Power BI.", "tags": ["ADF", "Databricks", "Azure", "Power BI"], "c": "data", "ic": "cloud", "s": 6},
+      {"r": "HealthcareDataNFTVault", "t": "Healthcare NFT Vault", "sub": "Blockchain medical records", "d": "Encrypts patient data, stores it on IPFS, mints it as an NFT, and lets owners grant or revoke doctor access via Ethereum smart contracts.", "tags": ["Solidity", "React", "JavaScript"], "c": "web", "ic": "lock", "s": 6},
+      {"r": "AI-HealthCare-Chatbot", "t": "Healthcare RAG Chatbot", "sub": "Pinecone + Flask", "d": "Medical Q&A over uploaded PDF and DOCX reports with hospital lookup, retrieval-grounded by Pinecone; the predecessor of the Cerebras version.", "tags": ["LangChain", "Pinecone", "OpenAI", "Flask", "Python"], "c": "rag", "ic": "health", "s": 6},
+      {"r": "FInancial_Ledger", "t": "Personal Ledger", "sub": "Who owes me what", "d": "Tracks money lent to and repaid by family and friends in Google Sheets, with rupees and dollars never mixed and an AI assistant to log entries.", "tags": ["Streamlit", "Google APIs", "Python"], "c": "llm", "ic": "ledger", "s": 6, "live": "https://family-financialledger.streamlit.app/"},
+      {"r": "IOS_AGENT_TOGGLE", "t": "OneNote to Markdown", "sub": "Graph API + Gemini OCR", "d": "Exports whole OneNote sections to Markdown and .docx, transcribing diagram text with Gemini.", "tags": ["Microsoft Graph", "Gemini", "Python"], "c": "llm", "ic": "book", "s": 6},
+      {"r": "images_llms_python", "t": "Multimodal LLM Scripts", "sub": "Vision, image gen & voice", "d": "Hands-on scripts for seeing, drawing and listening: Gemini food-photo analysis, gpt-image-1 generation, and a mic-to-speech voice loop.", "tags": ["Gemini", "OpenAI", "LangChain", "Gradio", "Python"], "c": "llm", "ic": "eye", "s": 5},
+      {"r": "Crime-Rate-Analysis", "t": "Crime Rate Analytics", "sub": "PySpark streaming + ML on GCP", "d": "Batch and streaming Spark analysis of Kansas City crime data with Decision Tree, Random Forest and Naive Bayes models, deployable on GCP Dataproc.", "tags": ["PySpark", "Python"], "c": "data", "ic": "map", "s": 5},
+      {"r": "City-Navigation", "t": "Emergency Route Planner", "sub": "Floyd-Warshall on real maps", "d": "Shortest paths across Fullerton's street network that reroute instantly when a road is reported blocked.", "tags": ["Python", "Flask", "JavaScript"], "c": "web", "ic": "map", "s": 5},
+      {"r": "Claude_Code_AI_Agent", "t": "Local Tool-Calling Agent", "sub": "LangChain + Flask, built with Claude", "d": "A deliberately tiny LangChain agent with a custom list_directory tool, usable from a Rich terminal UI or a Flask page.", "tags": ["LangChain", "OpenAI", "Flask", "Python"], "c": "agents", "ic": "terminal", "s": 5},
+      {"r": "OPtimalTSP", "t": "OptimalTSP Route Planner", "sub": "Algorithms · CSUF", "d": "Five TSP solvers race on real geodesic distances, from brute force to simulated annealing.", "tags": ["Python", "Streamlit"], "c": "data", "ic": "map", "s": 5, "live": "https://optsppy-ja6ayynhktkfes4fdsz4iw.streamlit.app/"},
+      {"r": "career-ops-DJ", "t": "Career-Ops Job Search", "sub": "Multi-agent job search system", "d": "A Claude-driven multi-agent system that evaluates job listings and tailors applications; DJ's fork of an open-source upstream project.", "tags": ["Claude", "JavaScript", "Node.js"], "c": "agents", "ic": "briefcase", "s": 5, "fork": 1},
+      {"r": "automobile-prices-using-Azure-Machine-Learning-Designer.", "t": "Auto Price Predictor", "sub": "Azure ML Designer regression", "d": "A no-code regression pipeline that predicts car prices and deploys as a real-time endpoint on Azure Container Instances.", "tags": ["Azure ML", "Azure"], "c": "data", "ic": "car", "s": 4},
+      {"r": "Chat_Application", "t": "Real-Time Chat App", "sub": "Node.js + Socket.IO", "d": "Room-based chat with live user lists, location sharing and a profanity filter over WebSockets.", "tags": ["Node.js", "Express", "Socket.io", "JavaScript"], "c": "web", "ic": "chat", "s": 4},
+      {"r": "LangChain-Agents", "t": "LangChain Local & Cloud", "sub": "LCEL chains, OpenAI or Ollama", "d": "Prompt templates and LCEL chains that run the same task on OpenAI or a local open-weight model via Ollama, with a one-line provider swap.", "tags": ["LangChain", "Ollama", "OpenAI", "Python"], "c": "agents", "ic": "brain", "s": 4},
+      {"r": "node5-weather-website", "t": "Weather Website", "sub": "Node.js + Express + Mapbox", "d": "Type a location and get the forecast: an Express server chains Mapbox geocoding into a weather API, rendered with Handlebars templates.", "tags": ["Node.js", "Express", "JavaScript", "HTML/CSS"], "c": "web", "ic": "weather", "s": 4},
+      {"r": "AI_Automation", "t": "Sheets Automation Bot", "sub": "Scheduled Google Sheets + email", "d": "A scheduled Python worker that reads, appends and edits Google Sheet rows via a service account, then emails a daily summary.", "tags": ["Python", "Google APIs"], "c": "data", "ic": "bolt", "s": 4},
+      {"r": "freeclaudeai", "t": "Retro Games & Agents", "sub": "Games built with Claude Code", "d": "Browser games (Nokia Snake, Cricket, a top-down Vice City) plus six software-dev agent definitions, all generated with an AI coding agent.", "tags": ["JavaScript", "HTML/CSS", "Canvas", "Claude"], "c": "web", "ic": "game", "s": 4},
+      {"r": "free-claude-codex-code-cli", "t": "Free Claude Code Proxy", "sub": "Claude Code / Codex via any provider", "d": "A proxy routing Claude Code and Codex CLI traffic to free, paid or local model providers, with an admin UI; an upstream project DJ cloned.", "tags": ["Python", "Claude", "OpenAI", "Ollama"], "c": "llm", "ic": "terminal", "s": 4, "fork": 1},
+      {"r": "RestApi-Practice", "t": "Products REST API", "sub": "ASP.NET Core clean architecture", "d": "An ASP.NET Core Web API for products, categories and orders using clean architecture, repository and service patterns, and Docker compose.", "tags": ["C#", "ASP.NET Core", "Docker", "SQL Server"], "c": "web", "ic": "code", "s": 4},
+      {"r": "MovieShopMvc", "t": "MovieShop MVC", "sub": "ASP.NET Core MVC movie shop", "d": "A movie shop web app built with ASP.NET Core MVC, EF Core and a clean ApplicationCore/Infrastructure split.", "tags": ["C#", "ASP.NET Core", "SQL Server"], "c": "web", "ic": "film", "s": 4},
+      {"r": "AI-RAG", "t": "AI Cookbook Study", "sub": "RAG & AI systems examples", "d": "A cloned copy of Datalumina's cookbook of copy/paste snippets for building AI and RAG systems, kept for study.", "tags": ["Python", "OpenAI", "FAISS"], "c": "rag", "ic": "book", "s": 3, "fork": 1},
+      {"r": "taskmate", "t": "TaskMate", "sub": "Django daily task manager", "d": "A Django web app for managing daily tasks, with a Procfile for Heroku-style deployment.", "tags": ["Django", "Python", "HTML/CSS"], "c": "web", "ic": "terminal", "s": 3},
+      {"r": "Antra_Training", "t": "Antra Training Projects", "sub": "C# + SQL Server assignments", "d": "Full-stack developer training assignments in C# and SQL Server against the AdventureWorks database.", "tags": ["C#", "SQL Server", "ASP.NET Core"], "c": "web", "ic": "db", "s": 2},
+      {"r": "csqa", "t": "CSQA Q&A Site", "sub": "Django Q&A for coders", "d": "An open-source Django and Postgres Q&A site for coders, deployed on Heroku; cloned from another author's project.", "tags": ["Django", "Python", "HTML/CSS"], "c": "web", "ic": "web", "s": 2, "fork": 1}
     ];
-    const CATS = [['featured', '⭐ Featured'], ['all', 'All'], ['agents', 'Agents'], ['rag', 'RAG'], ['llm', 'LLM apps'], ['mlops', 'MLOps'], ['data', 'Data eng']];
-    const CATN = { agents: 'Agentic AI', rag: 'RAG', llm: 'LLM app', mlops: 'MLOps', data: 'Data engineering' };
-    const isFeat = p => p.hero || p.f;
-    let cat = 'featured', tag = null;
+    P.forEach(p => { p.repo = GH + p.r; p.hero = p.s >= 10 || p.r === 'AI-Production'; p.f = p.s >= 8; });
+    const CATS = [['featured', '★ Featured'], ['all', 'All'], ['live', '● Live'], ['agents', 'Agents'], ['rag', 'RAG'], ['llm', 'LLM apps'], ['data', 'Data & MLOps'], ['web', 'Full-stack']];
+    const CATN = { agents: 'Agentic AI', rag: 'RAG', llm: 'LLM app', data: 'Data & MLOps', web: 'Full-stack' };
+    const isFeat = p => p.f;
+    const inCat = (p, c) => c === 'all' || (c === 'featured' ? isFeat(p) : c === 'live' ? !!p.live : p.c === c);
+    let cat = 'featured', tag = null, q = '', limit = 12;
     const filtersEl = $('#filters'), grid = $('#pgrid');
-    filtersEl.innerHTML = CATS.map(([id, l]) => {
-      const n = id === 'all' ? P.length : P.filter(p => id === 'featured' ? isFeat(p) : p.c === id).length;
-      return `<button class="chip" role="tab" data-c="${id}">${l}<span class="n">${n}</span></button>`;
-    }).join('');
+    filtersEl.innerHTML = CATS.map(([id, l]) => `<button class="chip" role="tab" data-c="${id}">${l}<span class="n">${P.filter(p => inCat(p, id)).length}</span></button>`).join('');
 
     const tagMatch = (p, t) => {
       const T = t.toLowerCase();
@@ -754,14 +962,16 @@
         (T === 'aws' && p.tags.some(x => /aws|lambda|kafka/i.test(x))) ||
         (T === 'azure' && p.tags.some(x => /azure|adf|databricks/i.test(x)));
     };
+    const qMatch = p => !q || (p.t + ' ' + p.sub + ' ' + p.d + ' ' + p.tags.join(' ') + ' ' + p.r).toLowerCase().includes(q);
     function card(p, n, wide) {
       const url = p.live || p.repo;
       const im = (p.im || []).map(([a, b]) => `<span><b>${esc(a)}</b> ${esc(b)}</span>`).join('');
-      return `<article class="spot proj${(p.hero && !tag && cat === 'featured') || wide ? ' hero-p' : ''} rv">
-        <div class="ptop"><span class="idx">${String(n + 1).padStart(2, '0')} · ${esc(CATN[p.c])}</span>
-          <div class="pbadges">${p.live ? '<span class="pb live">live</span>' : ''}${isFeat(p) ? '<span class="pb">featured</span>' : ''}</div></div>
+      return `<article class="spot proj c-${p.c}${wide ? ' hero-p' : ''} rv">
+        <svg class="pwater" aria-hidden="true"><use href="#ic-${p.ic}"/></svg>
+        <div class="ptop"><span class="ptile" aria-hidden="true"><svg><use href="#ic-${p.ic}"/></svg></span>
+          <div class="pbadges">${p.live ? '<span class="pb live">live</span>' : ''}${isFeat(p) ? '<span class="pb feat">★ featured</span>' : ''}${p.fork ? '<span class="pb">fork · study</span>' : ''}</div></div>
         <span class="arrow" aria-hidden="true"><svg><use href="#i-arr"/></svg></span>
-        <div class="picon" aria-hidden="true">${p.i}</div>
+        <span class="idx">${String(n + 1).padStart(2, '0')} · ${esc(CATN[p.c])}</span>
         <h3><a href="${url}" target="_blank" rel="noopener">${esc(p.t)}</a></h3>
         <div class="psub">${esc(p.sub)}</div>
         <p>${esc(p.d)}</p>
@@ -769,29 +979,40 @@
         <div class="ptags">${p.tags.map(t => `<button class="ptag" data-tag="${esc(t)}" title="Show projects using ${esc(t)}">#${esc(t)}</button>`).join('')}</div>
         <div class="plinks">
           ${p.live ? `<a class="primary" href="${p.live}" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg>Live demo</a>` : ''}
-          <a href="${p.repo}" target="_blank" rel="noopener"><svg><use href="#${p.repoLabel ? 'i-ext' : 'i-gh'}"/></svg>${p.repoLabel || 'Code'}</a>
+          <a href="${p.repo}" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>Code</a>
         </div>
       </article>`;
     }
     function render() {
-      const list = tag ? P.filter(p => tagMatch(p, tag)) : P.filter(p => cat === 'all' || (cat === 'featured' ? isFeat(p) : p.c === cat));
-      const heroN = !tag && cat === 'featured' ? list.filter(x => x.hero).length : 0;
-      const rest = list.length - heroN, rem = rest % 3, wideFrom = rem === 2 ? list.length - 2 : rem === 1 && rest >= 4 ? list.length - 4 : list.length;
-      grid.innerHTML = list.length ? list.map((p, n) => card(p, n, n >= wideFrom)).join('') :
-        `<p style="grid-column:1/-1;color:var(--muted)">No public project tagged <b>${esc(tag)}</b> yet — I use it at work. See <a style="color:var(--a2)" href="https://github.com/SaiSatyaJagannadh" target="_blank" rel="noopener">GitHub ↗</a>.</p>`;
+      let list = tag ? P.filter(p => tagMatch(p, tag)) : P.filter(p => inCat(p, cat));
+      list = list.filter(qMatch);
+      const total = list.length, capped = !tag && !q && cat === 'all' && total > limit;
+      if (capped) list = list.slice(0, limit);
+      const heroIdx = !tag && !q && cat === 'featured' ? list.filter(x => x.hero).length : 0;
+      const rest = list.length - heroIdx, rem = rest % 3, wideFrom = rem === 2 ? list.length - 2 : rem === 1 && rest >= 4 ? list.length - 4 : list.length;
+      grid.innerHTML = list.length ? list.map((p, n) => card(p, n, n < heroIdx || n >= wideFrom)).join('') :
+        `<p style="grid-column:1/-1;color:var(--muted)">No public project matches <b>${esc(tag || q)}</b> yet. See <a style="color:var(--a2)" href="https://github.com/SaiSatyaJagannadh?tab=repositories" target="_blank" rel="noopener">GitHub ↗</a>.</p>`;
+      $('#showAll').hidden = !capped;
+      if (capped) $('#showAll').innerHTML = `Show all ${total} projects <svg><use href="#i-arr"/></svg>`;
       $('#tagFilter').classList.toggle('on', !!tag);
       if (tag) $('#tagName').textContent = tag;
       $$('.chip', filtersEl).forEach(b => b.classList.toggle('active', !tag && b.dataset.c === cat));
       bindCards(); observe($$('.rv', grid));
     }
+    $('#showAll').onclick = () => { limit = 999; render(); };
+    $('#pq').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); tag = null; if (q && cat !== 'all') cat = 'all'; render(); });
+    /* live counts */
+    const nLive = P.filter(p => p.live).length;
+    [['#statProj', P.length], ['#statLive', nLive]].forEach(([id, n]) => { const el = $(id); el.dataset.count = n; el.textContent = n; });
+    $$('[data-catn]').forEach(b => { b.textContent = P.filter(p => p.c === b.dataset.catn).length; });
     const goProjects = () => $('#projects').scrollIntoView({ behavior: smooth });
-    filtersEl.onclick = e => { const b = e.target.closest('.chip'); if (!b) return; cat = b.dataset.c; tag = null; render(); };
+    filtersEl.onclick = e => { const b = e.target.closest('.chip'); if (!b) return; cat = b.dataset.c; tag = null; q = ''; $('#pq').value = ''; limit = 12; render(); };
     $('#clearTag').onclick = () => { tag = null; render(); };
     document.addEventListener('click', e => {
       const t = e.target.closest('[data-tag]');
       if (t) { e.preventDefault(); tag = t.dataset.tag; render(); goProjects(); return; }
       const j = e.target.closest('[data-jump]');
-      if (j) { cat = j.dataset.jump; tag = null; render(); goProjects(); }
+      if (j) { if (j.tagName === 'A') e.preventDefault(); cat = j.dataset.jump; limit = cat === 'all' ? 999 : 12; tag = null; q = ''; $('#pq').value = ''; render(); goProjects(); }
     });
 
     /* Skills */
@@ -883,13 +1104,13 @@
     const SCRIPT = [
       ['<span class="p">$</span> <span class="w">dj agent run</span> <span class="c">--task</span> <span class="h">"find a senior AI engineer"</span>', 0],
       ['<span class="k">▸ plan</span>      resume · repos · demos', 380],
-      ['<span class="k">▸ github</span>    <a href="#projects">17 projects</a> · <span class="ok">6 live demos</span>', 380],
-      ['<span class="k">▸ rag</span>       <a href="https://www.ubs.com" target="_blank" rel="noopener">UBS</a> → <a href="https://www.cerebras.ai" target="_blank" rel="noopener">Cerebras</a> → <a href="https://www.infosys.com" target="_blank" rel="noopener">Infosys</a>/Microsoft', 380],
-      ['<span class="k">▸ eval</span>      latency <span class="ok">−70%</span> · pipelines <span class="ok">−30%</span> · SQL <span class="ok">−40%</span>', 380],
+      [`<span class="k">▸ github</span>    <a href="#projects">${P.length} projects</a> · <span class="ok">${nLive} live demos</span>`, 380],
+      ['<span class="k">▸ rag</span>       <a href="https://www.ubs.com" target="_blank" rel="noopener">UBS</a> → <a href="https://www.infosys.com" target="_blank" rel="noopener">Infosys</a>/Microsoft → <a href="https://www.fullerton.edu" target="_blank" rel="noopener">CSUF</a>', 380],
+      ['<span class="k">▸ eval</span>      releases <span class="ok">0 downtime</span> · pipelines <span class="ok">−30%</span> · SQL <span class="ok">−40%</span>', 380],
       ['<span class="k">▸ leetcode</span>  <a href="https://leetcode.com/u/saijagannadh0625/" target="_blank" rel="noopener">380 solved</a> · 63 hard · DP ×79', 380],
       ['<span class="k">▸ stack</span>     LangGraph · MCP · pgvector · Lambda', 380],
       ['', 200],
-      ['<span class="ok">✓ match found:</span> <span class="w">Sai Satya Jagannadh</span>', 300],
+      ['<span class="ok">✓ match found:</span> <span class="w">Doddipatla Sai Satya Jagannadh (DJ)</span>', 300],
       ['<span class="c">→</span> <a href="mailto:saijagannadh0625@gmail.com">say hi</a>   <span class="c">→</span> <a href="./Sai_Jagannadh_Resume.pdf" download>get resume</a>', 300]
     ];
     const term = $('#term'); let runId = 0;
@@ -912,6 +1133,175 @@
     }
     $('#replay').onclick = runTerm;
     setTimeout(runTerm, reduce ? 0 : 700);
+
+    /* Interactive console (dj-agent) */
+    (() => {
+      const out = $('#cOut'), input = $('#cInput'), form = $('#cForm'), box = $('#consoleBox');
+      const MAIL = 'saijagannadh0625@gmail.com', LI = 'https://www.linkedin.com/in/saijagannadh/', GHU = 'https://github.com/SaiSatyaJagannadh', LC = 'https://leetcode.com/u/saijagannadh0625/', CV = './Sai_Jagannadh_Resume.pdf';
+      const hist = []; let hi = 0, busy = false, booted = false;
+      const a = (href, txt, dl) => `<a href="${href}"${dl ? ' download' : ' target="_blank" rel="noopener"'}>${txt}</a>`;
+      const cmdBtn = c => `<button class="cmd" data-run="${esc(c)}">${esc(c)}</button>`;
+      const line = (html = '&nbsp;') => { const d = document.createElement('div'); d.className = 'ln'; d.innerHTML = html; out.appendChild(d); out.scrollTop = out.scrollHeight; return d; };
+      const sleep = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+      async function say(lines, gap = 70) { for (const l of lines) { line(l); await sleep(gap); } }
+      async function trace(steps) { for (const st of steps) { const d = line(`<span class="k">▸</span> <span class="dim">${st}</span> <span class="dim">…</span>`); await sleep(260); d.innerHTML = `<span class="k">▸</span> <span class="dim">${st}</span> <span class="ok">✓</span>`; } }
+      const projLine = (p, i) => `  <span class="dim">${String(i + 1).padStart(2, '0')}</span> <span class="w">${esc(p.t)}</span> <span class="dim">· ${esc(p.tags.slice(0, 3).join(', '))}</span>  ${p.live ? a(p.live, '<span class="ok">live ↗</span>') + ' ' : ''}${a(p.repo, 'code ↗')}`;
+      const find = s => { s = s.toLowerCase().trim(); return P.filter(p => (p.t + ' ' + p.sub + ' ' + p.d + ' ' + p.tags.join(' ') + ' ' + p.r).toLowerCase().includes(s)); };
+
+      const C = {
+        help: () => say([
+          '<span class="w">commands</span>',
+          `  ${cmdBtn('whoami')}            who is DJ`,
+          `  ${cmdBtn('projects')} [cat]    list work · cats: agents rag llm data web live`,
+          `  ${cmdBtn('open 1')}            open a project from the last list`,
+          `  ${cmdBtn('skills')}            the toolbox`,
+          `  ${cmdBtn('experience')}        where I've worked`,
+          `  ${cmdBtn('ask')} &lt;question&gt;    ask dj-agent anything about my work`,
+          `  ${cmdBtn('hire')}              start the hiring pipeline`,
+          `  ${cmdBtn('resume')} · ${cmdBtn('contact')} · ${cmdBtn('socials')} · ${cmdBtn('leetcode')}`,
+          `  ${cmdBtn('theme')} · ${cmdBtn('matrix')} · ${cmdBtn('coffee')} · ${cmdBtn('clear')}`,
+          '<span class="dim">tip: ↑/↓ history · tab to autocomplete · anything else is treated as a question</span>'
+        ], 25),
+        whoami: () => say([
+          '<span class="w">Doddipatla Sai Satya Jagannadh</span> <span class="ok">(DJ)</span>',
+          '  role      Tech Engineer @ UBS · AI / ML Engineer',
+          '  before    System Engineer @ Infosys (client: Microsoft)',
+          '  school    MS Computer Science, CSUF · GPA 3.9',
+          '  base      Cary, NC · open to Senior AI / ML roles',
+          `  ships     ${P.length} projects on GitHub · ${nLive} live demos`
+        ]),
+        about: () => C.whoami(),
+        projects: async arg => {
+          const k = (arg || '').toLowerCase().replace(/^--/, '');
+          const map = { agent: 'agents', agents: 'agents', rag: 'rag', llm: 'llm', data: 'data', mlops: 'data', web: 'web', fullstack: 'web', live: 'live', featured: 'featured', all: 'all' };
+          const c = map[k] || (k ? null : 'featured');
+          let list = c ? P.filter(p => inCat(p, c)) : find(k);
+          await trace([`tool: github.list_repos(user="SaiSatyaJagannadh")`, `filter: ${c || `"${esc(k)}"`}`]);
+          if (!list.length) return line(`<span class="er">no projects match "${esc(k)}"</span> — try ${cmdBtn('projects all')}`);
+          C._last = list;
+          await say(list.slice(0, 14).map(projLine), 30);
+          if (list.length > 14) line(`<span class="dim">  …and ${list.length - 14} more — see the projects grid above</span>`);
+          line(`<span class="dim">type</span> ${cmdBtn('open 1')} <span class="dim">to open one · ${cmdBtn('projects all')} for everything</span>`);
+        },
+        ls: arg => C.projects(arg),
+        open: arg => {
+          const list = C._last || P.filter(isFeat); const n = parseInt(arg, 10);
+          const p = !isNaN(n) ? list[n - 1] : find(arg || '')[0];
+          if (!p) return line('<span class="er">usage: open &lt;number|name&gt;</span>');
+          line(`<span class="ok">↗ opening</span> <span class="w">${esc(p.t)}</span>`); window.open(p.live || p.repo, '_blank', 'noopener');
+        },
+        skills: () => say(SK.map(([h, items]) => `  <span class="w">${h.replace(/^\S+\s/, '').padEnd(24)}</span> ${items.slice(0, 8).join(' · ')}`), 40),
+        experience: () => say([
+          '  <span class="ok">●</span> <span class="w">2025 → now</span>  Tech Engineer · UBS — AI automation, OpenAI doc generator, Kubernetes ops',
+          '  <span class="k">○</span> <span class="w">2021 → 2022</span> System Engineer · Infosys (Microsoft) — Azure pipelines 30% faster, SQL −40%',
+          '  <span class="k">○</span> <span class="w">2021</span>        System Engineer Trainee · Infosys — Java, C#, ASP.NET Core'
+        ]),
+        xp: () => C.experience(),
+        education: () => say(['  MS Computer Science · CSUF · 2023–2025 · GPA 3.9', '  B.Tech Information Technology · SRKR Engineering College · 2016–2020']),
+        resume: () => { line(`<span class="ok">↓</span> ${a(CV, 'Sai_Jagannadh_Resume.pdf', 1)} <span class="dim">· or</span> ${a('https://drive.google.com/file/d/1MVxJ3ye5SOAkK6B8lw5bs61_Q7KfGbyo/view', 'view on Drive ↗')}`); },
+        contact: () => say([`  email     ${a('mailto:' + MAIL, MAIL)}`, `  linkedin  ${a(LI, 'in/saijagannadh ↗')}`]),
+        socials: () => say([`  github    ${a(GHU, 'SaiSatyaJagannadh ↗')}`, `  linkedin  ${a(LI, 'saijagannadh ↗')}`, `  leetcode  ${a(LC, 'saijagannadh0625 ↗')}`, `  leetviz   ${a('https://leetviz-traces.streamlit.app', 'leetviz-traces ↗')}`]),
+        leetcode: () => say(['  <span class="w">380 solved</span>  <span class="ok">83 easy</span> · <span style="color:#febc2e">234 medium</span> · <span class="h">63 hard</span>', '  DP ×79 · 282 active days · 200-day badge', `  ${a(LC, 'profile ↗')} · ${a('https://leetviz-traces.streamlit.app', 'LeetViz ↗')}`]),
+        hire: async () => {
+          await trace(['parse: job description', 'match: skills ↔ requirements', 'tool: calendar.check(dj)', 'eval: culture_add > culture_fit']);
+          await say(['<span class="ok">✓ 98.7% match</span> <span class="dim">(the other 1.3% is coffee preference)</span>', `<span class="w">next step →</span> ${a('mailto:' + MAIL + '?subject=Let%27s%20talk%20AI%20roles', 'email DJ')}  ·  ${a(LI, 'message on LinkedIn')}  ·  ${a(CV, 'grab the resume', 1)}`]);
+          confetti();
+        },
+        theme: () => { $('#themeBtn').click(); line(`<span class="ok">✓</span> theme → ${root.dataset.theme}`); },
+        coffee: () => say(['<span class="w">   ( (</span>', '<span class="w">    ) )</span>', '<span class="w">  ........</span>', '<span class="w">  |      |]</span>  <span class="dim">brewing… LLMs run on tokens, I run on this.</span>', '<span class="w">  \\      /</span>', '<span class="w">   `----\'</span>'], 60),
+        matrix: () => { matrix(); line('<span class="ok">wake up, recruiter…</span> <span class="dim">the matrix has you.</span>'); },
+        date: () => line(new Date().toString()),
+        echo: arg => line(esc(arg || '')),
+        clear: () => { out.innerHTML = ''; },
+        sudo: arg => line(`<span class="er">[sudo] permission denied:</span> ${esc(arg || '')} — <span class="dim">but</span> ${cmdBtn('hire')} <span class="dim">doesn't need root.</span>`),
+        rm: () => line('<span class="er">nice try.</span> <span class="dim">guardrails are kind of my thing.</span>'),
+        exit: () => line('<span class="dim">there is no exit. only</span> ' + cmdBtn('hire')),
+        ask: q => answer(q || '')
+      };
+      C.ask_ = C.ask;
+      const KB = [
+        [/\b(rag|retriev|vector|pgvector|pinecone|faiss|embedding)/, 'Yes — RAG is my core. Production RAG with pgvector + Cohere rerank + Redis semantic cache that cites the exact clause, plus side-by-side comparisons of context stuffing vs RAG vs web search.', 'rag'],
+        [/\b(agent|langgraph|mcp|crewai|autogen|tool)/, 'Agents with guardrails: LangGraph multi-node graphs, MCP tool servers, and a framework-free agent harness. I\'ve built the same problems across OpenAI Agents SDK, CrewAI, LangGraph, AutoGen and MCP.', 'agent'],
+        [/\b(aws|lambda|deploy|docker|production|prod)/, 'I ship to a live URL: Docker on AWS Lambda / ECS Fargate, FastAPI back-ends, Next.js or Streamlit front-ends.', 'docker'],
+        [/\b(azure|databricks|adf|spark|kafka|data|pipeline)/, 'Data engineering since Infosys/Microsoft: ADF pipelines 30% faster, Databricks lakehouses with Delta Lake, Kafka streaming on AWS.', 'data'],
+        [/\b(ml|mlops|mlflow|xgboost|model|churn)/, 'MLOps end to end: XGBoost churn model, MLflow tracking, data-quality gates, containerized API on ECS.', 'mlflow'],
+        [/\b(health|medical|doctor|clinic)/, 'Healthcare AI: MediNotes Pro (doctor notes → 3 drafts in ~20s on Lambda) and a healthcare RAG chatbot running Llama 3.', 'health'],
+        [/\b(salary|pay|money|comp)/, 'Let\'s talk about that over email — I\'m sure we\'ll find a number that fits.', null],
+        [/\b(where|location|remote|relocat|based)/, 'Based in Cary, NC (Raleigh–Durham). Open to on-site, hybrid or remote.', null],
+        [/\b(hire|available|open|job|role)/, 'Yes — open to Senior AI / ML Engineer roles. Run `hire` to start the pipeline.', null],
+        [/\b(python|java|c#|typescript|language)/, 'Python first; also Java, C#, TypeScript, SQL. Frameworks: FastAPI, Flask, Streamlit, Next.js, React, ASP.NET Core.', null],
+        [/\b(leetcode|dsa|algorithm)/, '380 LeetCode problems solved (63 hard), and I built LeetViz to animate 150 of them line by line.', 'leetviz']
+      ];
+      async function answer(q) {
+        q = q.trim(); if (!q) return line('<span class="er">usage: ask &lt;question&gt;</span>');
+        const ql = q.toLowerCase(), hit = KB.find(([re]) => re.test(ql));
+        const words = ql.replace(/[^a-z0-9#+ .-]/g, ' ').split(/\s+/).filter(w => w.length > 2 && !/^(the|and|you|your|have|any|with|what|does|did|can|for|how|about|know|work|done|built|ever)$/.test(w));
+        let rel = [];
+        for (const w of words) { rel = P.filter(p => (p.t + ' ' + p.tags.join(' ') + ' ' + p.r).toLowerCase().includes(w)); if (rel.length) break; }
+        if (!rel.length && hit && hit[2]) rel = P.filter(p => (p.t + ' ' + p.sub + ' ' + p.tags.join(' ')).toLowerCase().includes(hit[2]));
+        await trace(['thinking', `tool: search_projects(${JSON.stringify(words.slice(0, 3).join(' ') || q.slice(0, 20))})`, 'tool: read_resume()', 'grounding answer in sources']);
+        line(`<span class="w">dj-agent:</span> ${esc(hit ? hit[1] : rel.length ? `Here's what I've built that relates to "${q}":` : "I don't have a grounded answer for that — and I won't make one up. Email DJ directly and he'll answer.")}`);
+        if (rel.length) { C._last = rel; await say(rel.slice(0, 5).map(projLine), 40); line(`<span class="dim">sources: github.com/SaiSatyaJagannadh · type</span> ${cmdBtn('open 1')}`); }
+        else if (!hit) line(`  → ${a('mailto:' + MAIL, MAIL)}`);
+      }
+      async function run(raw) {
+        const cmd = raw.trim(); if (!cmd || busy) return;
+        busy = true; hist.push(cmd); hi = hist.length;
+        line(`<span class="p">dj@portfolio</span>:<span class="c">~</span>$ <span class="w">${esc(cmd)}</span>`);
+        const [name, ...rest] = cmd.split(/\s+/), arg = rest.join(' ').replace(/^["']|["']$/g, '');
+        const k = name.toLowerCase(), fn = Object.prototype.hasOwnProperty.call(C, k) && typeof C[k] === 'function' && !k.startsWith('_') ? C[k] : null;
+        try { if (fn) await fn(arg); else await answer(cmd); } catch (e) { line('<span class="er">error: ' + esc(e.message) + '</span>'); }
+        line(''); busy = false;
+      }
+      form.addEventListener('submit', e => { e.preventDefault(); const v = input.value; input.value = ''; run(v); });
+      input.addEventListener('keydown', e => {
+        if (e.key === 'ArrowUp' && hist.length) { e.preventDefault(); hi = Math.max(0, hi - 1); input.value = hist[hi]; }
+        else if (e.key === 'ArrowDown' && hist.length) { e.preventDefault(); hi = Math.min(hist.length, hi + 1); input.value = hist[hi] || ''; }
+        else if (e.key === 'Tab') { const m = Object.keys(C).filter(k => !k.includes('_') && k.startsWith(input.value.toLowerCase())); if (input.value && m.length) { e.preventDefault(); input.value = m.length === 1 ? m[0] + ' ' : input.value; if (m.length > 1) line('<span class="dim">' + m.join('  ') + '</span>'); } }
+        else if (e.key === 'l' && e.ctrlKey) { e.preventDefault(); C.clear(); }
+      });
+      out.addEventListener('click', e => { const b = e.target.closest('[data-run]'); if (b) { run(b.dataset.run); } });
+      box.addEventListener('click', e => { if (!e.target.closest('a,button') && !getSelection().toString()) input.focus({ preventScroll: true }); });
+      $('#cClear').onclick = () => C.clear();
+      const CHIPS = ['help', 'whoami', 'projects agents', 'projects live', 'ask do you know RAG?', 'skills', 'hire', 'sudo rm -rf /', 'matrix'];
+      $('#cChips').innerHTML = CHIPS.map(c => `<button data-chip="${esc(c)}">${esc(c)}</button>`).join('');
+      $('#cChips').onclick = e => { const b = e.target.closest('[data-chip]'); if (b) run(b.dataset.chip); };
+      async function boot() {
+        if (booted) return; booted = true;
+        await say([
+          '<span class="ascii"> ┌┬┐ ┬   ┌─┐┌─┐┌─┐┌┐┌┌┬┐\n  ││ │───├─┤│ ┬├┤ │││ │ \n ─┴┘└┘   ┴ ┴└─┘└─┘┘└┘ ┴ </span>',
+          '<span class="ok">dj-agent v2.0</span> <span class="dim">· grounded in ' + P.length + ' repos · no hallucinations allowed</span>',
+          `type ${cmdBtn('help')} to see what I can do, or just ask me a question.`, ''
+        ], 90);
+      }
+      if ('IntersectionObserver' in window) new IntersectionObserver(([e], o) => { if (e.isIntersecting) { boot(); o.disconnect(); } }, { threshold: .3 }).observe(box); else boot();
+
+      /* matrix rain */
+      const mc = $('#cMatrix'), mx = mc.getContext('2d');
+      function matrix() {
+        if (reduce) return;
+        const r = box.getBoundingClientRect(); mc.width = r.width; mc.height = r.height;
+        const cols = Math.floor(r.width / 14), drops = Array(cols).fill(0).map(() => Math.random() * -40), ch = 'アカサタナ0123456789DJAIRAGLLM<>/{}'.split('');
+        mc.classList.add('on'); const t0 = performance.now();
+        (function f(t) {
+          mx.fillStyle = 'rgba(7,8,13,.16)'; mx.fillRect(0, 0, mc.width, mc.height); mx.fillStyle = '#3cf0c5'; mx.font = '13px JetBrains Mono, monospace';
+          drops.forEach((y, i) => { mx.fillText(ch[Math.random() * ch.length | 0], i * 14, y * 16); drops[i] = y * 16 > mc.height && Math.random() > .96 ? 0 : y + 1; });
+          if (t - t0 < 4200) requestAnimationFrame(f); else { mc.classList.remove('on'); setTimeout(() => mx.clearRect(0, 0, mc.width, mc.height), 600); }
+        })(t0);
+      }
+      /* confetti */
+      function confetti() {
+        if (reduce) return;
+        const cols = ['#9b8cff', '#4cc9ff', '#3cf0c5', '#ff7ab6', '#febc2e'];
+        for (let i = 0; i < 70; i++) {
+          const p = document.createElement('i'); const r = box.getBoundingClientRect();
+          p.style.cssText = `position:fixed;z-index:300;width:8px;height:${6 + Math.random() * 8}px;border-radius:2px;pointer-events:none;background:${cols[i % 5]};left:${r.left + r.width / 2}px;top:${r.top + r.height / 2}px`;
+          document.body.appendChild(p);
+          const dx = (Math.random() - .5) * 700, dy = -200 - Math.random() * 300;
+          p.animate([{ transform: 'translate(0,0) rotate(0)', opacity: 1 }, { transform: `translate(${dx}px,${dy + 600}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }], { duration: 1400 + Math.random() * 800, easing: 'cubic-bezier(.2,.6,.4,1)' }).onfinish = () => p.remove();
+        }
+      }
+    })();
 
     /* Copy email */
     const toast = $('#toast');
