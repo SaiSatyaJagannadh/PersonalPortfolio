@@ -237,6 +237,11 @@
     .ab-stats b { display: block; font-family: var(--display); font-size: 30px; line-height: 1; letter-spacing: -.03em; }
     .ab-stats span { font-size: 11.5px; color: var(--faint); font-family: var(--mono); }
     .ab-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+    .ab-twin { grid-column: span 7; }
+    .ab-twin .tw-log { height: 330px; }
+    .tw-head .tw-st { font-size: 11.5px; margin-top: 2px; }
+    .tw-lat { color: var(--faint); margin-left: 4px; }
+    .tw-head .tw-open + .tw-open { margin-left: 6px; }
     .ab-code { grid-column: span 7; display: flex; flex-direction: column; background: color-mix(in srgb, var(--bg-2) 92%, transparent); }
     .code { font-family: var(--mono); font-size: 13.5px; line-height: 1.9; padding: 18px 20px 22px; overflow-x: auto; counter-reset: ln; flex: 1; }
     .code .cl { display: block; white-space: pre; opacity: 0; transform: translateX(-8px); transition: opacity .4s, transform .4s; }
@@ -533,7 +538,7 @@
     .tw-in button:disabled { opacity: .4; cursor: default; } .tw-in button svg { width: 18px; height: 18px; }
     .tw-foot { text-align: center; font-size: 11.5px; color: var(--faint); padding: 8px 14px 12px; }
     @media (max-width: 860px) { .twin { grid-template-columns: 1fr; } .tw-side { display: grid; grid-template-columns: auto 1fr; align-items: center; } .tw-side > :not(.tw-av):not(h3) { grid-column: 1 / -1; } .tw-metrics { margin-top: 0; } }
-    @media (max-width: 640px) { .tw-log { height: 400px; padding: 12px; } .msg { max-width: 94%; } .tw-open { display: none; } }
+    @media (max-width: 640px) { .tw-log { height: 400px; padding: 12px; } .msg { max-width: 94%; } a.tw-open { display: none; } }
 
     /* Contact */
     .contact { text-align: center; padding: 120px 0 80px; }
@@ -567,7 +572,7 @@
       .b-intro { grid-column: span 4; grid-row: auto; }
       .b-stat, .b-now, .b-loc { grid-column: span 2; }
       .b-lc, .b-viz, .b-focus { grid-column: span 4; }
-      .ab-me, .ab-code, .ab-lc, .ab-viz { grid-column: span 12; }
+      .ab-me, .ab-code, .ab-twin, .ab-lc, .ab-viz { grid-column: span 12; }
       .cap { grid-column: span 6; }
       .proj, .proj.hero-p { grid-column: span 6; }
       .sk-grid { grid-template-columns: repeat(2, 1fr); }
@@ -667,7 +672,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#credentials">Credentials</a></li>
-      <li><a href="#console">Talk to DJ</a></li>
+      <li><a href="#talk">Talk to DJ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -737,13 +742,25 @@
             <div class="ab-links">
               <a class="hl" href="https://www.linkedin.com/in/saijagannadh/" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
               <a class="hl" href="https://github.com/SaiSatyaJagannadh" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
-              <a class="hl" href="#console">💬 talk to my AI twin</a>
+              <a class="hl" href="#talk">💬 ask my AI twin →</a>
             </div>
           </div>
 
-          <div class="spot ab-code rv" aria-label="DJ described as a Python class">
-            <div class="t-bar"><i></i><i></i><i></i><span>dj.py — about me, as code</span></div>
-            <pre class="code"><code><span class="cl"><span class="kw">class</span> <span class="fn">DJ</span>(<span class="ty">AIEngineer</span>):</span><span class="cl">    name   = <span class="st">"Doddipatla Sai Satya Jagannadh"</span></span><span class="cl">    now    = <span class="st">"Tech Engineer @ UBS"</span></span><span class="cl">    before = [<span class="st">"Infosys → Microsoft"</span>, <span class="st">"MS CS @ CSUF"</span>]</span><span class="cl">    builds = [<span class="st">"agents"</span>, <span class="st">"RAG"</span>, <span class="st">"LLM apps"</span>, <span class="st">"data platforms"</span>]</span><span class="cl">    cares  = {<span class="st">"grounding"</span>, <span class="st">"guardrails"</span>, <span class="st">"evals"</span>, <span class="st">"latency"</span>, <span class="st">"$/token"</span>}</span><span class="cl"> </span><span class="cl">    <span class="kw">def</span> <span class="fn">ship</span>(self, idea):</span><span class="cl">        <span class="kw">return</span> idea | prototype | evaluate | deploy  <span class="cm"># → live URL</span></span><span class="cl"> </span><span class="cl"><span class="pr">&gt;&gt;&gt;</span> DJ().ship(<span class="st">"your hardest AI problem"</span>)</span><span class="cl"><span class="ok">✓ deployed</span> <span class="cm">· grounded · evaluated · on call</span><span class="cur"></span></span></code></pre>
+          <div class="tw-chat ab-twin rv" id="talk">
+            <div class="tw-head"><div class="tw-mini"><img src="./assets/images/my-avatar.png" alt="" width="34" height="34"><i></i></div><div><b>Ask my AI twin</b><p class="tw-st"><span class="d"></span><span id="twStatus">online · ready</span><span class="tw-lat">· <span id="twLat">—</span></span></p></div><span id="twN" hidden>0</span><button class="tw-open" id="twNew" type="button">↻ new chat</button><a class="tw-open" href="https://do2s1pa4farox.cloudfront.net" target="_blank" rel="noopener" aria-label="Open the twin app">open app ↗</a></div>
+            <div class="tw-log" id="twLog" role="log" aria-live="polite">
+              <div class="tw-welcome" id="twWelcome">
+                <div class="tw-bot">🤖</div>
+                <h4>Hi — I'm DJ's digital twin.</h4>
+                <p>I can talk through DJ's background, projects and the kind of work he's looking for. Ask me anything.</p>
+                <div class="tw-sugg" id="twSugg"></div>
+              </div>
+            </div>
+            <form class="tw-in" id="twForm" autocomplete="off">
+              <textarea id="twInput" rows="1" placeholder="Message DJ's twin…" aria-label="Message DJ's twin" maxlength="1500"></textarea>
+              <button type="submit" id="twSend" aria-label="Send"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0-6 6m6-6 6 6"/></svg></button>
+            </form>
+            <p class="tw-foot">An AI twin — it can get things wrong. Enter to send, Shift+Enter for a new line.</p>
           </div>
 
           <div class="wid-head rv"><span class="s-num">what I do</span><span class="wid-line"></span></div>
@@ -946,45 +963,9 @@
       </div>
     </section>
 
-    <section id="console">
-      <div class="container">
-        <div class="s-head rv">
-          <div><span class="s-num">06 / talk to DJ</span><h2>Ask my <span class="grad">AI twin.</span></h2></div>
-          <p>A digital twin trained on my background, running live on AWS. Ask it what you'd ask me in an interview — experience, projects, availability.</p>
-        </div>
-        <div class="twin rv" id="twin">
-          <aside class="tw-side">
-            <div class="tw-av"><img src="./assets/images/my-avatar.png" alt="" width="64" height="64"><i></i></div>
-            <h3>DJ's digital twin</h3>
-            <p class="tw-st"><span class="d"></span><span id="twStatus">online · ready</span></p>
-            <p class="tw-info">Answers come from the same API that powers my <a href="https://do2s1pa4farox.cloudfront.net" target="_blank" rel="noopener">standalone twin app ↗</a> — CloudFront front-end, API Gateway backend, memory per session.</p>
-            <div class="tw-stack"><span>CloudFront</span><span>API Gateway</span><span>Lambda</span><span>LLM</span></div>
-            <div class="tw-metrics"><div><b id="twN">0</b><span>messages</span></div><div><b id="twLat">—</b><span>last latency</span></div></div>
-            <button class="btn btn-sm" id="twNew" type="button">↻ New chat</button>
-          </aside>
-          <div class="tw-chat">
-            <div class="tw-head"><div class="tw-mini"><img src="./assets/images/my-avatar.png" alt="" width="34" height="34"><i></i></div><div><b>DJ's digital twin</b><span>Ask about experience, projects or availability</span></div><a class="tw-open" href="https://do2s1pa4farox.cloudfront.net" target="_blank" rel="noopener" aria-label="Open the twin app">open app ↗</a></div>
-            <div class="tw-log" id="twLog" role="log" aria-live="polite">
-              <div class="tw-welcome" id="twWelcome">
-                <div class="tw-bot">🤖</div>
-                <h4>Hi — I'm DJ's digital twin.</h4>
-                <p>I can talk through DJ's background, projects and the kind of work he's looking for. Ask me anything.</p>
-                <div class="tw-sugg" id="twSugg"></div>
-              </div>
-            </div>
-            <form class="tw-in" id="twForm" autocomplete="off">
-              <textarea id="twInput" rows="1" placeholder="Message DJ's twin…" aria-label="Message DJ's twin" maxlength="1500"></textarea>
-              <button type="submit" id="twSend" aria-label="Send"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0-6 6m6-6 6 6"/></svg></button>
-            </form>
-            <p class="tw-foot">An AI twin — it can get things wrong. Enter to send, Shift+Enter for a new line.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="contact" class="contact">
       <div class="container rv">
-        <div class="kicker">07 / contact — hiring for AI?</div>
+        <div class="kicker">06 / contact — hiring for AI?</div>
         <h2>Let's build<br><span class="grad">something smart.</span></h2>
         <div class="mail">
           <a href="mailto:saijagannadh0625@gmail.com">saijagannadh0625@gmail.com</a>
