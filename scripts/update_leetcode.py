@@ -31,7 +31,8 @@ out = {
 }
 path = pathlib.Path("data/leetcode.json")
 old = json.loads(path.read_text()) if path.exists() else {}
-if {k: v for k, v in old.items() if k != "updated"} == {k: v for k, v in out.items() if k != "updated"}:
+IGNORE = {"updated", "ranking"}  # ranking drifts every run; only commit when solved counts / streak change
+if {k: v for k, v in old.items() if k not in IGNORE} == {k: v for k, v in out.items() if k not in IGNORE}:
     print("no change", out); sys.exit(0)
 path.write_text(json.dumps(out) + "\n")
 print("updated", out)
