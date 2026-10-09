@@ -1378,9 +1378,14 @@
         const b = bubble('bot', '<span class="typing"><i></i><i></i><i></i></span>');
         setStatus('thinking…', 'busy'); const t0 = performance.now();
         try {
-          const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 45000);
-          const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sid ? { message: q, session_id: sid } : { message: q }), signal: ctl.signal });
-          clearTimeout(to);
+          let r;
+          for (let attempt = 0; attempt < 4; attempt++) {
+            const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 45000);
+            r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sid ? { message: q, session_id: sid } : { message: q }), signal: ctl.signal });
+            clearTimeout(to);
+            if (r.status !== 429 && r.status < 500) break;
+            setStatus('busy — retrying…', 'busy'); await new Promise(res => setTimeout(res, 1500 * (attempt + 1) + Math.random() * 500));
+          }
           if (!r.ok) throw new Error('HTTP ' + r.status);
           const j = await r.json();
           if (j.session_id) { sid = j.session_id; try { sessionStorage.setItem('twinSid', sid); } catch (e) {} }
@@ -1389,7 +1394,7 @@
           $('#twLat').textContent = secs + 's'; $('#twN').textContent = ++n; setStatus('online · ready');
         } catch (e) {
           b.classList.add('err');
-          b.innerHTML = `The twin didn't answer (${esc(e.name === 'AbortError' ? 'timed out' : e.message)}). It may be waking up — try again, or email <a href="mailto:saijagannadh0625@gmail.com">saijagannadh0625@gmail.com</a>.`;
+          b.innerHTML = `I'm a little busy right now (${esc(e.name === 'AbortError' ? 'timed out' : e.message)}) — please ask again in a few seconds, or email <a href="mailto:saijagannadh0625@gmail.com">saijagannadh0625@gmail.com</a>.`;
           setStatus('unreachable — retry', 'err');
         }
         busy = false; send.disabled = false;
