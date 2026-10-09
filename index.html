@@ -483,6 +483,56 @@
     .gpa { color: var(--a3); font-family: var(--mono); font-size: 12.5px; }
     .resume-box { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
 
+    /* Hero AI twin */
+    @property --ang { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+    .htwin { position: relative; border-radius: 22px; padding: 2px; isolation: isolate; }
+    .htwin::before, .htwin::after { content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1;
+      background: conic-gradient(from var(--ang), var(--a1), var(--a2), var(--a3), var(--hot), var(--a1)); animation: spinang 6s linear infinite; }
+    .htwin::after { inset: 8px; filter: blur(34px); opacity: .55; z-index: -2; }
+    @keyframes spinang { to { --ang: 360deg; } }
+    .htwin.ping::after { animation: spinang 6s linear infinite, glowping 1.2s ease-out; }
+    @keyframes glowping { 30% { opacity: 1; filter: blur(46px); } }
+    .ht-card { border-radius: 20px; border: 0; background: var(--bg-2); }
+    .ht-card::before { display: none; }
+    .ht-card .tw-log { height: 300px; }
+    .ht-av { width: 44px; height: 44px; }
+    .ht-av img { width: 40px; height: 40px; border-radius: 50%; }
+    .ht-card .tw-head b { font-family: var(--display); font-size: 16px; letter-spacing: -.01em; }
+    .ht-sticker { position: absolute; top: -15px; left: 22px; z-index: 3; font-family: var(--mono); font-size: 11.5px; font-weight: 700; padding: 5px 11px; border-radius: 999px; color: #07080d; background: var(--grad); box-shadow: 0 8px 24px -8px var(--a1); transform: rotate(-2.5deg); animation: stick 3s ease-in-out infinite; }
+    @keyframes stick { 50% { transform: rotate(-2.5deg) translateY(-3px); } }
+    .ht-why { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 18px 0; }
+    .ht-why span { font-size: 11.5px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--border-2); color: var(--muted); background: var(--card-solid); }
+    .ht-card .tw-welcome { margin: 2px 0 0 38px; text-align: left; max-width: none; }
+    .ht-card .tw-sugg { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ht-card .tw-sugg button { padding: 7px 11px; font-size: 12.5px; border-radius: 999px; }
+    .ht-card .tw-foot { padding-top: 6px; }
+    /* floating launcher */
+    .tw-fab { position: fixed; right: 18px; bottom: 18px; z-index: 90; display: flex; align-items: center; gap: 10px; padding: 7px 16px 7px 7px; border-radius: 999px;
+      background: var(--card-solid); border: 1px solid var(--border-2); box-shadow: 0 18px 40px -14px rgba(0,0,0,.6), 0 0 0 1px color-mix(in srgb, var(--a1) 30%, transparent);
+      transform: translateY(120%); opacity: 0; pointer-events: none; transition: transform .35s cubic-bezier(.3,1.4,.5,1), opacity .25s; }
+    .tw-fab.show { transform: none; opacity: 1; pointer-events: auto; }
+    .tw-fab:hover { border-color: var(--a1); }
+    .fab-av { position: relative; width: 38px; height: 38px; display: grid; place-items: center; }
+    .fab-av img { width: 34px; height: 34px; border-radius: 50%; position: relative; z-index: 1; background: var(--bg-2); }
+    .fab-av i { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--a1), var(--a2), var(--a3), var(--a1)); animation: spin 3s linear infinite; }
+    .fab-t b { display: block; font-size: 13.5px; } .fab-t small { font-family: var(--mono); font-size: 10.5px; color: var(--a3); }
+    /* how it works */
+    .ab-how { grid-column: span 7; padding: 24px; gap: 14px; }
+    .how-viz { width: 100%; height: auto; border-radius: 14px; background: var(--bg-2); border: 1px solid var(--border); }
+    .how-viz text { font-family: var(--mono); font-size: 11px; fill: var(--text); text-anchor: middle; font-weight: 600; }
+    .how-viz text.s { font-size: 9.5px; fill: var(--faint); font-weight: 400; }
+    .hw-n rect { fill: var(--card-solid); stroke: var(--border-2); }
+    .hw-n rect.core { fill: color-mix(in srgb, var(--a1) 20%, var(--card-solid)); stroke: var(--a1); animation: corepulse 2.4s ease-in-out infinite; }
+    .hw-n rect.mm { stroke: var(--a3); stroke-dasharray: 4 3; }
+    .hw-e path { stroke: var(--a2); stroke-width: 2; fill: none; stroke-dasharray: 5 6; animation: dash 1.1s linear infinite; }
+    .hw-e path.mem { stroke: var(--a3); opacity: .7; }
+    .hw-dot { fill: var(--a3); filter: drop-shadow(0 0 5px var(--a3)); }
+    .how-list { list-style: none; display: grid; gap: 8px; }
+    .how-list li { color: var(--muted); font-size: 14.3px; padding-left: 22px; position: relative; }
+    .how-list li::before { content: "✦"; position: absolute; left: 0; color: var(--a1); }
+    .how-list b { color: var(--text); } .how-list a { color: var(--a2); border-bottom: 1px dashed var(--a2); }
+    .how-cta { align-self: flex-start; margin-top: auto; }
+
     /* Twin chat */
     .twin { display: grid; grid-template-columns: 300px 1fr; gap: 14px; }
     .tw-side, .tw-chat { border-radius: 20px; border: 1px solid var(--border); background: var(--card); }
@@ -572,7 +622,7 @@
       .b-intro { grid-column: span 4; grid-row: auto; }
       .b-stat, .b-now, .b-loc { grid-column: span 2; }
       .b-lc, .b-viz, .b-focus { grid-column: span 4; }
-      .ab-me, .ab-code, .ab-twin, .ab-lc, .ab-viz { grid-column: span 12; }
+      .ab-me, .ab-code, .ab-twin, .ab-how, .ab-lc, .ab-viz { grid-column: span 12; }
       .cap { grid-column: span 6; }
       .proj, .proj.hero-p { grid-column: span 6; }
       .sk-grid { grid-template-columns: repeat(2, 1fr); }
@@ -610,6 +660,7 @@
       h1.name .l0 { font-size: .5em; }
       .nav-cta span { display: none; }
       .scroll-hint { display: none; }
+      .ht-card .tw-log { height: 340px; } .ht-card .tw-welcome { margin-left: 0; } .fab-t small { display: none; } .tw-fab { padding-right: 12px; }
       .mail { flex-direction: column; padding: 14px; gap: 10px; }
       .role .rot { display: table; margin-top: 4px; }
     }
@@ -620,6 +671,7 @@
   <div class="backdrop" aria-hidden="true"></div>
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <a class="tw-fab" id="twFab" href="#talk" aria-label="Ask my AI twin"><span class="fab-av"><img src="./assets/images/my-avatar.png" alt="" width="34" height="34"><i></i></span><span class="fab-t"><b>Ask my AI twin</b><small>live · answers like DJ</small></span></a>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.870-1.37-3.870-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.690 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></symbol>
@@ -706,9 +758,21 @@
           </div>
         </div>
 
-        <div class="terminal rv" aria-label="Agent run summarizing DJ's profile">
-          <div class="t-bar"><i></i><i></i><i></i><span>dj@portfolio — agent run</span><button id="replay" aria-label="Replay the agent run">↻ replay</button></div>
-          <div class="t-body" id="term"></div>
+        <div class="htwin rv" id="talk">
+          <span class="ht-sticker">✦ not a chatbot — it's my AI twin</span>
+          <div class="tw-chat ht-card">
+            <div class="tw-head"><div class="tw-mini ht-av"><img src="./assets/images/my-avatar.png" alt="" width="40" height="40"><i></i></div><div><b>Talk to DJ's AI Twin</b><p class="tw-st"><span class="d"></span><span id="twStatus">online · ready</span><span class="tw-lat">· <span id="twLat">—</span></span></p></div><span id="twN" hidden>0</span><button class="tw-open" id="twNew" type="button">↻ new</button><a class="tw-open" href="https://do2s1pa4farox.cloudfront.net" target="_blank" rel="noopener" aria-label="Open the twin app in a new tab">open ↗</a></div>
+            <div class="ht-why"><span>🧠 trained on my real career</span><span>💾 remembers your chat</span><span>☁️ self-deployed on AWS</span></div>
+            <div class="tw-log" id="twLog" role="log" aria-live="polite">
+              <div class="msg bot"><span class="av"><img src="./assets/images/my-avatar.png" alt=""></span><div class="bub">Hey 👋 I'm <b>DJ's AI twin</b> — not a canned FAQ bot. I was built from DJ's real résumé and projects and I answer the way he would. Ask me what you'd ask him in an interview.</div></div>
+              <div class="tw-welcome" id="twWelcome"><div class="tw-sugg" id="twSugg"></div></div>
+            </div>
+            <form class="tw-in" id="twForm" autocomplete="off">
+              <textarea id="twInput" rows="1" placeholder="Ask DJ's twin anything…" aria-label="Message DJ's AI twin" maxlength="1500"></textarea>
+              <button type="submit" id="twSend" aria-label="Send"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0-6 6m6-6 6 6"/></svg></button>
+            </form>
+            <p class="tw-foot">Live AI — answers in a few seconds · it can get things wrong.</p>
+          </div>
         </div>
       </div>
       <a class="scroll-hint" href="#about" aria-label="Scroll to about">scroll<span></span></a>
@@ -746,21 +810,25 @@
             </div>
           </div>
 
-          <div class="tw-chat ab-twin rv" id="talk">
-            <div class="tw-head"><div class="tw-mini"><img src="./assets/images/my-avatar.png" alt="" width="34" height="34"><i></i></div><div><b>Ask my AI twin</b><p class="tw-st"><span class="d"></span><span id="twStatus">online · ready</span><span class="tw-lat">· <span id="twLat">—</span></span></p></div><span id="twN" hidden>0</span><button class="tw-open" id="twNew" type="button">↻ new chat</button><a class="tw-open" href="https://do2s1pa4farox.cloudfront.net" target="_blank" rel="noopener" aria-label="Open the twin app">open app ↗</a></div>
-            <div class="tw-log" id="twLog" role="log" aria-live="polite">
-              <div class="tw-welcome" id="twWelcome">
-                <div class="tw-bot">🤖</div>
-                <h4>Hi — I'm DJ's digital twin.</h4>
-                <p>I can talk through DJ's background, projects and the kind of work he's looking for. Ask me anything.</p>
-                <div class="tw-sugg" id="twSugg"></div>
-              </div>
-            </div>
-            <form class="tw-in" id="twForm" autocomplete="off">
-              <textarea id="twInput" rows="1" placeholder="Message DJ's twin…" aria-label="Message DJ's twin" maxlength="1500"></textarea>
-              <button type="submit" id="twSend" aria-label="Send"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0-6 6m6-6 6 6"/></svg></button>
-            </form>
-            <p class="tw-foot">An AI twin — it can get things wrong. Enter to send, Shift+Enter for a new line.</p>
+          <div class="spot b ab-how rv">
+            <div class="b-label"><span class="d"></span>how my AI twin works · not a normal chatbot</div>
+            <svg class="how-viz" viewBox="0 0 560 150" aria-hidden="true">
+              <g class="hw-e"><path id="hw1" d="M78 75 H140"/><path id="hw2" d="M222 75 H284"/><path id="hw3" d="M366 75 H428"/><path id="hw4" d="M470 97 V118 H200 V97" class="mem"/></g>
+              <circle class="hw-dot" r="4"><animateMotion dur="2.6s" repeatCount="indefinite" path="M78 75 H140 M222 75 H284 M366 75 H428"/></circle>
+              <g class="hw-n">
+                <rect x="10" y="52" width="68" height="46" rx="12"/><text x="44" y="73">you</text><text x="44" y="88" class="s">any visitor</text>
+                <rect x="140" y="52" width="82" height="46" rx="12"/><text x="181" y="73">CloudFront</text><text x="181" y="88" class="s">chat UI</text>
+                <rect x="284" y="52" width="82" height="46" rx="12"/><text x="325" y="73">API Gateway</text><text x="325" y="88" class="s">/chat</text>
+                <rect x="428" y="52" width="122" height="46" rx="12" class="core"/><text x="489" y="73">Twin agent</text><text x="489" y="88" class="s">LLM + my profile</text>
+                <rect x="250" y="106" width="140" height="28" rx="9" class="mm"/><text x="320" y="124" class="s">session memory</text>
+              </g>
+            </svg>
+            <ul class="how-list">
+              <li><b>Grounded in my real career</b> — résumé, projects and goals, not generic internet answers.</li>
+              <li><b>Remembers the conversation</b> — every chat gets its own session, so follow-ups just work.</li>
+              <li><b>Built &amp; deployed by me</b> end to end on AWS — the same twin runs at <a href="https://do2s1pa4farox.cloudfront.net" target="_blank" rel="noopener">its own URL ↗</a>.</li>
+            </ul>
+            <a class="btn btn-glow btn-sm how-cta" href="#talk">Try it — ask my twin anything <svg><use href="#i-arr"/></svg></a>
           </div>
 
           <div class="wid-head rv"><span class="s-num">what I do</span><span class="wid-line"></span></div>
@@ -1269,40 +1337,6 @@
     const rot = $('#rot'); let ri = 0;
     if (!reduce) setInterval(() => { rot.classList.add('out'); setTimeout(() => { ri = (ri + 1) % roles.length; rot.textContent = roles[ri]; rot.classList.remove('out'); }, 300); }, 2800);
 
-    /* Agent terminal */
-    const SCRIPT = () => [
-      ['<span class="p">$</span> <span class="w">dj agent run</span> <span class="c">--task</span> <span class="h">"find a senior AI engineer"</span>', 0],
-      ['<span class="k">▸ plan</span>      resume · repos · demos', 380],
-      [`<span class="k">▸ github</span>    <a href="#projects">${P.length} projects</a> · <span class="ok">${nLive} live demos</span>`, 380],
-      ['<span class="k">▸ rag</span>       <a href="https://www.ubs.com" target="_blank" rel="noopener">UBS</a> → <a href="https://www.infosys.com" target="_blank" rel="noopener">Infosys</a>/Microsoft → <a href="https://www.fullerton.edu" target="_blank" rel="noopener">CSUF</a>', 380],
-      ['<span class="k">▸ eval</span>      releases <span class="ok">0 downtime</span> · pipelines <span class="ok">−30%</span> · SQL <span class="ok">−40%</span>', 380],
-      [`<span class="k">▸ leetcode</span>  <a href="https://leetcode.com/u/saijagannadh0625/" target="_blank" rel="noopener">${LC.total} solved</a> · ${LC.hard} hard · DP ×${LC.dp}`, 380],
-      ['<span class="k">▸ stack</span>     LangGraph · MCP · pgvector · Lambda', 380],
-      ['', 200],
-      ['<span class="ok">✓ match found:</span> <span class="w">Doddipatla Sai Satya Jagannadh (DJ)</span>', 300],
-      ['<span class="c">→</span> <a href="mailto:saijagannadh0625@gmail.com">say hi</a>   <span class="c">→</span> <a href="./Sai_Jagannadh_Resume.pdf" download>get resume</a>', 300]
-    ];
-    const term = $('#term'); let runId = 0;
-    const wait = ms => new Promise(r => setTimeout(r, ms));
-    async function typeHTML(el, html, id) {
-      const tmp = document.createElement('div'); tmp.innerHTML = html;
-      const text = tmp.textContent;
-      for (let i = 0; i < text.length; i += 2) { if (id !== runId) return; el.textContent = text.slice(0, i); await wait(14); }
-      el.innerHTML = html;
-    }
-    async function runTerm() {
-      const id = ++runId; term.innerHTML = '';
-      for (const [html, delay] of SCRIPT()) {
-        if (id !== runId) return;
-        if (!reduce) await wait(delay);
-        const ln = document.createElement('div'); ln.className = 'ln'; term.appendChild(ln);
-        if (reduce || !html) ln.innerHTML = html || '&nbsp;'; else await typeHTML(ln, html, id);
-      }
-      if (id === runId) { const c = document.createElement('span'); c.className = 'cur'; term.lastElementChild.append(' ', c); }
-    }
-    $('#replay').onclick = runTerm;
-    setTimeout(runTerm, reduce ? 0 : 700);
-
     /* Talk to DJ — live digital twin (same API as https://do2s1pa4farox.cloudfront.net) */
     (() => {
       const API = 'https://pm9syt8bp2.execute-api.us-east-2.amazonaws.com/chat';
@@ -1366,10 +1400,27 @@
       form.addEventListener('submit', e => { e.preventDefault(); ask(input.value); });
       $('#twNew').onclick = () => {
         sid = null; n = 0; try { sessionStorage.removeItem('twinSid'); } catch (e) {}
-        log.innerHTML = `<div class="tw-welcome" id="twWelcome"><div class="tw-bot">🤖</div><h4>New chat started.</h4><p>Ask me anything about DJ's work.</p><div class="tw-sugg" id="twSugg2">${SUGG.map(q => `<button type="button">${esc(q)}</button>`).join('')}</div></div>`;
+        log.innerHTML = `<div class="msg bot"><span class="av"><img src="${AV}" alt=""></span><div class="bub">Fresh start ✨ — what would you like to know about DJ?</div></div><div class="tw-welcome" id="twWelcome"><div class="tw-sugg" id="twSugg2">${SUGG.map(q => `<button type="button">${esc(q)}</button>`).join('')}</div></div>`;
         $('#twSugg2').onclick = e => { const b = e.target.closest('button'); if (b) ask(b.textContent); };
         $('#twN').textContent = 0; $('#twLat').textContent = '—'; setStatus('online · ready');
       };
+      /* typewriter placeholder — shows visitors what they can ask */
+      const PH = ['Are you open to AI Engineer or SRE roles?', 'What did you build at UBS?', 'Explain your RAG expense agent…', 'What makes you a strong hire?', 'Tell me about your data engineering work'];
+      let pi = 0, pc = 0, pdel = false;
+      if (!reduce) setInterval(() => {
+        if (document.activeElement === input || input.value) return;
+        const t = PH[pi]; pc += pdel ? -2 : 1;
+        if (!pdel && pc >= t.length + 18) pdel = true;
+        if (pdel && pc <= 0) { pdel = false; pc = 0; pi = (pi + 1) % PH.length; }
+        input.placeholder = (t.slice(0, Math.max(0, Math.min(pc, t.length))) || 'Ask DJ\'s twin anything') + (pc < t.length && !pdel ? '▍' : '');
+      }, 55);
+      input.addEventListener('blur', () => { if (!input.value) input.placeholder = 'Ask DJ\'s twin anything…'; });
+      /* floating launcher: appears once the hero chat is off-screen */
+      const fab = $('#twFab'), card = $('#talk');
+      if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => fab.classList.toggle('show', !e.isIntersecting && scrollY > 200), { threshold: .15 }).observe(card);
+      const goTwin = e => { if (e) e.preventDefault(); card.scrollIntoView({ behavior: smooth, block: 'center' }); setTimeout(() => input.focus({ preventScroll: true }), reduce ? 0 : 600); card.classList.remove('ping'); void card.offsetWidth; card.classList.add('ping'); };
+      fab.addEventListener('click', goTwin);
+      $$('a[href="#talk"]').forEach(a => a.addEventListener('click', goTwin));
     })();
 
     /* Copy email */
