@@ -587,6 +587,16 @@
     .tw-in button { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--grad); color: #07080d; flex-shrink: 0; transition: opacity .15s; }
     .tw-in button:disabled { opacity: .4; cursor: default; } .tw-in button svg { width: 18px; height: 18px; }
     .tw-foot { text-align: center; font-size: 11.5px; color: var(--faint); padding: 8px 14px 12px; }
+    .tw-quota { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--border-2); color: var(--muted); font-family: var(--mono); font-size: 11px; }
+    .tw-quota b { color: var(--a2); } .tw-quota.low { border-color: #febc2e; color: #febc2e; } .tw-quota.out { border-color: rgba(255,107,129,.5); color: #ff6b81; }
+    .tw-in.locked { opacity: .55; } .tw-in.locked textarea { cursor: not-allowed; }
+    .bub.limit { position: relative; padding: 16px 16px 14px; border: 1px solid transparent; background: linear-gradient(var(--card-solid), var(--card-solid)) padding-box, var(--grad) border-box; box-shadow: 0 10px 30px -12px var(--glow); }
+    .lim-h { font-weight: 700; font-size: 15.5px; margin-bottom: 6px; }
+    .lim-sub { margin-top: 8px; font-weight: 600; }
+    .lim-facts { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 12px; }
+    .lim-facts span { font-size: 12px; padding: 3px 9px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--border); }
+    .lim-cta { display: flex; flex-wrap: wrap; gap: 8px; } .bub .lim-cta a { text-decoration: none; color: inherit; } .bub .lim-cta a.btn-glow { color: #07080d; }
+    .lim-foot { margin-top: 10px; font-size: 12px; color: var(--faint); }
     @media (max-width: 860px) { .twin { grid-template-columns: 1fr; } .tw-side { display: grid; grid-template-columns: auto 1fr; align-items: center; } .tw-side > :not(.tw-av):not(h3) { grid-column: 1 / -1; } .tw-metrics { margin-top: 0; } }
     @media (max-width: 640px) { .tw-log { height: 400px; padding: 12px; } .msg { max-width: 94%; } a.tw-open { display: none; } }
 
@@ -771,7 +781,7 @@
               <textarea id="twInput" rows="1" placeholder="Ask DJ's twin anything…" aria-label="Message DJ's AI twin" maxlength="1500"></textarea>
               <button type="submit" id="twSend" aria-label="Send"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0-6 6m6-6 6 6"/></svg></button>
             </form>
-            <p class="tw-foot">Live AI — answers in a few seconds · it can get things wrong.</p>
+            <p class="tw-foot"><span class="tw-quota" id="twQuota">🎟️ <b>3</b> of 3 free questions today</span> · Live AI — it can get things wrong.</p>
           </div>
         </div>
       </div>
@@ -1348,6 +1358,35 @@
       $('#twSugg').innerHTML = SUGG.map(q => `<button type="button">${esc(q)}</button>`).join('');
       $('#twSugg').onclick = e => { const b = e.target.closest('button'); if (b) ask(b.textContent); };
       const setStatus = (t, cls = '') => { status.textContent = t; status.parentElement.className = 'tw-st ' + cls; };
+      /* Daily quota — the AWS API allows 3 questions per visitor per day; mirror it here so visitors see it coming */
+      const LIMIT = 3, QK = 'twinQuota', today = () => new Date().toLocaleDateString('en-CA');
+      let used = 0;
+      try { const o = JSON.parse(localStorage.getItem(QK) || '{}'); if (o.d === today()) used = o.u | 0; } catch (e) {}
+      const saveUsed = () => { try { localStorage.setItem(QK, JSON.stringify({ d: today(), u: used })); } catch (e) {} };
+      const left = () => Math.max(0, LIMIT - used);
+      function paintQuota() {
+        const q = $('#twQuota'), l = left();
+        q.innerHTML = l ? `🎟️ <b>${l}</b> of ${LIMIT} free questions left today` : '🎟️ today\'s questions used · back tomorrow';
+        q.className = 'tw-quota' + (l === 0 ? ' out' : l === 1 ? ' low' : '');
+        const locked = l === 0;
+        form.classList.toggle('locked', locked); input.disabled = locked; send.disabled = locked || busy;
+        if (locked) { input.placeholder = 'Daily limit reached — reach the real DJ above ↑'; setStatus('daily limit reached', 'busy'); }
+      }
+      const limitCard = () => `
+        <div class="lim-h">🎟️ That's your ${LIMIT} free questions for today!</div>
+        <p>My twin runs live on AWS with a paid LLM API, so each visitor gets <b>${LIMIT} questions a day</b> — that keeps it fast and free for everyone. Thanks for trying it!</p>
+        <p class="lim-sub">Want the full story? Talk to the real DJ — I reply quickly 👇</p>
+        <div class="lim-facts"><span>✅ Open to AI Engineer &amp; SRE roles</span><span>🏦 Tech Engineer @ UBS</span><span>⚡ 4+ yrs · software, cloud, AI</span><span>🎓 MS CS · 3.9 GPA</span></div>
+        <div class="lim-cta">
+          <a class="btn btn-glow btn-sm" href="mailto:saijagannadh0625@gmail.com?subject=Hi%20DJ%20%E2%80%94%20saw%20your%20portfolio">✉️ Email DJ</a>
+          <a class="btn btn-sm" href="https://www.linkedin.com/in/saijagannadh/" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a class="btn btn-sm" href="./Sai_Jagannadh_Resume.pdf" download>📄 Résumé</a>
+        </div>
+        <p class="lim-foot">Your questions refresh tomorrow · meanwhile, browse my <a href="#projects">projects</a> and <a href="#experience">experience</a>.</p>`;
+      function showLimit() {
+        log.querySelectorAll('.bub.limit').forEach(x => x.closest('.msg').remove());
+        bubble('bot', limitCard(), 'limit'); paintQuota();
+      }
       function md(t) {
         const inline = x => esc(x).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>')
           .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
@@ -1373,6 +1412,7 @@
       }
       async function ask(q) {
         q = q.trim(); if (!q || busy) return;
+        if (!left()) { showLimit(); return; }
         busy = true; send.disabled = true; input.value = ''; fit();
         bubble('me', esc(q).replace(/\n/g, '<br>')); $('#twN').textContent = ++n;
         const b = bubble('bot', '<span class="typing"><i></i><i></i><i></i></span>');
@@ -1383,8 +1423,12 @@
             const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 45000);
             r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sid ? { message: q, session_id: sid } : { message: q }), signal: ctl.signal });
             clearTimeout(to);
-            if (r.status !== 429 && r.status < 500) break;
+            if (r.status < 500) break; /* 429 = daily quota: retrying won't help */
             setStatus('busy — retrying…', 'busy'); await new Promise(res => setTimeout(res, 1500 * (attempt + 1) + Math.random() * 500));
+          }
+          if (r.status === 429) {
+            used = LIMIT; saveUsed(); b.closest('.msg').remove();
+            busy = false; showLimit(); return;
           }
           if (!r.ok) throw new Error('HTTP ' + r.status);
           const j = await r.json();
@@ -1392,12 +1436,16 @@
           const secs = ((performance.now() - t0) / 1000).toFixed(1);
           await reveal(b, md(String(j.response || '…')) + `<span class="meta">twin · ${secs}s</span>`);
           $('#twLat').textContent = secs + 's'; $('#twN').textContent = ++n; setStatus('online · ready');
+          used++; saveUsed();
+          busy = false; paintQuota();
+          if (!left()) showLimit();
+          return;
         } catch (e) {
           b.classList.add('err');
-          b.innerHTML = `I'm a little busy right now (${esc(e.name === 'AbortError' ? 'timed out' : e.message)}) — please ask again in a few seconds, or email <a href="mailto:saijagannadh0625@gmail.com">saijagannadh0625@gmail.com</a>.`;
+          b.innerHTML = `Hmm, I couldn't reach my brain on AWS just now (${esc(e.name === 'AbortError' ? 'timed out' : e.message)}). Try again in a moment — or email the real DJ at <a href="mailto:saijagannadh0625@gmail.com">saijagannadh0625@gmail.com</a>.`;
           setStatus('unreachable — retry', 'err');
         }
-        busy = false; send.disabled = false;
+        busy = false; send.disabled = false; paintQuota();
       }
       const fit = () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 140) + 'px'; };
       input.addEventListener('input', fit);
@@ -1407,19 +1455,20 @@
         sid = null; n = 0; try { sessionStorage.removeItem('twinSid'); } catch (e) {}
         log.innerHTML = `<div class="msg bot"><span class="av"><img src="${AV}" alt=""></span><div class="bub">Fresh start ✨ — what would you like to know about DJ?</div></div><div class="tw-welcome" id="twWelcome"><div class="tw-sugg" id="twSugg2">${SUGG.map(q => `<button type="button">${esc(q)}</button>`).join('')}</div></div>`;
         $('#twSugg2').onclick = e => { const b = e.target.closest('button'); if (b) ask(b.textContent); };
-        $('#twN').textContent = 0; $('#twLat').textContent = '—'; setStatus('online · ready');
+        $('#twN').textContent = 0; $('#twLat').textContent = '—'; setStatus('online · ready'); paintQuota();
       };
+      paintQuota();
       /* typewriter placeholder — shows visitors what they can ask */
       const PH = ['Are you open to AI Engineer or SRE roles?', 'What did you build at UBS?', 'Explain your RAG expense agent…', 'What makes you a strong hire?', 'Tell me about your data engineering work'];
       let pi = 0, pc = 0, pdel = false;
       if (!reduce) setInterval(() => {
-        if (document.activeElement === input || input.value) return;
+        if (document.activeElement === input || input.value || input.disabled) return;
         const t = PH[pi]; pc += pdel ? -2 : 1;
         if (!pdel && pc >= t.length + 18) pdel = true;
         if (pdel && pc <= 0) { pdel = false; pc = 0; pi = (pi + 1) % PH.length; }
         input.placeholder = (t.slice(0, Math.max(0, Math.min(pc, t.length))) || 'Ask DJ\'s twin anything') + (pc < t.length && !pdel ? '▍' : '');
       }, 55);
-      input.addEventListener('blur', () => { if (!input.value) input.placeholder = 'Ask DJ\'s twin anything…'; });
+      input.addEventListener('blur', () => { if (!input.value && !input.disabled) input.placeholder = 'Ask DJ\'s twin anything…'; });
       /* floating launcher: appears once the hero chat is off-screen */
       const fab = $('#twFab'), card = $('#talk');
       if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => fab.classList.toggle('show', !e.isIntersecting && scrollY > 200), { threshold: .15 }).observe(card);
