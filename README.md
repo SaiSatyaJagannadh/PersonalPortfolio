@@ -6,9 +6,10 @@ Personal site for DJ — Tech Engineer at UBS building LLM apps, RAG systems and
 
 ## What's on the site
 
-- **AI projects** — MediNotes Pro, Expense Compliance Agent (RAG + MCP), Resume ATS Optimizer (LangGraph), Cerebras healthcare chatbot, FinAI, churn MLOps, LeetViz and more, with live demos and filters
+- **AI projects** — MediNotes Pro, Cyber Site Analyzer (Google Cloud Run), Cybersecurity Analyzer (Azure), Expense Compliance Agent (RAG + MCP), Resume ATS Optimizer (LangGraph), Cerebras healthcare chatbot, FinAI, churn MLOps, LeetViz and more, with live demos and filters
 - **Experience** — UBS, Cerebras Fellowship, Infosys (client: Microsoft)
 - **Skills, certifications, education**
+- **GitHub activity** — contribution heatmap and latest pushes, refreshed daily by `.github/workflows/github-activity.yml` (`scripts/update_github.py` → `data/github.json`)
 - **Resume** — `Sai_Jagannadh_Resume.pdf` in this repo, also on [Google Drive](https://drive.google.com/file/d/1MVxJ3ye5SOAkK6B8lw5bs61_Q7KfGbyo/view)
 
 ## Stack

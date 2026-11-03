@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doddipatla Sai Satya Jagannadh (DJ) — AI Engineer</title>
-  <meta name="description" content="DJ — Tech Engineer at UBS building LLM apps, RAG systems and AI agents. LangGraph, MCP, Azure, AWS. 40 projects, 11 live demos, 380+ LeetCode problems solved.">
+  <meta name="description" content="DJ — Tech Engineer at UBS building LLM apps, RAG systems and AI agents. LangGraph, MCP, Azure, AWS. 42 projects, 13 live demos, 380+ LeetCode problems solved.">
   <meta property="og:title" content="Doddipatla Sai Satya Jagannadh (DJ) — AI Engineer">
   <meta property="og:description" content="LLM apps, RAG pipelines, agentic systems and reliable production ops. Tech Engineer @ UBS · MS CS @ CSUF.">
   <meta property="og:type" content="website">
@@ -467,6 +467,39 @@
     button.skill:hover { border-color: var(--a1); background: var(--glow); transform: translateY(-1px); }
     button.skill::after { content: " ↗"; font-size: 11px; color: var(--a1); }
 
+
+    /* GitHub activity */
+    .gh { display: grid; gap: 14px; }
+    .gh .b-label a:hover { color: var(--text); }
+    .gh-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+    .gh-stats > div { padding: 12px 14px; border-radius: 14px; border: 1px solid var(--border); background: var(--bg-2); }
+    .gh-stats b { display: block; font-family: var(--display); font-size: 26px; line-height: 1.15; }
+    .gh-stats span { font-size: 12.5px; color: var(--muted); }
+    .gh-scroll { overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
+    .gh-months, .gh-grid { display: grid; grid-auto-flow: column; grid-auto-columns: var(--c, 15px); gap: 3px; min-width: max-content; }
+    .gh-months { font-family: var(--mono); font-size: 10.5px; color: var(--faint); height: 16px; }
+    .gh-months span { white-space: nowrap; }
+    .gh-grid { grid-template-rows: repeat(7, var(--c, 15px)); }
+    .gh-grid i, .gh-legend i { display: block; width: var(--c, 15px); height: var(--c, 15px); border-radius: 3px; background: var(--bg-2); outline: 1px solid var(--border); outline-offset: -1px; }
+    .gh-legend i { --c: 11px; display: inline-block; vertical-align: -1px; }
+    .gh .l1 { background: color-mix(in srgb, var(--a3) 30%, var(--bg-2)); }
+    .gh .l2 { background: color-mix(in srgb, var(--a3) 55%, var(--bg-2)); }
+    .gh .l3 { background: color-mix(in srgb, var(--a3) 78%, var(--bg-2)); }
+    .gh .l4 { background: var(--a3); }
+    .gh-grid i.today { outline: 1.5px solid var(--a1); }
+    .gh-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+    .gh-legend { font-family: var(--mono); font-size: 11px; color: var(--faint); display: inline-flex; align-items: center; gap: 4px; }
+    .gh-sub { margin-left: auto; text-transform: none; letter-spacing: 0; color: var(--faint); }
+    .gh-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .gh-list a { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 12px; align-items: baseline; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--border); background: var(--bg-2); transition: border-color .15s, transform .15s; min-width: 0; }
+    .gh-list a:hover { border-color: var(--a1); transform: translateY(-2px); }
+    .gh-list .rp { font-weight: 600; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; grid-column: 1 / 3; }
+    .gh-list time { font-family: var(--mono); font-size: 11.5px; color: var(--faint); white-space: nowrap; }
+    .gh-list .msg { grid-column: 1 / -1; font-size: 13px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .gh-list .sha { font-family: var(--mono); font-size: 11px; color: var(--a2); }
+    @media (max-width: 860px) { .gh-stats { grid-template-columns: repeat(2, 1fr); } .gh-list { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .gh .gh-sub { display: none; } .gh-stats b { font-size: 22px; } }
+
     /* Credentials */
     .cred { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; }
     .cred .b { padding: 26px; }
@@ -734,6 +767,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#activity">Activity</a></li>
       <li><a href="#talk">Talk to DJ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -940,10 +974,10 @@
       <div class="container">
         <div class="s-head rv">
           <div><span class="s-num">02 / work</span><h2>Everything I've <span class="grad">built.</span></h2></div>
-          <p>40 projects from my GitHub — agents, RAG, LLM apps, data platforms and full-stack. Click a card to open it, a tag to filter.</p>
+          <p>42 projects from my GitHub — agents, RAG, LLM apps, data platforms and full-stack. Click a card to open it, a tag to filter.</p>
         </div>
         <div class="p-bar rv"><div class="filters" id="filters" role="tablist" aria-label="Filter projects"></div>
-          <label class="psearch"><svg aria-hidden="true"><use href="#ic-search"/></svg><input id="pq" type="search" placeholder="Search 40 projects — try “LangGraph”" aria-label="Search projects"></label></div>
+          <label class="psearch"><svg aria-hidden="true"><use href="#ic-search"/></svg><input id="pq" type="search" placeholder="Search 42 projects — try “LangGraph”" aria-label="Search projects"></label></div>
         <div class="tag-filter" id="tagFilter">Showing projects using <b id="tagName"></b><button id="clearTag">clear ✕</button></div>
         <div class="p-grid" id="pgrid"></div>
         <div class="p-more"><button class="btn btn-glow" id="showAll" hidden></button><a class="btn" href="https://github.com/SaiSatyaJagannadh?tab=repositories" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg> Browse all repositories</a></div>
@@ -1041,9 +1075,38 @@
       </div>
     </section>
 
+    <section id="activity">
+      <div class="container">
+        <div class="s-head rv">
+          <div><span class="s-num">06 / activity</span><h2>Shipping <span class="grad">every day.</span></h2></div>
+          <p>Live from my GitHub — contributions and latest pushes, refreshed daily by a GitHub Action.</p>
+        </div>
+        <div class="gh">
+          <div class="spot b gh-cal rv">
+            <div class="b-label"><svg width="13" height="13"><use href="#i-gh"/></svg><a href="https://github.com/SaiSatyaJagannadh" target="_blank" rel="noopener">github · SaiSatyaJagannadh ↗</a><span class="lc-live" id="ghUpd"><span class="d"></span>synced</span></div>
+            <div class="gh-stats">
+              <div><b id="ghTotal">687</b><span>contributions · last year</span></div>
+              <div><b id="ghLast30">122</b><span>in the last 30 days</span></div>
+              <div><b id="ghStreak">28</b><span id="ghStreakL">longest streak (days)</span></div>
+              <div><b id="ghDays">162</b><span>active days</span></div>
+            </div>
+            <div class="gh-scroll" id="ghScroll">
+              <div class="gh-months" id="ghMonths" aria-hidden="true"></div>
+              <div class="gh-grid" id="ghGrid" role="img" aria-label="GitHub contribution calendar for the last year"></div>
+            </div>
+            <div class="gh-foot"><span id="ghBest" class="mini">best day: 48 on Jul 31</span><span class="gh-legend" aria-hidden="true">Less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</span></div>
+          </div>
+          <div class="spot b gh-feed rv">
+            <div class="b-label"><span class="d"></span>latest pushes<span class="gh-sub" id="ghPushSub">97 pushes across 32 repos · last 90 days</span></div>
+            <ol class="gh-list" id="ghList"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="contact">
       <div class="container rv">
-        <div class="kicker">06 / contact — hiring for AI?</div>
+        <div class="kicker">07 / contact — hiring for AI?</div>
         <h2>Let's build<br><span class="grad">something smart.</span></h2>
         <div class="mail">
           <a href="mailto:saijagannadh0625@gmail.com">saijagannadh0625@gmail.com</a>
@@ -1093,6 +1156,8 @@
       {"r": "agents-main", "t": "Multi-Agent Frameworks Lab", "sub": "Framework comparison", "d": "The same problems built on OpenAI Agents SDK, CrewAI, LangGraph, AutoGen and MCP, including an autonomous trading floor on custom MCP servers.", "tags": ["CrewAI", "AutoGen", "LangGraph", "MCP", "OpenAI", "Gradio"], "c": "agents", "ic": "agent", "s": 9, "im": [["5", "agent frameworks"]]},
       {"r": "AI-Production", "t": "MediNotes Pro", "sub": "Gen AI SaaS · AWS Lambda", "d": "Doctor's shorthand in, three finished drafts out: record summary, next-steps checklist and patient email, streamed live in ~20s.", "tags": ["Next.js", "FastAPI", "Docker", "AWS Lambda", "OpenAI"], "c": "llm", "ic": "health", "s": 9, "im": [["~20s", "notes → 3 drafts"], ["1", "Docker image, scales to zero"]], "live": "https://55ncfzx5whditvl2364jsjk3gy0twvlw.lambda-url.us-east-2.on.aws/", "sh": ["medinotes-1", "medinotes-2"]},
       {"r": "AI-Production", "t": "Talk to DJ — AI Twin", "sub": "Digital twin live on AWS", "d": "An AI version of me that answers questions about my experience, projects and availability — chat UI on CloudFront with an API Gateway backend that keeps session memory.", "tags": ["AWS", "CloudFront", "API Gateway", "AWS Lambda", "LLM"], "c": "agents", "ic": "chat", "s": 9, "live": "https://do2s1pa4farox.cloudfront.net", "id": "twin", "sh": ["twin-1", "twin-2"]},
+      {"r": "AI-Production/tree/main/cyber/site-analyzer", "t": "Cyber Site Analyzer", "sub": "Is this website legit? · Google Cloud Run", "d": "Paste any shop or link and ~20s later get a 0–100 trust score from 9 live evidence sources — blocklists, lookalike domains, a Semgrep scan of the site's own code, Reddit and cited reviews — capped by guardrails the AI can't override.", "tags": ["OpenAI Agents SDK", "Semgrep", "FastAPI", "Docker", "Terraform", "Cloud Run"], "c": "agents", "ic": "search", "s": 9, "im": [["9", "evidence sources"], ["0–100", "trust score + guardrails"]], "live": "https://cyber-site-analyzer-549044732956.us-central1.run.app", "sh": ["sitecheck-1"]},
+      {"r": "AI-Production/tree/main/cyber", "t": "Cybersecurity Analyzer", "sub": "Semgrep MCP agent · Azure + GCP", "d": "Upload Python and an AI security agent reviews it in ~30s: Semgrep runs as an MCP tool, the agent adds its own findings, and each issue comes back with a fix and a CVSS score, worst first.", "tags": ["MCP", "OpenAI Agents SDK", "Semgrep", "FastAPI", "Terraform", "Azure"], "c": "agents", "ic": "shield", "s": 8, "im": [["~30s", "code → ranked fixes"], ["2", "clouds, scale to zero"]], "live": "https://cyber-analyzer.livelybay-66a7cdf6.mexicocentral.azurecontainerapps.io/", "sh": ["cyber-1"]},
       {"r": "FinAI", "t": "FinAI", "sub": "Financial AI agents", "d": "Five independent scoring engines blended into BUY / HOLD / SELL, with an AI analyst agent that shows its working.", "tags": ["LangChain", "Node.js", "React", "Streamlit"], "c": "agents", "ic": "chart", "s": 9, "im": [["5", "scoring engines"], ["23", "tests passing"]], "live": "https://finai-stock-analysis.streamlit.app/", "sh": ["finai-1"]},
       {"r": "AI-HealthCare-Chatbot-System_Cerebras", "t": "Cerebras Healthcare Chatbot", "sub": "Llama 3 wafer-scale inference", "d": "Medical Q&A with document upload and hospital lookup, migrated from GPT-3.5 to Llama 3 on wafer-scale inference.", "tags": ["Llama 3", "LangChain", "Pinecone", "Flask"], "c": "rag", "ic": "health", "s": 8, "im": [["-70%", "latency"], ["4x", "faster than GPT-3.5"]]},
       {"r": "Resume_ATSandRolDesc", "t": "Resume ATS Optimizer", "sub": "LangGraph multi-node agent", "d": "Tailors a resume to any job description with a before/after ATS score, and a validator that blocks any fabricated fact.", "tags": ["LangGraph", "OpenAI", "Python", "Streamlit"], "c": "agents", "ic": "doc", "s": 8, "im": [["0", "invented facts allowed"]], "live": "https://resume--ats--score.streamlit.app/", "sh": ["resume-1"]},
@@ -1143,7 +1208,8 @@
       const T = t.toLowerCase();
       return p.tags.some(x => x.toLowerCase() === T) ||
         (T === 'aws' && p.tags.some(x => /aws|lambda|kafka/i.test(x))) ||
-        (T === 'azure' && p.tags.some(x => /azure|adf|databricks/i.test(x)));
+        (T === 'azure' && p.tags.some(x => /azure|adf|databricks/i.test(x))) ||
+        (T === 'gcp' && p.tags.some(x => /cloud run|gcp/i.test(x)));
     };
     const qMatch = p => !q || (p.t + ' ' + p.sub + ' ' + p.d + ' ' + p.tags.join(' ') + ' ' + p.r).toLowerCase().includes(q);
     /* Project previews: real screenshots (live apps) or an animated sketch */
@@ -1242,8 +1308,8 @@
       ['🧠 AI / LLM', ['LangGraph', 'LangChain', 'MCP', 'OpenAI', 'Gemini', 'Llama 3', 'Ollama', 'NVIDIA NIM', 'Hugging Face', 'Transformers', 'RAGAS']],
       ['🗄️ Retrieval & data', ['pgvector', 'Pinecone', 'FAISS', 'Redis', 'Cohere', 'MongoDB', 'SQL Server', 'Redshift']],
       ['💻 Languages & frameworks', ['Python', 'Java', 'C++', 'C#', 'SQL', 'TypeScript', 'FastAPI', 'Flask', 'Streamlit', 'Next.js', 'React', 'Node.js']],
-      ['☁️ Cloud', ['Azure', 'ADF', 'Databricks', 'Azure ML', 'Synapse', 'AWS', 'AWS Lambda', 'S3', 'Glue', 'Athena']],
-      ['⚙️ MLOps & DevOps', ['Docker', 'Kubernetes', 'MLflow', 'XGBoost', 'CI/CD', 'Git', 'Great Expectations', 'Jira']],
+      ['☁️ Cloud', ['Azure', 'ADF', 'Databricks', 'Azure ML', 'Synapse', 'AWS', 'AWS Lambda', 'S3', 'Glue', 'Athena', 'GCP', 'Cloud Run']],
+      ['⚙️ MLOps & DevOps', ['Docker', 'Kubernetes', 'Terraform', 'MLflow', 'XGBoost', 'CI/CD', 'Git', 'Great Expectations', 'Jira']],
       ['📊 Data & BI', ['PySpark', 'Kafka', 'dbt', 'Delta Lake', 'Power BI', 'Tableau', 'SSRS']]
     ];
     $('#skGrid').innerHTML = SK.map(([h, items]) =>
@@ -1293,6 +1359,43 @@
     (async () => {
       for (const u of ['https://raw.githubusercontent.com/SaiSatyaJagannadh/PersonalPortfolio/main/data/leetcode.json', './data/leetcode.json']) {
         try { const r = await fetch(u + '?t=' + Math.floor(Date.now() / 3e5), { cache: 'no-store' }); if (r.ok) { paintLC(await r.json()); return; } } catch (e) {}
+      }
+    })();
+
+    /* GitHub activity — data/github.json, refreshed daily by .github/workflows/github-activity.yml */
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const ago = iso => { const m = Math.round((Date.now() - new Date(iso)) / 6e4); return m < 60 ? Math.max(m, 1) + 'm ago' : m < 1440 ? Math.round(m / 60) + 'h ago' : m < 2880 ? 'yesterday' : Math.round(m / 1440) + 'd ago'; };
+    const fmtDay = d => { const [y, m, dd] = d.split('-'); return MON[+m - 1] + ' ' + +dd + ', ' + y; };
+    function paintGH(g) {
+      if (!g || !g.days || !g.days.length) return;
+      $('#ghTotal').textContent = g.total.toLocaleString();
+      $('#ghLast30').textContent = g.last30;
+      $('#ghDays').textContent = g.activeDays;
+      if (g.streak > 1) { $('#ghStreak').textContent = g.streak; $('#ghStreakL').textContent = 'day streak 🔥 · best ' + g.longest; }
+      else { $('#ghStreak').textContent = g.longest; $('#ghStreakL').textContent = 'longest streak (days)'; }
+      $('#ghBest').textContent = `best day: ${g.best.count} on ${fmtDay(g.best.date).replace(/, \d+$/, '')}`;
+      $('#ghPushSub').textContent = `${g.recentPushes} pushes across ${g.recentRepos} repos · last 90 days`;
+      /* calendar: pad the first column so rows line up with Sun..Sat */
+      const lead = new Date(g.days[0][0] + 'T00:00:00Z').getUTCDay(), last = g.days.length - 1;
+      const cells = Array(lead).fill('<i style="visibility:hidden"></i>').concat(g.days.map(([d, c, l], i) =>
+        `<i class="l${l}${i === last ? ' today' : ''}" title="${c ? c + ' contribution' + (c > 1 ? 's' : '') : 'No contributions'} on ${fmtDay(d)}"></i>`));
+      $('#ghGrid').innerHTML = cells.join('');
+      const cols = Math.ceil(cells.length / 7); let months = '', prev = -1;
+      for (let c = 0; c < cols; c++) {
+        const day = g.days[Math.max(0, c * 7 - lead)], m = +day[0].slice(5, 7) - 1;
+        months += `<span>${m !== prev && c < cols - 2 ? MON[m] : ''}</span>`; prev = m;
+      }
+      $('#ghMonths').innerHTML = months;
+      const sc = $('#ghScroll'), fit = () => { const w = sc.clientWidth, c = Math.floor((w - (cols - 1) * 3) / cols); sc.style.setProperty('--c', Math.max(11, Math.min(17, c)) + 'px'); sc.scrollLeft = sc.scrollWidth; };
+      fit(); addEventListener('resize', fit, { passive: true });
+      $('#ghList').innerHTML = (g.pushes || []).map(x => `<li><a href="https://github.com/${esc(g.user)}/${esc(x.repo)}/commits/${esc(x.branch || '')}" target="_blank" rel="noopener">
+        <span class="rp">${esc(x.repo)}</span><time datetime="${esc(x.at)}" title="${esc(new Date(x.at).toLocaleString())}">${ago(x.at)}</time>
+        <span class="msg"><span class="sha">${esc(x.sha)}</span> ${esc(x.msg || 'pushed to ' + x.branch)}</span></a></li>`).join('');
+      if (g.updated) { const h = Math.round((Date.now() - new Date(g.updated)) / 36e5); $('#ghUpd').lastChild.textContent = h < 1 ? 'synced just now' : h < 48 ? `synced ${h}h ago` : 'synced ' + new Date(g.updated).toLocaleDateString(); }
+    }
+    (async () => {
+      for (const u of ['https://raw.githubusercontent.com/SaiSatyaJagannadh/PersonalPortfolio/main/data/github.json', './data/github.json']) {
+        try { const r = await fetch(u + '?t=' + Math.floor(Date.now() / 3e5), { cache: 'no-store' }); if (r.ok) { paintGH(await r.json()); return; } } catch (e) {}
       }
     })();
 
